@@ -1,7 +1,7 @@
 // Voucher: menghitung harga promo untuk setiap produk.
 // Aturan promo bertingkat + simulasi cicilan ditentukan tim bisnis.
 
-import { $, hargaSetelahDiskon, tampilkanToast } from './util.js';
+import { $, hargaSetelahDiskon, tampilkanToast, kirimAnalitik } from './util.js';
 import { keadaan, perbaruiHargaVoucherDiKartu } from './katalog.js';
 
 const VOUCHER = {
@@ -25,19 +25,22 @@ function simulasiCicilan(harga) {
   return terbaik;
 }
 
-// Dibuat async supaya perhitungan tidak memblokir halaman.
-async function hitungHargaPromo(produk, aturan) {
+// Pure business calculation. Rendering opportunities are scheduled by the caller.
+function hitungHargaPromo(produk, aturan) {
   const dasar = hargaSetelahDiskon(produk);
   if (dasar < aturan.minBelanja) return null;
   let potongan = Math.min(Math.round((dasar * aturan.persen) / 100), aturan.maksPotongan);
   if (produk.flashSale) potongan = Math.round(potongan / 2); // flash sale hanya dapat setengah
   let hargaAkhir = Math.max(dasar - potongan, 100);
-  for (let i = 0; i < 40; i++) simulasiCicilan(hargaAkhir + i); // cek kestabilan pembulatan
   const cicilan = simulasiCicilan(hargaAkhir);
   return { hargaAkhir, cicilan };
 }
 
+let menghitung = false;
+const beriWaktuRender = () => new Promise(resolve => setTimeout(resolve, 16));
+
 async function terapkanVoucher(kode) {
+  if (menghitung) return;
   const aturan = VOUCHER[kode];
   if (!aturan) {
     tampilkanToast('Kode voucher "' + kode + '" tidak dikenal. Coba KILAT1212.');
@@ -47,27 +50,51 @@ async function terapkanVoucher(kode) {
   const progres = $('#progres');
   const isi = $('#progres-isi');
   const teks = $('#progres-teks');
+  const tombol = $('#tombol-voucher');
+  menghitung = true;
+  tombol.disabled = true;
+  tombol.setAttribute('aria-busy', 'true');
   progres.hidden = false;
   isi.style.width = '0%';
+  teks.textContent = 'Menghitung harga promo… 0%';
+  progres.setAttribute('role', 'progressbar');
+  progres.setAttribute('aria-label', 'Perhitungan harga voucher');
+  progres.setAttribute('aria-valuemin', '0');
+  progres.setAttribute('aria-valuemax', '100');
+  progres.setAttribute('aria-valuenow', '0');
 
   const total = keadaan.semuaProduk.length;
   let selesai = 0;
-  keadaan.hargaVoucher.clear();
-
-  for (const produk of keadaan.semuaProduk) {
-    // await di setiap produk supaya browser sempat menggambar progress bar
-    const hasil = await hitungHargaPromo(produk, aturan);
-    if (hasil) keadaan.hargaVoucher.set(produk.id, hasil.hargaAkhir);
-    selesai++;
-    const persen = Math.round((selesai / total) * 100);
-    isi.style.width = persen + '%';
-    teks.textContent = 'Menghitung harga promo… ' + persen + '% (' + selesai + ' dari ' + total + ' produk)';
+  const hargaBaru = new Map();
+  try {
+    await beriWaktuRender();
+    while (selesai < total) {
+      const mulai = performance.now();
+      let potongan = 0;
+      do {
+        const produk = keadaan.semuaProduk[selesai++];
+        const hasil = hitungHargaPromo(produk, aturan);
+        if (hasil) hargaBaru.set(produk.id, hasil.hargaAkhir);
+        potongan++;
+      } while (selesai < total && potongan < 100 && performance.now() - mulai < 4);
+      const persen = Math.round(selesai / total * 100);
+      isi.style.width = persen + '%';
+      progres.setAttribute('aria-valuenow', persen);
+      teks.textContent = `Menghitung harga promo… ${persen}% (${selesai} dari ${total} produk)`;
+      await beriWaktuRender(); // a task boundary, not an already-resolved microtask
+    }
+    keadaan.hargaVoucher = hargaBaru;
+    perbaruiHargaVoucherDiKartu();
+    tampilkanToast('Voucher ' + kode + ' dipakai di ' + hargaBaru.size.toLocaleString('id-ID') + ' produk.');
+    kirimAnalitik('apply_voucher', { kode, jumlah: hargaBaru.size });
+  } catch {
+    tampilkanToast('Voucher gagal dihitung. Harga sebelumnya tetap berlaku; silakan coba lagi.');
+  } finally {
+    progres.hidden = true;
+    tombol.disabled = false;
+    tombol.removeAttribute('aria-busy');
+    menghitung = false;
   }
-
-  perbaruiHargaVoucherDiKartu();
-  progres.hidden = true;
-  tampilkanToast('Voucher ' + kode + ' dipakai di ' + keadaan.hargaVoucher.size.toLocaleString('id-ID') + ' produk.');
-  if (window.Lacak) window.Lacak.kirim('apply_voucher', { kode, jumlah: keadaan.hargaVoucher.size });
 }
 
 export function pasangVoucher() {

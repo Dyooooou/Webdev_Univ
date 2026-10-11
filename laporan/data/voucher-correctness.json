@@ -1,0 +1,30 @@
+{
+  "comparisons": 3028,
+  "products": 1500,
+  "intermediateFrameValues": [
+    "0",
+    "7",
+    "13",
+    "20",
+    "27",
+    "33",
+    "40",
+    "47",
+    "53",
+    "60",
+    "67",
+    "73",
+    "80",
+    "87",
+    "93",
+    "100"
+  ],
+  "inputsDuringCalculation": 6,
+  "checks": [
+    "original price and installment oracle matches both vouchers and threshold cases",
+    "incremental progress sampled in animation frames",
+    "typing while calculation remains active",
+    "atomic full-product price map correct",
+    "invalid code handled; second voucher reapplies"
+  ]
+}
