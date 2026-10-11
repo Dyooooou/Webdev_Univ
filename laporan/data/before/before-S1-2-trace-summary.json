@@ -1,0 +1,692 @@
+{
+  "source": "before-S1-2.json.gz",
+  "thread": 13768,
+  "windowStartUs": 89699323778,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 21,
+  "mainTaskBusyPercent10s": 62.40701,
+  "traceCLS": 0,
+  "layoutShifts": [],
+  "totals": {
+    "Paint": {
+      "count": 92,
+      "totalMs": 178.07499999999993,
+      "maxMs": 18.507
+    },
+    "Layerize": {
+      "count": 26,
+      "totalMs": 22.100999999999996,
+      "maxMs": 1.639
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 51,
+      "totalMs": 2.4639999999999995,
+      "maxMs": 0.218
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 1875,
+      "totalMs": 3225.469000000001,
+      "maxMs": 11.158
+    },
+    "RunTask": {
+      "count": 1888,
+      "totalMs": 11138.981000000129,
+      "maxMs": 2022.856
+    },
+    "TimerFire": {
+      "count": 13,
+      "totalMs": 102.801,
+      "maxMs": 76.587
+    },
+    "FunctionCall": {
+      "count": 54,
+      "totalMs": 8801.41,
+      "maxMs": 2007.542
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 20,
+      "totalMs": 0.18600000000000003,
+      "maxMs": 0.156
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 16,
+      "totalMs": 1.306,
+      "maxMs": 0.615
+    },
+    "V8.GC_MC_COMPLETE_SWEEPING": {
+      "count": 2,
+      "totalMs": 0.17,
+      "maxMs": 0.163
+    },
+    "V8.GC_MC_SWEEP": {
+      "count": 5,
+      "totalMs": 0.05,
+      "maxMs": 0.029
+    },
+    "UpdateLayoutTree": {
+      "count": 443,
+      "totalMs": 793.2379999999997,
+      "maxMs": 140.162
+    },
+    "Layout": {
+      "count": 432,
+      "totalMs": 4929.061999999998,
+      "maxMs": 478.427
+    },
+    "FireAnimationFrame": {
+      "count": 26,
+      "totalMs": 7.1560000000000015,
+      "maxMs": 0.674
+    },
+    "PrePaint": {
+      "count": 313,
+      "totalMs": 673.1429999999992,
+      "maxMs": 134.573
+    },
+    "HitTest": {
+      "count": 18,
+      "totalMs": 71.862,
+      "maxMs": 8.856
+    },
+    "Receive mojo message": {
+      "count": 8,
+      "totalMs": 101.93100000000003,
+      "maxMs": 52.103
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 1,
+      "totalMs": 0.181,
+      "maxMs": 0.181
+    },
+    "ParseHTML": {
+      "count": 46,
+      "totalMs": 6.035,
+      "maxMs": 0.201
+    },
+    "V8.GC_HEAP_EXTERNAL_PROLOGUE": {
+      "count": 16,
+      "totalMs": 3.086999999999999,
+      "maxMs": 2.847
+    },
+    "MinorGC": {
+      "count": 15,
+      "totalMs": 36.948,
+      "maxMs": 7.675
+    },
+    "V8.GC_HEAP_PROLOGUE": {
+      "count": 16,
+      "totalMs": 0.03200000000000001,
+      "maxMs": 0.003
+    },
+    "V8.GC_SCAVENGER": {
+      "count": 15,
+      "totalMs": 33.45400000000001,
+      "maxMs": 7.631
+    },
+    "V8.GC_HEAP_PROLOGUE_SAFEPOINT": {
+      "count": 11,
+      "totalMs": 0.182,
+      "maxMs": 0.172
+    },
+    "V8.GC_SCAVENGER_SCAVENGE": {
+      "count": 15,
+      "totalMs": 32.46600000000001,
+      "maxMs": 7.615
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY": {
+      "count": 15,
+      "totalMs": 3.8640000000000008,
+      "maxMs": 0.596
+    },
+    "ComputeWeaknessProcessor start": {
+      "count": 14,
+      "totalMs": 0.018000000000000006,
+      "maxMs": 0.002
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL": {
+      "count": 14,
+      "totalMs": 2.5389999999999997,
+      "maxMs": 0.382
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_COLLECT_OLD_TO_NEW_PAGES": {
+      "count": 15,
+      "totalMs": 0.063,
+      "maxMs": 0.006
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE": {
+      "count": 15,
+      "totalMs": 14.183,
+      "maxMs": 2.728
+    },
+    "Parallel scavenge started": {
+      "count": 13,
+      "totalMs": 0.015000000000000003,
+      "maxMs": 0.003
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_ROOTS": {
+      "count": 15,
+      "totalMs": 11.447,
+      "maxMs": 2.494
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_PARALLEL": {
+      "count": 13,
+      "totalMs": 1.5890000000000002,
+      "maxMs": 0.221
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS": {
+      "count": 15,
+      "totalMs": 8.613000000000001,
+      "maxMs": 5.441
+    },
+    "ClearWeaknessProcessor start": {
+      "count": 13,
+      "totalMs": 0.17900000000000002,
+      "maxMs": 0.166
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL": {
+      "count": 15,
+      "totalMs": 2.853,
+      "maxMs": 0.585
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_FINALIZE": {
+      "count": 15,
+      "totalMs": 0.9570000000000002,
+      "maxMs": 0.206
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED": {
+      "count": 14,
+      "totalMs": 0.34400000000000003,
+      "maxMs": 0.168
+    },
+    "V8.GC_SCAVENGER_FREE_REMEMBERED_SET": {
+      "count": 15,
+      "totalMs": 0.26800000000000007,
+      "maxMs": 0.171
+    },
+    "V8.GC_SCAVENGER_RESIZE_NEW_SPACE": {
+      "count": 14,
+      "totalMs": 0.038000000000000006,
+      "maxMs": 0.008
+    },
+    "V8.GC_HEAP_EPILOGUE_SAFEPOINT": {
+      "count": 16,
+      "totalMs": 0.047000000000000014,
+      "maxMs": 0.008
+    },
+    "V8.GC_HEAP_EPILOGUE": {
+      "count": 16,
+      "totalMs": 0.21200000000000005,
+      "maxMs": 0.16
+    },
+    "V8.GC_HEAP_EXTERNAL_EPILOGUE": {
+      "count": 16,
+      "totalMs": 0.03600000000000002,
+      "maxMs": 0.006
+    },
+    "EventDispatch": {
+      "count": 800,
+      "totalMs": 21099.906000000217,
+      "maxMs": 2021.423
+    },
+    "LatencyInfo.Flow": {
+      "count": 60,
+      "totalMs": 8794.510999999999,
+      "maxMs": 2022.656
+    },
+    "V8.GC_MC_INCREMENTAL_START": {
+      "count": 1,
+      "totalMs": 7.305,
+      "maxMs": 7.305
+    },
+    "V8.GC_MC_INCREMENTAL_EXTERNAL_PROLOGUE": {
+      "count": 1,
+      "totalMs": 2.413,
+      "maxMs": 2.413
+    },
+    "V8.GC_MC_MARK_EMBEDDER_PROLOGUE": {
+      "count": 2,
+      "totalMs": 4.29,
+      "maxMs": 4.285
+    },
+    "V8.GC_MC_MARK_ROOTS": {
+      "count": 3,
+      "totalMs": 0.59,
+      "maxMs": 0.372
+    },
+    "Major concurrent marking started": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_INCREMENTAL_EXTERNAL_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_MC_INCREMENTAL": {
+      "count": 38,
+      "totalMs": 43.943000000000005,
+      "maxMs": 5.822
+    },
+    "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING": {
+      "count": 38,
+      "totalMs": 41.39200000000001,
+      "maxMs": 5.612
+    },
+    "Major concurrent marking rescheduled": {
+      "count": 8,
+      "totalMs": 0.018000000000000002,
+      "maxMs": 0.005
+    },
+    "MajorGC": {
+      "count": 1,
+      "totalMs": 87.586,
+      "maxMs": 87.586
+    },
+    "V8.GC_MARK_COMPACTOR": {
+      "count": 1,
+      "totalMs": 87.232,
+      "maxMs": 87.232
+    },
+    "V8.GC_MC_PROLOGUE": {
+      "count": 1,
+      "totalMs": 0.007,
+      "maxMs": 0.007
+    },
+    "V8.GC_MC_MARK": {
+      "count": 1,
+      "totalMs": 6.872,
+      "maxMs": 6.872
+    },
+    "V8.GC_MC_MARK_FINISH_INCREMENTAL": {
+      "count": 1,
+      "totalMs": 0.005,
+      "maxMs": 0.005
+    },
+    "V8.GC_MC_MARK_CLIENT_HEAPS": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_MARK_RETAIN_MAPS": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL": {
+      "count": 1,
+      "totalMs": 1.998,
+      "maxMs": 1.998
+    },
+    "V8.GC_MC_MARK_WEAK_CLOSURE_EPHEMERON_MARKING": {
+      "count": 3,
+      "totalMs": 1.8219999999999998,
+      "maxMs": 1.819
+    },
+    "V8.GC_MC_MARK_EMBEDDER_TRACING": {
+      "count": 3,
+      "totalMs": 1.8179999999999998,
+      "maxMs": 1.816
+    },
+    "V8.GC_CONSERVATIVE_STACK_SCANNING": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_MARK_FULL_CLOSURE_SERIAL": {
+      "count": 1,
+      "totalMs": 0.004,
+      "maxMs": 0.004
+    },
+    "V8.GC_MC_CLEAR": {
+      "count": 1,
+      "totalMs": 1.479,
+      "maxMs": 1.479
+    },
+    "ClearStringTableJob started": {
+      "count": 6,
+      "totalMs": 0.006,
+      "maxMs": 0.001
+    },
+    "ClearTrivialWeakRefJob started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "ClearTrustedWeakRefJob started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "ClearNonTrivialWeakRefs started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_CLEAR_JOIN_JOB": {
+      "count": 1,
+      "totalMs": 1.443,
+      "maxMs": 1.443
+    },
+    "V8.GC_MC_CLEAR_SWEEP_JS_DISPATCH_TABLE": {
+      "count": 1,
+      "totalMs": 0.016,
+      "maxMs": 0.016
+    },
+    "V8.GC_MC_CLEAR_WEAK_GLOBAL_HANDLES": {
+      "count": 1,
+      "totalMs": 0.665,
+      "maxMs": 0.665
+    },
+    "V8.GC_MC_CLEAR_SWEEP_EXTERNAL_POINTER_TABLE": {
+      "count": 1,
+      "totalMs": 0.418,
+      "maxMs": 0.418
+    },
+    "V8.GC_MC_EVACUATE": {
+      "count": 2,
+      "totalMs": 3.416,
+      "maxMs": 3.413
+    },
+    "V8.GC_MC_EVACUATE_PROLOGUE": {
+      "count": 1,
+      "totalMs": 0.004,
+      "maxMs": 0.004
+    },
+    "V8.GC_MC_EVACUATE_COPY": {
+      "count": 1,
+      "totalMs": 0.998,
+      "maxMs": 0.998
+    },
+    "PageEvacuationJob started": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_MC_EVACUATE_COPY_PARALLEL": {
+      "count": 1,
+      "totalMs": 0.421,
+      "maxMs": 0.421
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS": {
+      "count": 1,
+      "totalMs": 2.004,
+      "maxMs": 2.004
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_TO_NEW_ROOTS": {
+      "count": 1,
+      "totalMs": 1.386,
+      "maxMs": 1.386
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_CLIENT_HEAPS": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_SLOTS_MAIN": {
+      "count": 1,
+      "totalMs": 0.388,
+      "maxMs": 0.388
+    },
+    "PointersUpdatingJob started": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_PARALLEL": {
+      "count": 1,
+      "totalMs": 0.208,
+      "maxMs": 0.208
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_WEAK": {
+      "count": 1,
+      "totalMs": 0.018,
+      "maxMs": 0.018
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_POINTER_TABLES": {
+      "count": 1,
+      "totalMs": 0.199,
+      "maxMs": 0.199
+    },
+    "V8.GC_MC_EVACUATE_CLEAN_UP": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_EVACUATE_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.395,
+      "maxMs": 0.395
+    },
+    "V8.GC_MC_SWEEP_NEW_LO": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_EVACUATE_REBALANCE": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_MC_FINISH": {
+      "count": 1,
+      "totalMs": 0.019,
+      "maxMs": 0.019
+    },
+    "V8.GC_MC_SWEEP_START_JOBS": {
+      "count": 1,
+      "totalMs": 0.011,
+      "maxMs": 0.011
+    },
+    "V8.GC_MC_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_HEAP_EXTERNAL_WEAK_GLOBAL_HANDLES": {
+      "count": 1,
+      "totalMs": 0.006,
+      "maxMs": 0.006
+    },
+    "V8.GC_HEAP_EMBEDDER_TRACING_EPILOGUE": {
+      "count": 1,
+      "totalMs": 15.618,
+      "maxMs": 15.618
+    },
+    "Responsiveness.Renderer.UserInteraction": {
+      "count": 18,
+      "totalMs": 0.43800000000000006,
+      "maxMs": 0.168
+    },
+    "V8.GC_HEAP_EXTERNAL_SECOND_PASS_CALLBACKS": {
+      "count": 1,
+      "totalMs": 0.005,
+      "maxMs": 0.005
+    },
+    "DocumentLoader::DocumentLoader": {
+      "count": 44,
+      "totalMs": 1.0549999999999997,
+      "maxMs": 0.164
+    },
+    "DocumentLoader::CommitNavigation": {
+      "count": 44,
+      "totalMs": 55.509000000000015,
+      "maxMs": 1.973
+    },
+    "DocumentLoader::InitializeWindow": {
+      "count": 44,
+      "totalMs": 8.44,
+      "maxMs": 0.372
+    },
+    "DocumentLoader::RecordUseCountersForCommit": {
+      "count": 44,
+      "totalMs": 0.5700000000000001,
+      "maxMs": 0.159
+    },
+    "DocumentLoader::DidInstallNewDocument": {
+      "count": 44,
+      "totalMs": 0.9620000000000003,
+      "maxMs": 0.17
+    },
+    "DocumentLoader::DidCommitNavigation": {
+      "count": 44,
+      "totalMs": 0.26800000000000007,
+      "maxMs": 0.159
+    },
+    "DocumentLoader::StartLoadingResponse": {
+      "count": 44,
+      "totalMs": 20.253000000000007,
+      "maxMs": 1.027
+    },
+    "DocumentLoader::CreateParserPostCommit": {
+      "count": 44,
+      "totalMs": 4.558,
+      "maxMs": 0.188
+    },
+    "DocumentLoader::FinishedLoading": {
+      "count": 44,
+      "totalMs": 15.273000000000003,
+      "maxMs": 1.004
+    },
+    "HTMLDocumentParser::DocumentElementAvailable": {
+      "count": 44,
+      "totalMs": 0.7650000000000001,
+      "maxMs": 0.159
+    },
+    "DecodedDataDocumentParser::AppendBytes": {
+      "count": 44,
+      "totalMs": 24.660000000000004,
+      "maxMs": 0.836
+    },
+    "SimpleWatcher::OnHandleReady": {
+      "count": 44,
+      "totalMs": 1.712999999999999,
+      "maxMs": 0.301
+    },
+    "Closed mojo endpoint": {
+      "count": 44,
+      "totalMs": 0.6729999999999999,
+      "maxMs": 0.292
+    }
+  },
+  "sampledSelfMs": {
+    "(program) @ undefined:NaN": 6838.318000000143,
+    "samakanTinggiJudul @ http://localhost:3000/js/katalog.js:67": 4104.77199999999,
+    "periksaGulir @ http://localhost:3000/js/gulir.js:8": 1180.4719999999988,
+    "formatRupiah @ http://localhost:3000/js/util.js:12": 894.4789999999975,
+    "(idle) @ undefined:NaN": 547.3369999999989,
+    "set src @ undefined:NaN": 453.37699999999916,
+    "buatKartu @ http://localhost:3000/js/katalog.js:19": 420.5999999999998,
+    "append @ undefined:NaN": 280.5390000000001,
+    "renderProduk @ http://localhost:3000/js/katalog.js:80": 275.50099999999975,
+    "f @ http://localhost:3000/vendor/lacak.min.js:2": 193.1650000000001,
+    "getBoundingClientRect @ undefined:NaN": 177.6200000000001,
+    "el @ http://localhost:3000/js/util.js:5": 157.49900000000005,
+    "formatRibuan @ http://localhost:3000/js/util.js:21": 139.3480000000001,
+    "(garbage collector) @ undefined:NaN": 125.32500000000012,
+    " @ http://localhost:3000/js/promo.js:22": 97.78000000000006,
+    "createElement @ undefined:NaN": 91.64300000000004,
+    "normalkan @ http://localhost:3000/js/pencarian.js:9": 60.012999999999984,
+    " @ http://localhost:3000/js/katalog.js:77": 56.19499999999999,
+    "query @ undefined:5816": 33.15099999999999,
+    "addEventListener @ undefined:NaN": 25.89400000000001,
+    "querySelectorAll @ undefined:NaN": 16.956,
+    "focus @ undefined:NaN": 14.173000000000002,
+    "terapkanSaringan @ http://localhost:3000/js/pencarian.js:30": 8.953000000000001,
+    "cocok @ http://localhost:3000/js/pencarian.js:18": 7.669,
+    "k @ http://localhost:3000/vendor/lacak.min.js:2": 6.199000000000001,
+    "RegExp: [^a-z0-9]+ @ undefined:NaN": 5.945000000000001,
+    " @ http://localhost:3000/js/pencarian.js:20": 5.867000000000001,
+    " @ http://localhost:3000/js/gulir.js:23": 4.33,
+    " @ undefined:1": 2.545,
+    " @ http://localhost:3000/js/pencarian.js:32": 2.348,
+    "evaluate @ undefined:364": 2.299,
+    "InjectedScript @ undefined:6969": 2.1310000000000002,
+    " @ undefined:2": 1.186,
+    "previewNode @ undefined:7986": 1.061,
+    "requestAnimationFrame @ undefined:NaN": 0.891,
+    "parseEvaluationResultValue @ undefined:120": 0.745,
+    " @ undefined:5814": 0.702,
+    " @ undefined:5635": 0.599,
+    "isTypedArray @ undefined:65": 0.549,
+    "SelectorEvaluatorImpl @ undefined:5544": 0.544
+  },
+  "longTasks": [
+    {
+      "ts": 89700739430,
+      "durationMs": 2022.856
+    },
+    {
+      "ts": 89711772468,
+      "durationMs": 2007.018
+    },
+    {
+      "ts": 89709379241,
+      "durationMs": 1985.777
+    },
+    {
+      "ts": 89703101384,
+      "durationMs": 1191.528
+    },
+    {
+      "ts": 89708285873,
+      "durationMs": 771.715
+    },
+    {
+      "ts": 89711536835,
+      "durationMs": 215.664
+    },
+    {
+      "ts": 89704520732,
+      "durationMs": 207.411
+    },
+    {
+      "ts": 89713955307,
+      "durationMs": 201.92
+    },
+    {
+      "ts": 89707650179,
+      "durationMs": 201.826
+    },
+    {
+      "ts": 89702806122,
+      "durationMs": 196.515
+    },
+    {
+      "ts": 89705024450,
+      "durationMs": 142.791
+    },
+    {
+      "ts": 89706205083,
+      "durationMs": 122.255
+    },
+    {
+      "ts": 89705788489,
+      "durationMs": 119.207
+    },
+    {
+      "ts": 89707294747,
+      "durationMs": 114.918
+    },
+    {
+      "ts": 89706962966,
+      "durationMs": 102.127
+    },
+    {
+      "ts": 89714937477,
+      "durationMs": 89.537
+    },
+    {
+      "ts": 89709243676,
+      "durationMs": 86.588
+    },
+    {
+      "ts": 89699333775,
+      "durationMs": 76.595
+    },
+    {
+      "ts": 89700438070,
+      "durationMs": 52.116
+    }
+  ]
+}

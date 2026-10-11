@@ -1,0 +1,765 @@
+{
+  "source": "before-S0-2.json.gz",
+  "thread": 13768,
+  "windowStartUs": 89498740201,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 0,
+  "mainTaskBusyPercent10s": 7.12386,
+  "traceCLS": 0.4737227439121439,
+  "layoutShifts": [
+    {
+      "ts": 89526070474,
+      "score": 0.4737227439121439,
+      "nodes": [
+        {
+          "new_rect": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "node_id": 1748,
+          "old_rect": [
+            0,
+            562,
+            412,
+            266
+          ]
+        },
+        {
+          "new_rect": [
+            10,
+            489,
+            392,
+            92
+          ],
+          "node_id": 1747,
+          "old_rect": [
+            10,
+            374,
+            392,
+            92
+          ]
+        },
+        {
+          "new_rect": [
+            10,
+            593,
+            392,
+            22
+          ],
+          "node_id": 1529,
+          "old_rect": [
+            10,
+            478,
+            392,
+            22
+          ]
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "RunTask": {
+      "count": 23419,
+      "totalMs": 4248.897999999918,
+      "maxMs": 229.579
+    },
+    "SimpleWatcher::OnHandleReady": {
+      "count": 6676,
+      "totalMs": 302.33199999999437,
+      "maxMs": 6.494
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 23442,
+      "totalMs": 22514.502000000215,
+      "maxMs": 3102.776
+    },
+    "Receive mojo message": {
+      "count": 1435,
+      "totalMs": 164.07299999999907,
+      "maxMs": 79.74
+    },
+    "Closed mojo endpoint": {
+      "count": 5718,
+      "totalMs": 77.88400000000568,
+      "maxMs": 40.063
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 7,
+      "totalMs": 0.9910000000000001,
+      "maxMs": 0.4
+    },
+    "FireAnimationFrame": {
+      "count": 14,
+      "totalMs": 72.38799999999999,
+      "maxMs": 69.094
+    },
+    "FunctionCall": {
+      "count": 31,
+      "totalMs": 84.07,
+      "maxMs": 68.898
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 8,
+      "totalMs": 0.015,
+      "maxMs": 0.004
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 14,
+      "totalMs": 43.6,
+      "maxMs": 43.391
+    },
+    "V8.GC_MC_COMPLETE_SWEEPING": {
+      "count": 1,
+      "totalMs": 0.012,
+      "maxMs": 0.012
+    },
+    "V8.GC_MC_SWEEP": {
+      "count": 4,
+      "totalMs": 0.368,
+      "maxMs": 0.187
+    },
+    "UpdateLayoutTree": {
+      "count": 943,
+      "totalMs": 547.8720000000001,
+      "maxMs": 112.952
+    },
+    "Layout": {
+      "count": 372,
+      "totalMs": 1563.7999999999997,
+      "maxMs": 450.548
+    },
+    "PrePaint": {
+      "count": 461,
+      "totalMs": 433.2939999999998,
+      "maxMs": 122.719
+    },
+    "Paint": {
+      "count": 39,
+      "totalMs": 66.03899999999999,
+      "maxMs": 24.587
+    },
+    "Layerize": {
+      "count": 17,
+      "totalMs": 8.876,
+      "maxMs": 1.23
+    },
+    "HitTest": {
+      "count": 12,
+      "totalMs": 40.097,
+      "maxMs": 6.271
+    },
+    "DocumentLoader::DocumentLoader": {
+      "count": 299,
+      "totalMs": 7.812999999999976,
+      "maxMs": 0.182
+    },
+    "DocumentLoader::CommitNavigation": {
+      "count": 299,
+      "totalMs": 334.95699999999994,
+      "maxMs": 13.149
+    },
+    "DocumentLoader::InitializeWindow": {
+      "count": 299,
+      "totalMs": 49.515000000000036,
+      "maxMs": 0.654
+    },
+    "DocumentLoader::RecordUseCountersForCommit": {
+      "count": 298,
+      "totalMs": 3.117999999999974,
+      "maxMs": 0.37
+    },
+    "DocumentLoader::DidInstallNewDocument": {
+      "count": 299,
+      "totalMs": 9.651999999999997,
+      "maxMs": 0.173
+    },
+    "DocumentLoader::DidCommitNavigation": {
+      "count": 299,
+      "totalMs": 4.097999999999975,
+      "maxMs": 0.425
+    },
+    "DocumentLoader::StartLoadingResponse": {
+      "count": 299,
+      "totalMs": 126.2139999999999,
+      "maxMs": 9.901
+    },
+    "DocumentLoader::CreateParserPostCommit": {
+      "count": 299,
+      "totalMs": 36.281999999999975,
+      "maxMs": 9.895
+    },
+    "DocumentLoader::FinishedLoading": {
+      "count": 299,
+      "totalMs": 84.12999999999997,
+      "maxMs": 0.81
+    },
+    "ParseHTML": {
+      "count": 305,
+      "totalMs": 44.966,
+      "maxMs": 3.523
+    },
+    "HTMLDocumentParser::DocumentElementAvailable": {
+      "count": 299,
+      "totalMs": 3.3719999999999977,
+      "maxMs": 0.197
+    },
+    "EventDispatch": {
+      "count": 1779,
+      "totalMs": 14.745999999999787,
+      "maxMs": 0.607
+    },
+    "BackForwardCacheBufferLimitTracker::DidRemoveFrameOrWorkerFromBackForwardCache": {
+      "count": 5,
+      "totalMs": 0.009000000000000001,
+      "maxMs": 0.003
+    },
+    "CommitLoad": {
+      "count": 1,
+      "totalMs": 0.187,
+      "maxMs": 0.187
+    },
+    "NavigationBodyLoader::StartLoadingBody": {
+      "count": 1,
+      "totalMs": 3.193,
+      "maxMs": 3.193
+    },
+    "NavigationBodyLoader::OnReadable": {
+      "count": 1,
+      "totalMs": 3.02,
+      "maxMs": 3.02
+    },
+    "NavigationBodyLoader::ReadFromDataPipe": {
+      "count": 1,
+      "totalMs": 3.018,
+      "maxMs": 3.018
+    },
+    "DocumentLoader::BodyDataReceivedImpl": {
+      "count": 1,
+      "totalMs": 3.013,
+      "maxMs": 3.013
+    },
+    "DocumentLoader::HandleData": {
+      "count": 1,
+      "totalMs": 2.832,
+      "maxMs": 2.832
+    },
+    "DocumentLoader::CommitData": {
+      "count": 1,
+      "totalMs": 2.829,
+      "maxMs": 2.829
+    },
+    "DecodedDataDocumentParser::AppendBytes": {
+      "count": 298,
+      "totalMs": 151.79299999999998,
+      "maxMs": 2.828
+    },
+    "HTMLDocumentParser::MaybeFetchQueuedPreloads": {
+      "count": 1,
+      "totalMs": 2.379,
+      "maxMs": 2.379
+    },
+    "Receive mojo reply": {
+      "count": 4,
+      "totalMs": 0.36,
+      "maxMs": 0.189
+    },
+    "ParseAuthorStyleSheet": {
+      "count": 1,
+      "totalMs": 0.422,
+      "maxMs": 0.422
+    },
+    "EvaluateScript": {
+      "count": 1,
+      "totalMs": 0.59,
+      "maxMs": 0.59
+    },
+    "v8.compile": {
+      "count": 1,
+      "totalMs": 0.021,
+      "maxMs": 0.021
+    },
+    "v8.compileModule": {
+      "count": 10,
+      "totalMs": 0.5990000000000001,
+      "maxMs": 0.174
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 31,
+      "totalMs": 0.9690000000000002,
+      "maxMs": 0.191
+    },
+    "TimerFire": {
+      "count": 17,
+      "totalMs": 14.286,
+      "maxMs": 1.834
+    },
+    "DocumentLoader::BodyLoadingFinished": {
+      "count": 1,
+      "totalMs": 0.615,
+      "maxMs": 0.615
+    },
+    "v8.evaluateModule": {
+      "count": 2,
+      "totalMs": 5.391,
+      "maxMs": 3.141
+    },
+    "V8.GC_HEAP_EXTERNAL_PROLOGUE": {
+      "count": 3,
+      "totalMs": 0.801,
+      "maxMs": 0.795
+    },
+    "MinorGC": {
+      "count": 2,
+      "totalMs": 4.226,
+      "maxMs": 2.425
+    },
+    "V8.GC_HEAP_PROLOGUE": {
+      "count": 3,
+      "totalMs": 0.004,
+      "maxMs": 0.002
+    },
+    "V8.GC_SCAVENGER": {
+      "count": 2,
+      "totalMs": 3.985,
+      "maxMs": 2.384
+    },
+    "V8.GC_HEAP_PROLOGUE_SAFEPOINT": {
+      "count": 2,
+      "totalMs": 0.002,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_SCAVENGE": {
+      "count": 2,
+      "totalMs": 3.965,
+      "maxMs": 2.375
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY": {
+      "count": 2,
+      "totalMs": 0.402,
+      "maxMs": 0.202
+    },
+    "ComputeWeaknessProcessor start": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL": {
+      "count": 2,
+      "totalMs": 0.186,
+      "maxMs": 0.184
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_COLLECT_OLD_TO_NEW_PAGES": {
+      "count": 2,
+      "totalMs": 0.007,
+      "maxMs": 0.004
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE": {
+      "count": 2,
+      "totalMs": 1.8579999999999999,
+      "maxMs": 1.035
+    },
+    "Parallel scavenge started": {
+      "count": 2,
+      "totalMs": 0.002,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_ROOTS": {
+      "count": 2,
+      "totalMs": 1.417,
+      "maxMs": 0.809
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_PARALLEL": {
+      "count": 2,
+      "totalMs": 0.403,
+      "maxMs": 0.204
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS": {
+      "count": 2,
+      "totalMs": 0.5529999999999999,
+      "maxMs": 0.373
+    },
+    "ClearWeaknessProcessor start": {
+      "count": 2,
+      "totalMs": 0.002,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL": {
+      "count": 2,
+      "totalMs": 0.371,
+      "maxMs": 0.201
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_FINALIZE": {
+      "count": 2,
+      "totalMs": 0.21300000000000002,
+      "maxMs": 0.197
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_FREE_REMEMBERED_SET": {
+      "count": 2,
+      "totalMs": 0.018000000000000002,
+      "maxMs": 0.016
+    },
+    "V8.GC_SCAVENGER_RESIZE_NEW_SPACE": {
+      "count": 2,
+      "totalMs": 0.164,
+      "maxMs": 0.159
+    },
+    "V8.GC_HEAP_EPILOGUE_SAFEPOINT": {
+      "count": 3,
+      "totalMs": 0.166,
+      "maxMs": 0.161
+    },
+    "V8.GC_HEAP_EPILOGUE": {
+      "count": 3,
+      "totalMs": 0.01,
+      "maxMs": 0.004
+    },
+    "V8.GC_HEAP_EXTERNAL_EPILOGUE": {
+      "count": 3,
+      "totalMs": 0.183,
+      "maxMs": 0.181
+    },
+    "V8.GC_MC_INCREMENTAL_START": {
+      "count": 1,
+      "totalMs": 3.646,
+      "maxMs": 3.646
+    },
+    "V8.GC_MC_INCREMENTAL_EXTERNAL_PROLOGUE": {
+      "count": 1,
+      "totalMs": 0.417,
+      "maxMs": 0.417
+    },
+    "V8.GC_MC_MARK_EMBEDDER_PROLOGUE": {
+      "count": 2,
+      "totalMs": 2.9690000000000003,
+      "maxMs": 2.813
+    },
+    "V8.GC_MC_MARK_ROOTS": {
+      "count": 3,
+      "totalMs": 0.576,
+      "maxMs": 0.364
+    },
+    "Major concurrent marking started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_INCREMENTAL_EXTERNAL_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_INCREMENTAL": {
+      "count": 2,
+      "totalMs": 9.643,
+      "maxMs": 5.335
+    },
+    "V8.GC_MC_INCREMENTAL_EMBEDDER_TRACING": {
+      "count": 2,
+      "totalMs": 9.394,
+      "maxMs": 5.091
+    },
+    "Major concurrent marking rescheduled": {
+      "count": 2,
+      "totalMs": 0.004,
+      "maxMs": 0.002
+    },
+    "MajorGC": {
+      "count": 1,
+      "totalMs": 97.707,
+      "maxMs": 97.707
+    },
+    "V8.GC_MARK_COMPACTOR": {
+      "count": 1,
+      "totalMs": 97.667,
+      "maxMs": 97.667
+    },
+    "V8.GC_MC_PROLOGUE": {
+      "count": 1,
+      "totalMs": 0.017,
+      "maxMs": 0.017
+    },
+    "V8.GC_MC_MARK": {
+      "count": 1,
+      "totalMs": 31.403,
+      "maxMs": 31.403
+    },
+    "V8.GC_MC_MARK_FINISH_INCREMENTAL": {
+      "count": 1,
+      "totalMs": 0.004,
+      "maxMs": 0.004
+    },
+    "V8.GC_MC_MARK_CLIENT_HEAPS": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_MARK_RETAIN_MAPS": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_MC_MARK_FULL_CLOSURE_PARALLEL": {
+      "count": 1,
+      "totalMs": 28.376,
+      "maxMs": 28.376
+    },
+    "V8.GC_MC_MARK_WEAK_CLOSURE_EPHEMERON_MARKING": {
+      "count": 3,
+      "totalMs": 28.356,
+      "maxMs": 28.351
+    },
+    "V8.GC_MC_MARK_EMBEDDER_TRACING": {
+      "count": 3,
+      "totalMs": 27.98,
+      "maxMs": 27.977
+    },
+    "V8.GC_CONSERVATIVE_STACK_SCANNING": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_MARK_FULL_CLOSURE_SERIAL": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_MC_CLEAR": {
+      "count": 1,
+      "totalMs": 0.795,
+      "maxMs": 0.795
+    },
+    "ClearStringTableJob started": {
+      "count": 4,
+      "totalMs": 0.004,
+      "maxMs": 0.001
+    },
+    "ClearTrivialWeakRefJob started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "ClearNonTrivialWeakRefs started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_CLEAR_JOIN_JOB": {
+      "count": 1,
+      "totalMs": 0.602,
+      "maxMs": 0.602
+    },
+    "V8.GC_MC_CLEAR_WEAK_COLLECTIONS": {
+      "count": 1,
+      "totalMs": 0.005,
+      "maxMs": 0.005
+    },
+    "V8.GC_MC_CLEAR_SWEEP_WASM_CODE_POINTER_TABLE": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_CLEAR_MAPS": {
+      "count": 1,
+      "totalMs": 0.01,
+      "maxMs": 0.01
+    },
+    "V8.GC_MC_CLEAR_JS_WEAK_REFERENCES": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_EVACUATE": {
+      "count": 2,
+      "totalMs": 3.215,
+      "maxMs": 3.057
+    },
+    "V8.GC_MC_EVACUATE_PROLOGUE": {
+      "count": 1,
+      "totalMs": 0.005,
+      "maxMs": 0.005
+    },
+    "V8.GC_MC_EVACUATE_COPY": {
+      "count": 1,
+      "totalMs": 1.406,
+      "maxMs": 1.406
+    },
+    "PageEvacuationJob started": {
+      "count": 1,
+      "totalMs": 0.021,
+      "maxMs": 0.021
+    },
+    "V8.GC_MC_EVACUATE_COPY_PARALLEL": {
+      "count": 1,
+      "totalMs": 0.797,
+      "maxMs": 0.797
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS": {
+      "count": 1,
+      "totalMs": 1.609,
+      "maxMs": 1.609
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_TO_NEW_ROOTS": {
+      "count": 1,
+      "totalMs": 1.017,
+      "maxMs": 1.017
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_CLIENT_HEAPS": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_SLOTS_MAIN": {
+      "count": 1,
+      "totalMs": 0.196,
+      "maxMs": 0.196
+    },
+    "PointersUpdatingJob started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_PARALLEL": {
+      "count": 1,
+      "totalMs": 0.178,
+      "maxMs": 0.178
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_WEAK": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_EVACUATE_UPDATE_POINTERS_POINTER_TABLES": {
+      "count": 1,
+      "totalMs": 0.228,
+      "maxMs": 0.228
+    },
+    "V8.GC_MC_EVACUATE_CLEAN_UP": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_MC_EVACUATE_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.031,
+      "maxMs": 0.031
+    },
+    "V8.GC_MC_SWEEP_NEW_LO": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_MC_EVACUATE_REBALANCE": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_MC_FINISH": {
+      "count": 1,
+      "totalMs": 0.017,
+      "maxMs": 0.017
+    },
+    "V8.GC_MC_SWEEP_START_JOBS": {
+      "count": 1,
+      "totalMs": 0.009,
+      "maxMs": 0.009
+    },
+    "V8.GC_MC_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_HEAP_EXTERNAL_WEAK_GLOBAL_HANDLES": {
+      "count": 1,
+      "totalMs": 0.004,
+      "maxMs": 0.004
+    },
+    "V8.GC_HEAP_EMBEDDER_TRACING_EPILOGUE": {
+      "count": 1,
+      "totalMs": 10.961,
+      "maxMs": 10.961
+    },
+    "ResourceChangePriority": {
+      "count": 2,
+      "totalMs": 0.018,
+      "maxMs": 0.011
+    }
+  },
+  "sampledSelfMs": {
+    "(program) @ undefined:NaN": 23961.348000002203,
+    "samakanTinggiJudul @ http://localhost:3000/js/katalog.js:67": 1253.0710000000001,
+    "(idle) @ undefined:NaN": 1171.8769999999968,
+    "buatKartu @ http://localhost:3000/js/katalog.js:19": 802.0629999999982,
+    "formatRupiah @ http://localhost:3000/js/util.js:12": 280.6930000000001,
+    "periksaGulir @ http://localhost:3000/js/gulir.js:8": 273.7579999999998,
+    "getBoundingClientRect @ undefined:NaN": 134.72600000000006,
+    "(garbage collector) @ undefined:NaN": 102.72600000000013,
+    "pantauFrame @ http://localhost:3000/alat/ukur.js:58": 67.491,
+    "append @ undefined:NaN": 58.04299999999999,
+    "el @ http://localhost:3000/js/util.js:5": 54.002,
+    "f @ http://localhost:3000/vendor/lacak.min.js:2": 36.173000000000016,
+    "formatRibuan @ http://localhost:3000/js/util.js:21": 32.871,
+    "createElement @ undefined:NaN": 31.467,
+    "renderProduk @ http://localhost:3000/js/katalog.js:80": 13.096000000000002,
+    "addEventListener @ undefined:NaN": 9.113000000000001,
+    " @ http://localhost:3000/js/promo.js:22": 6.847,
+    "querySelectorAll @ undefined:NaN": 4.329000000000001,
+    "fetch @ undefined:NaN": 3.6639999999999997,
+    " @ http://localhost:3000/js/katalog.js:77": 3.2700000000000005,
+    "siapkanRiwayatContoh @ http://localhost:3000/js/keranjang.js:27": 2.6189999999999998,
+    "pasangKaki @ http://localhost:3000/js/kategori.js:5": 2.384,
+    "mulai @ http://localhost:3000/js/main.js:9": 2.1560000000000006,
+    " @ http://localhost:3000/js/gulir.js:23": 1.625,
+    " @ http://localhost:3000/alat/ukur.js:9": 1.082,
+    "k @ http://localhost:3000/vendor/lacak.min.js:2": 0.684,
+    "json @ undefined:NaN": 0.603,
+    " @ http://localhost:3000/js/promo.js:38": 0.594,
+    " @ http://localhost:3000/js/main.js:NaN": 0.581,
+    "pasangPencarian @ http://localhost:3000/js/pencarian.js:43": 0.544,
+    "querySelector @ undefined:NaN": 0.537,
+    "setTimeout @ undefined:NaN": 0.536,
+    " @ http://localhost:3000/vendor/lacak.min.js:2": 0.536,
+    "requestAnimationFrame @ undefined:NaN": 0.373,
+    " @ undefined:2": 0.333
+  },
+  "longTasks": [
+    {
+      "ts": 89525905336,
+      "durationMs": 229.579
+    },
+    {
+      "ts": 89528417108,
+      "durationMs": 152.597
+    },
+    {
+      "ts": 89530272352,
+      "durationMs": 137.023
+    },
+    {
+      "ts": 89529378429,
+      "durationMs": 133.848
+    },
+    {
+      "ts": 89531190057,
+      "durationMs": 130.21
+    },
+    {
+      "ts": 89503570032,
+      "durationMs": 110.533
+    },
+    {
+      "ts": 89527304791,
+      "durationMs": 110.449
+    },
+    {
+      "ts": 89503846095,
+      "durationMs": 80.084
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "apiMs": 192.59999999403954,
+  "products": 1500,
+  "categories": 8,
+  "brands": 12,
+  "footerMs": [
+    38.70000000298023,
+    1,
+    1.3999999910593033
+  ],
+  "sortMs": [
+    0.005600000008940697,
+    0.0018999999910593033,
+    0.0017999999970197678
+  ],
+  "sdkLargeMs": [
+    84.29999999701977,
+    73.6000000089407,
+    75
+  ],
+  "sdkSmallMs": [
+    12.299999997019768,
+    12.299999997019768,
+    13.200000002980232
+  ],
+  "note": "Isolated auxiliary benchmark, CPU 4x. Sort is mean per call over 1000 calls per repetition. SDK history is generated with the original 9000-entry seed algorithm; this controlled comparison is not S2 baseline."
+}

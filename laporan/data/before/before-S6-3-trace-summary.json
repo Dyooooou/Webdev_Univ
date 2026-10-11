@@ -1,0 +1,187 @@
+{
+  "source": "before-S6-3.json.gz",
+  "thread": 34264,
+  "windowStartUs": 90486369177,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 123,
+  "mainTaskBusyPercent10s": 69.78191,
+  "traceCLS": 0,
+  "layoutShifts": [],
+  "totals": {
+    "Paint": {
+      "count": 817,
+      "totalMs": 480.41899999999964,
+      "maxMs": 8.184
+    },
+    "Layerize": {
+      "count": 125,
+      "totalMs": 116.56499999999998,
+      "maxMs": 1.602
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 249,
+      "totalMs": 7.365999999999986,
+      "maxMs": 0.427
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 1572,
+      "totalMs": 2351.6690000000012,
+      "maxMs": 7.669
+    },
+    "RunTask": {
+      "count": 1571,
+      "totalMs": 6978.196000000018,
+      "maxMs": 70.189
+    },
+    "TimerFire": {
+      "count": 193,
+      "totalMs": 802.3700000000008,
+      "maxMs": 36.651
+    },
+    "FunctionCall": {
+      "count": 365,
+      "totalMs": 811.6159999999996,
+      "maxMs": 36.626
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 4,
+      "totalMs": 0.163,
+      "maxMs": 0.158
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 16,
+      "totalMs": 0.197,
+      "maxMs": 0.155
+    },
+    "UpdateLayoutTree": {
+      "count": 269,
+      "totalMs": 514.7640000000001,
+      "maxMs": 5.275
+    },
+    "Layout": {
+      "count": 269,
+      "totalMs": 2567.137999999999,
+      "maxMs": 17.993
+    },
+    "PrePaint": {
+      "count": 249,
+      "totalMs": 1238.9169999999992,
+      "maxMs": 13.036
+    },
+    "HitTest": {
+      "count": 142,
+      "totalMs": 805.2199999999996,
+      "maxMs": 9.062
+    },
+    "FireAnimationFrame": {
+      "count": 124,
+      "totalMs": 26.873000000000005,
+      "maxMs": 0.592
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 19,
+      "totalMs": 2.5180000000000002,
+      "maxMs": 0.208
+    },
+    "ParseHTML": {
+      "count": 20,
+      "totalMs": 1.751,
+      "maxMs": 0.38
+    }
+  },
+  "sampledSelfMs": {
+    "(program) @ undefined:NaN": 9116.64700000004,
+    " @ http://localhost:3000/js/promo.js:22": 697.6789999999993,
+    "(idle) @ undefined:NaN": 117.40500000000016,
+    " @ http://localhost:3000/js/promo.js:38": 20.456999999999997,
+    "gambar @ http://localhost:3000/alat/ukur.js:96": 3.347,
+    "requestAnimationFrame @ undefined:NaN": 0.666,
+    " @ http://localhost:3000/alat/ukur.js:20": 0.318,
+    "getEntries @ undefined:NaN": 0.2,
+    "duaDigit @ http://localhost:3000/js/promo.js:12": 0.163,
+    "pantauFrame @ http://localhost:3000/alat/ukur.js:58": 0.088,
+    "ringkas @ http://localhost:3000/alat/ukur.js:66": 0.03
+  },
+  "longTasks": [
+    {
+      "ts": 90488161023,
+      "durationMs": 70.189
+    },
+    {
+      "ts": 90494420418,
+      "durationMs": 64.032
+    },
+    {
+      "ts": 90487125090,
+      "durationMs": 62.755
+    },
+    {
+      "ts": 90493353628,
+      "durationMs": 62.098
+    },
+    {
+      "ts": 90493261771,
+      "durationMs": 60.924
+    },
+    {
+      "ts": 90490266543,
+      "durationMs": 60.226
+    },
+    {
+      "ts": 90493173293,
+      "durationMs": 58.234
+    },
+    {
+      "ts": 90496045200,
+      "durationMs": 57.431
+    },
+    {
+      "ts": 90495953089,
+      "durationMs": 57.101
+    },
+    {
+      "ts": 90490173867,
+      "durationMs": 56.988
+    },
+    {
+      "ts": 90487217718,
+      "durationMs": 55.608
+    },
+    {
+      "ts": 90494905222,
+      "durationMs": 55.588
+    },
+    {
+      "ts": 90489304463,
+      "durationMs": 55.398
+    },
+    {
+      "ts": 90492318081,
+      "durationMs": 55.142
+    },
+    {
+      "ts": 90489212567,
+      "durationMs": 54.731
+    },
+    {
+      "ts": 90487469111,
+      "durationMs": 54.579
+    },
+    {
+      "ts": 90488422637,
+      "durationMs": 54.235
+    },
+    {
+      "ts": 90488964986,
+      "durationMs": 54.194
+    },
+    {
+      "ts": 90488065924,
+      "durationMs": 54.016
+    },
+    {
+      "ts": 90495147676,
+      "durationMs": 53.987
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "source": "before-S6-2.json.gz",
+  "thread": 13768,
+  "windowStartUs": 89791440073,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 113,
+  "mainTaskBusyPercent10s": 63.6636,
+  "traceCLS": 0,
+  "layoutShifts": [],
+  "totals": {
+    "RunTask": {
+      "count": 1519,
+      "totalMs": 6366.360000000014,
+      "maxMs": 90.111
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 1519,
+      "totalMs": 2716.6410000000037,
+      "maxMs": 9.286
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 19,
+      "totalMs": 2.7239999999999998,
+      "maxMs": 0.392
+    },
+    "UpdateLayoutTree": {
+      "count": 247,
+      "totalMs": 478.236,
+      "maxMs": 5.21
+    },
+    "Layout": {
+      "count": 246,
+      "totalMs": 2385.82,
+      "maxMs": 18.64
+    },
+    "PrePaint": {
+      "count": 227,
+      "totalMs": 1153.8839999999998,
+      "maxMs": 14.347
+    },
+    "HitTest": {
+      "count": 134,
+      "totalMs": 751.9169999999998,
+      "maxMs": 10.136
+    },
+    "FireAnimationFrame": {
+      "count": 114,
+      "totalMs": 63.322000000000045,
+      "maxMs": 33.309
+    },
+    "FunctionCall": {
+      "count": 328,
+      "totalMs": 739.2440000000006,
+      "maxMs": 33.128
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 4,
+      "totalMs": 0.325,
+      "maxMs": 0.167
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 16,
+      "totalMs": 0.21600000000000003,
+      "maxMs": 0.16
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 226,
+      "totalMs": 14.470999999999982,
+      "maxMs": 0.4
+    },
+    "Paint": {
+      "count": 737,
+      "totalMs": 410.80299999999943,
+      "maxMs": 21.583
+    },
+    "Layerize": {
+      "count": 113,
+      "totalMs": 112.87499999999999,
+      "maxMs": 1.618
+    },
+    "TimerFire": {
+      "count": 171,
+      "totalMs": 694.076,
+      "maxMs": 10.266
+    },
+    "ParseHTML": {
+      "count": 18,
+      "totalMs": 1.752,
+      "maxMs": 0.198
+    }
+  },
+  "sampledSelfMs": {
+    "(program) @ undefined:NaN": 9101.714000000118,
+    " @ http://localhost:3000/js/promo.js:22": 606.8409999999988,
+    "(idle) @ undefined:NaN": 188.63500000000002,
+    "pantauFrame @ http://localhost:3000/alat/ukur.js:58": 32.753,
+    " @ http://localhost:3000/js/promo.js:38": 22.030000000000012,
+    "gambar @ http://localhost:3000/alat/ukur.js:96": 1.819,
+    "requestAnimationFrame @ undefined:NaN": 1.6729999999999998,
+    "PerformanceObserver.observe.type @ http://localhost:3000/alat/ukur.js:20": 0.32,
+    "ringkas @ http://localhost:3000/alat/ukur.js:66": 0.277,
+    "getEntries @ undefined:NaN": 0.255,
+    "duaDigit @ http://localhost:3000/js/promo.js:12": 0.16,
+    " @ http://localhost:3000/alat/ukur.js:20": 0.079,
+    "querySelector @ undefined:NaN": 0.054
+  },
+  "longTasks": [
+    {
+      "ts": 89791448504,
+      "durationMs": 90.111
+    },
+    {
+      "ts": 89799092531,
+      "durationMs": 86.714
+    },
+    {
+      "ts": 89791662873,
+      "durationMs": 71.741
+    },
+    {
+      "ts": 89792063767,
+      "durationMs": 71.476
+    },
+    {
+      "ts": 89799250824,
+      "durationMs": 67.563
+    },
+    {
+      "ts": 89797188617,
+      "durationMs": 60.833
+    },
+    {
+      "ts": 89795167045,
+      "durationMs": 59.112
+    },
+    {
+      "ts": 89794201346,
+      "durationMs": 58.515
+    },
+    {
+      "ts": 89800329014,
+      "durationMs": 58.427
+    },
+    {
+      "ts": 89798208477,
+      "durationMs": 57.87
+    },
+    {
+      "ts": 89797796086,
+      "durationMs": 57.604
+    },
+    {
+      "ts": 89796745638,
+      "durationMs": 57.009
+    },
+    {
+      "ts": 89796651065,
+      "durationMs": 56.772
+    },
+    {
+      "ts": 89796914399,
+      "durationMs": 55.566
+    },
+    {
+      "ts": 89800662987,
+      "durationMs": 55.559
+    },
+    {
+      "ts": 89792272147,
+      "durationMs": 54.869
+    },
+    {
+      "ts": 89801334556,
+      "durationMs": 54.318
+    },
+    {
+      "ts": 89796181172,
+      "durationMs": 54.121
+    },
+    {
+      "ts": 89796574714,
+      "durationMs": 54.049
+    },
+    {
+      "ts": 89797003866,
+      "durationMs": 53.893
+    }
+  ]
+}

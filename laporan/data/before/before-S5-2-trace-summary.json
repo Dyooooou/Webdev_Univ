@@ -1,0 +1,537 @@
+{
+  "source": "before-S5-2.json.gz",
+  "thread": 13768,
+  "windowStartUs": 89778511619,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 52,
+  "mainTaskBusyPercent10s": 67.7299,
+  "traceCLS": 0.0029780993150337436,
+  "layoutShifts": [
+    {
+      "ts": 89781437891,
+      "score": 0.001031980650362806,
+      "nodes": [
+        {
+          "new_rect": [
+            10,
+            812,
+            192,
+            103
+          ],
+          "node_id": 25400,
+          "old_rect": [
+            10,
+            821,
+            192,
+            94
+          ]
+        },
+        {
+          "new_rect": [
+            210,
+            812,
+            192,
+            103
+          ],
+          "node_id": 25401,
+          "old_rect": [
+            210,
+            821,
+            192,
+            94
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89782899465,
+      "score": 0.00106760457788342,
+      "nodes": [
+        {
+          "new_rect": [
+            10,
+            778,
+            192,
+            137
+          ],
+          "node_id": 25419,
+          "old_rect": [
+            10,
+            785,
+            192,
+            130
+          ]
+        },
+        {
+          "new_rect": [
+            210,
+            778,
+            192,
+            137
+          ],
+          "node_id": 25420,
+          "old_rect": [
+            210,
+            785,
+            192,
+            130
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89784306212,
+      "score": 0.001222502563513827,
+      "nodes": [
+        {
+          "new_rect": [
+            10,
+            744,
+            192,
+            171
+          ],
+          "node_id": 25438,
+          "old_rect": [
+            10,
+            751,
+            192,
+            164
+          ]
+        },
+        {
+          "new_rect": [
+            210,
+            744,
+            192,
+            171
+          ],
+          "node_id": 25439,
+          "old_rect": [
+            210,
+            751,
+            192,
+            164
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89785852127,
+      "score": 0.001501231965169261,
+      "nodes": [
+        {
+          "new_rect": [
+            10,
+            710,
+            192,
+            205
+          ],
+          "node_id": 25457,
+          "old_rect": [
+            10,
+            717,
+            192,
+            198
+          ]
+        },
+        {
+          "new_rect": [
+            210,
+            710,
+            192,
+            205
+          ],
+          "node_id": 25458,
+          "old_rect": [
+            210,
+            717,
+            192,
+            198
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89785990248,
+      "score": 0.00002313467949336791,
+      "nodes": [
+        {
+          "new_rect": [
+            11,
+            711,
+            76,
+            35
+          ],
+          "node_id": 25394,
+          "old_rect": [
+            17,
+            716,
+            64,
+            26
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89786828916,
+      "score": 0.00002433961071698083,
+      "nodes": [
+        {
+          "new_rect": [
+            11,
+            391,
+            76,
+            35
+          ],
+          "node_id": 25394,
+          "old_rect": [
+            18,
+            397,
+            62,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89787510674,
+      "score": 0.001356549078425114,
+      "nodes": [
+        {
+          "new_rect": [
+            10,
+            701,
+            192,
+            214
+          ],
+          "node_id": 25478,
+          "old_rect": [
+            10,
+            707,
+            192,
+            208
+          ]
+        },
+        {
+          "new_rect": [
+            210,
+            701,
+            192,
+            214
+          ],
+          "node_id": 25479,
+          "old_rect": [
+            210,
+            707,
+            192,
+            208
+          ]
+        },
+        {
+          "new_rect": [
+            19,
+            239,
+            59,
+            22
+          ],
+          "node_id": 25394,
+          "old_rect": [
+            11,
+            231,
+            76,
+            35
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89787717728,
+      "score": 0.00004874535675676146,
+      "nodes": [
+        {
+          "new_rect": [
+            11,
+            231,
+            75,
+            34
+          ],
+          "node_id": 25394,
+          "old_rect": [
+            19,
+            239,
+            59,
+            22
+          ]
+        },
+        {
+          "new_rect": [
+            11,
+            702,
+            75,
+            34
+          ],
+          "node_id": 25395,
+          "old_rect": [
+            19,
+            710,
+            59,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89788619257,
+      "score": 0.00002409862447225824,
+      "nodes": [
+        {
+          "new_rect": [
+            11,
+            382,
+            76,
+            35
+          ],
+          "node_id": 25395,
+          "old_rect": [
+            17,
+            388,
+            63,
+            25
+          ]
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "RunTask": {
+      "count": 1383,
+      "totalMs": 6881.023000000012,
+      "maxMs": 212.598
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 1305,
+      "totalMs": 2276.3380000000006,
+      "maxMs": 7.336
+    },
+    "LatencyInfo.Flow": {
+      "count": 55,
+      "totalMs": 354.30000000000007,
+      "maxMs": 39.496
+    },
+    "PrePaint": {
+      "count": 451,
+      "totalMs": 1666.5789999999947,
+      "maxMs": 82.367
+    },
+    "HitTest": {
+      "count": 92,
+      "totalMs": 440.66499999999985,
+      "maxMs": 9.082
+    },
+    "EventDispatch": {
+      "count": 118,
+      "totalMs": 1326.0579999999993,
+      "maxMs": 99.933
+    },
+    "FunctionCall": {
+      "count": 237,
+      "totalMs": 1672.5829999999994,
+      "maxMs": 99.903
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 4,
+      "totalMs": 0.162,
+      "maxMs": 0.156
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 14,
+      "totalMs": 0.523,
+      "maxMs": 0.187
+    },
+    "V8.GC_MC_COMPLETE_SWEEPING": {
+      "count": 1,
+      "totalMs": 0.168,
+      "maxMs": 0.168
+    },
+    "V8.GC_MC_SWEEP": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "FireAnimationFrame": {
+      "count": 55,
+      "totalMs": 11.809000000000003,
+      "maxMs": 0.406
+    },
+    "UpdateLayoutTree": {
+      "count": 175,
+      "totalMs": 279.376,
+      "maxMs": 6.694
+    },
+    "Layout": {
+      "count": 164,
+      "totalMs": 2118.0569999999993,
+      "maxMs": 61.789
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 108,
+      "totalMs": 9.267999999999997,
+      "maxMs": 0.404
+    },
+    "Paint": {
+      "count": 238,
+      "totalMs": 358.7399999999997,
+      "maxMs": 15.871
+    },
+    "Layerize": {
+      "count": 54,
+      "totalMs": 53.743,
+      "maxMs": 1.842
+    },
+    "TimerFire": {
+      "count": 92,
+      "totalMs": 347.35200000000003,
+      "maxMs": 11.491
+    },
+    "Receive mojo message": {
+      "count": 1,
+      "totalMs": 0.39,
+      "maxMs": 0.39
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 17,
+      "totalMs": 2.518,
+      "maxMs": 0.79
+    },
+    "ParseHTML": {
+      "count": 20,
+      "totalMs": 1.458,
+      "maxMs": 0.203
+    },
+    "SimpleWatcher::OnHandleReady": {
+      "count": 1,
+      "totalMs": 0.175,
+      "maxMs": 0.175
+    },
+    "Receive mojo reply": {
+      "count": 13,
+      "totalMs": 0.7870000000000001,
+      "maxMs": 0.169
+    },
+    "ScrollLayer": {
+      "count": 17,
+      "totalMs": 3.5140000000000002,
+      "maxMs": 0.375
+    },
+    "PaintTiming::NotifyScroll": {
+      "count": 17,
+      "totalMs": 0.263,
+      "maxMs": 0.166
+    }
+  },
+  "sampledSelfMs": {
+    "(program) @ undefined:NaN": 7747.212000000091,
+    "(idle) @ undefined:NaN": 911.595999999999,
+    "periksaGulir @ http://localhost:3000/js/gulir.js:8": 600.242999999999,
+    "getBoundingClientRect @ undefined:NaN": 562.1249999999993,
+    " @ http://localhost:3000/js/promo.js:22": 288.6899999999997,
+    "f @ http://localhost:3000/vendor/lacak.min.js:2": 53.098000000000056,
+    "querySelectorAll @ undefined:NaN": 40.262,
+    "listener @ undefined:8178": 29.83,
+    " @ http://localhost:3000/js/promo.js:38": 22.554999999999993,
+    " @ http://localhost:3000/js/gulir.js:23": 16.043999999999997,
+    "gambar @ http://localhost:3000/alat/ukur.js:96": 4.388000000000001,
+    "add @ undefined:NaN": 2.661,
+    "k @ http://localhost:3000/vendor/lacak.min.js:2": 1.04,
+    "querySelector @ undefined:NaN": 0.8119999999999999,
+    "contains @ undefined:NaN": 0.527,
+    "requestAnimationFrame @ undefined:NaN": 0.141,
+    "getEntries @ undefined:NaN": 0.141,
+    "PerformanceObserver.observe.type @ http://localhost:3000/alat/ukur.js:45": 0.136,
+    "pantauFrame @ http://localhost:3000/alat/ukur.js:58": 0.127,
+    "PerformanceObserver.observe.type @ http://localhost:3000/alat/ukur.js:25": 0.122,
+    "ringkas @ http://localhost:3000/alat/ukur.js:66": 0.088
+  },
+  "longTasks": [
+    {
+      "ts": 89786504716,
+      "durationMs": 212.598
+    },
+    {
+      "ts": 89787325398,
+      "durationMs": 212.11
+    },
+    {
+      "ts": 89788312150,
+      "durationMs": 205.235
+    },
+    {
+      "ts": 89784942792,
+      "durationMs": 203.194
+    },
+    {
+      "ts": 89785373347,
+      "durationMs": 202.527
+    },
+    {
+      "ts": 89780947668,
+      "durationMs": 195.602
+    },
+    {
+      "ts": 89782725032,
+      "durationMs": 194.97
+    },
+    {
+      "ts": 89783521356,
+      "durationMs": 194.866
+    },
+    {
+      "ts": 89786986110,
+      "durationMs": 190.54
+    },
+    {
+      "ts": 89782083015,
+      "durationMs": 186.744
+    },
+    {
+      "ts": 89781557863,
+      "durationMs": 183.068
+    },
+    {
+      "ts": 89782413200,
+      "durationMs": 180.912
+    },
+    {
+      "ts": 89781280845,
+      "durationMs": 178.361
+    },
+    {
+      "ts": 89780620976,
+      "durationMs": 177.553
+    },
+    {
+      "ts": 89783894629,
+      "durationMs": 177.075
+    },
+    {
+      "ts": 89785704288,
+      "durationMs": 166.21
+    },
+    {
+      "ts": 89784160430,
+      "durationMs": 163.635
+    },
+    {
+      "ts": 89783008632,
+      "durationMs": 113.578
+    },
+    {
+      "ts": 89787835867,
+      "durationMs": 101.761
+    },
+    {
+      "ts": 89780018412,
+      "durationMs": 88.652
+    }
+  ]
+}

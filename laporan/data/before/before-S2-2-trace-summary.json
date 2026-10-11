@@ -1,0 +1,404 @@
+{
+  "source": "before-S2-2.json.gz",
+  "thread": 13768,
+  "windowStartUs": 89733431536,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 51,
+  "mainTaskBusyPercent10s": 34.9677,
+  "traceCLS": 0.005020747284936628,
+  "layoutShifts": [
+    {
+      "ts": 89736513390,
+      "score": 0.005020747284936628,
+      "nodes": [
+        {
+          "new_rect": [
+            10,
+            505,
+            192,
+            410
+          ],
+          "node_id": 12668,
+          "old_rect": [
+            10,
+            516,
+            192,
+            399
+          ]
+        },
+        {
+          "new_rect": [
+            210,
+            505,
+            192,
+            410
+          ],
+          "node_id": 12669,
+          "old_rect": [
+            210,
+            516,
+            192,
+            399
+          ]
+        }
+      ]
+    },
+    {
+      "ts": 89739324517,
+      "score": 0.0001374086354104971,
+      "nodes": [
+        {
+          "new_rect": [
+            109,
+            429,
+            82,
+            57
+          ],
+          "node_id": 15874,
+          "old_rect": [
+            119,
+            429,
+            72,
+            57
+          ]
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "RunTask": {
+      "count": 1218,
+      "totalMs": 3496.7700000000004,
+      "maxMs": 240.066
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 1216,
+      "totalMs": 1715.8920000000014,
+      "maxMs": 5.441
+    },
+    "TimerFire": {
+      "count": 76,
+      "totalMs": 310.53700000000003,
+      "maxMs": 32.706
+    },
+    "FunctionCall": {
+      "count": 164,
+      "totalMs": 611.0690000000001,
+      "maxMs": 143.057
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 8,
+      "totalMs": 0.17500000000000002,
+      "maxMs": 0.164
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 15,
+      "totalMs": 0.342,
+      "maxMs": 0.162
+    },
+    "UpdateLayoutTree": {
+      "count": 121,
+      "totalMs": 242.12599999999998,
+      "maxMs": 6.132
+    },
+    "Layout": {
+      "count": 118,
+      "totalMs": 1319.525,
+      "maxMs": 62.982
+    },
+    "FireAnimationFrame": {
+      "count": 54,
+      "totalMs": 52.34,
+      "maxMs": 20.31
+    },
+    "PrePaint": {
+      "count": 147,
+      "totalMs": 563.4480000000001,
+      "maxMs": 57.003
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 104,
+      "totalMs": 6.772999999999999,
+      "maxMs": 0.419
+    },
+    "Paint": {
+      "count": 317,
+      "totalMs": 216.15200000000016,
+      "maxMs": 10.327
+    },
+    "Layerize": {
+      "count": 52,
+      "totalMs": 44.301,
+      "maxMs": 1.616
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 11,
+      "totalMs": 1.1949999999999998,
+      "maxMs": 0.362
+    },
+    "Closed mojo endpoint": {
+      "count": 126,
+      "totalMs": 1.297999999999998,
+      "maxMs": 0.184
+    },
+    "ParseHTML": {
+      "count": 14,
+      "totalMs": 1.0429999999999997,
+      "maxMs": 0.205
+    },
+    "SimpleWatcher::OnHandleReady": {
+      "count": 96,
+      "totalMs": 3.5349999999999953,
+      "maxMs": 0.193
+    },
+    "HitTest": {
+      "count": 36,
+      "totalMs": 132.979,
+      "maxMs": 7.245
+    },
+    "Receive mojo message": {
+      "count": 30,
+      "totalMs": 138.217,
+      "maxMs": 50.513
+    },
+    "V8.GC_HEAP_EXTERNAL_PROLOGUE": {
+      "count": 5,
+      "totalMs": 0.389,
+      "maxMs": 0.202
+    },
+    "MinorGC": {
+      "count": 5,
+      "totalMs": 19.046,
+      "maxMs": 6.639
+    },
+    "V8.GC_HEAP_PROLOGUE": {
+      "count": 4,
+      "totalMs": 0.008,
+      "maxMs": 0.003
+    },
+    "V8.GC_SCAVENGER": {
+      "count": 5,
+      "totalMs": 18.009,
+      "maxMs": 6.432
+    },
+    "V8.GC_HEAP_PROLOGUE_SAFEPOINT": {
+      "count": 5,
+      "totalMs": 0.008,
+      "maxMs": 0.003
+    },
+    "V8.GC_SCAVENGER_SCAVENGE": {
+      "count": 5,
+      "totalMs": 17.785,
+      "maxMs": 6.418
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY": {
+      "count": 5,
+      "totalMs": 0.768,
+      "maxMs": 0.372
+    },
+    "ComputeWeaknessProcessor start": {
+      "count": 4,
+      "totalMs": 0.004,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL": {
+      "count": 3,
+      "totalMs": 0.388,
+      "maxMs": 0.198
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_COLLECT_OLD_TO_NEW_PAGES": {
+      "count": 5,
+      "totalMs": 0.019,
+      "maxMs": 0.004
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE": {
+      "count": 5,
+      "totalMs": 6.861,
+      "maxMs": 2.241
+    },
+    "Parallel scavenge started": {
+      "count": 5,
+      "totalMs": 0.006,
+      "maxMs": 0.002
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_ROOTS": {
+      "count": 5,
+      "totalMs": 4.082,
+      "maxMs": 1.826
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_PARALLEL": {
+      "count": 4,
+      "totalMs": 2.1660000000000004,
+      "maxMs": 0.807
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS": {
+      "count": 5,
+      "totalMs": 8.145000000000001,
+      "maxMs": 4.634
+    },
+    "ClearWeaknessProcessor start": {
+      "count": 5,
+      "totalMs": 0.005,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL": {
+      "count": 4,
+      "totalMs": 0.42000000000000004,
+      "maxMs": 0.222
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_FINALIZE": {
+      "count": 5,
+      "totalMs": 0.583,
+      "maxMs": 0.37
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED": {
+      "count": 5,
+      "totalMs": 0.17600000000000002,
+      "maxMs": 0.171
+    },
+    "V8.GC_SCAVENGER_FREE_REMEMBERED_SET": {
+      "count": 5,
+      "totalMs": 0.22,
+      "maxMs": 0.187
+    },
+    "V8.GC_SCAVENGER_RESIZE_NEW_SPACE": {
+      "count": 5,
+      "totalMs": 0.015,
+      "maxMs": 0.006
+    },
+    "V8.GC_HEAP_EPILOGUE_SAFEPOINT": {
+      "count": 5,
+      "totalMs": 0.014,
+      "maxMs": 0.003
+    },
+    "V8.GC_HEAP_EPILOGUE": {
+      "count": 5,
+      "totalMs": 0.015,
+      "maxMs": 0.003
+    },
+    "V8.GC_HEAP_EXTERNAL_EPILOGUE": {
+      "count": 5,
+      "totalMs": 0.171,
+      "maxMs": 0.164
+    },
+    "ScrollLayer": {
+      "count": 1,
+      "totalMs": 0.204,
+      "maxMs": 0.204
+    },
+    "PaintTiming::NotifyScroll": {
+      "count": 2,
+      "totalMs": 0.004,
+      "maxMs": 0.003
+    },
+    "EventDispatch": {
+      "count": 22,
+      "totalMs": 259.92699999999996,
+      "maxMs": 143.823
+    },
+    "DocumentLoader::~DocumentLoader": {
+      "count": 41,
+      "totalMs": 0.9530000000000001,
+      "maxMs": 0.541
+    },
+    "LatencyInfo.Flow": {
+      "count": 7,
+      "totalMs": 240.02700000000002,
+      "maxMs": 216.744
+    },
+    "Receive mojo reply": {
+      "count": 8,
+      "totalMs": 0.044000000000000004,
+      "maxMs": 0.018
+    },
+    "Responsiveness.Renderer.UserInteraction": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    }
+  },
+  "sampledSelfMs": {
+    "(program) @ undefined:NaN": 5263.565000000011,
+    " @ http://localhost:3000/js/promo.js:22": 267.731,
+    "(idle) @ undefined:NaN": 122.35500000000016,
+    "getBoundingClientRect @ undefined:NaN": 115.93700000000014,
+    "t @ http://localhost:3000/vendor/lacak.min.js:2": 78.65000000000006,
+    "query @ undefined:5816": 50.09699999999999,
+    "f @ http://localhost:3000/vendor/lacak.min.js:2": 27.183000000000007,
+    "periksaGulir @ http://localhost:3000/js/gulir.js:8": 20.24900000000001,
+    "(garbage collector) @ undefined:NaN": 19.409000000000002,
+    "setItem @ undefined:NaN": 14.549000000000001,
+    "querySelectorAll @ undefined:NaN": 12.364,
+    "k @ http://localhost:3000/vendor/lacak.min.js:2": 10.887,
+    "bacaRiwayat @ http://localhost:3000/js/keranjang.js:17": 7.864,
+    " @ http://localhost:3000/js/promo.js:38": 7.735000000000001,
+    "simpanRiwayat @ http://localhost:3000/js/keranjang.js:20": 7.330000000000001,
+    "checkVisibility @ undefined:NaN": 6.4220000000000015,
+    " @ undefined:1": 5.253,
+    "previewNode @ undefined:7986": 3.349,
+    "getComputedStyle @ undefined:NaN": 3.0540000000000003,
+    " @ http://localhost:3000/js/gulir.js:23": 2.734,
+    "gambar @ http://localhost:3000/alat/ukur.js:96": 2.4829999999999997,
+    " @ undefined:NaN": 2.4640000000000004,
+    " @ undefined:5814": 1.5230000000000001,
+    "querySelectorAll @ undefined:7192": 1.298,
+    "parseEvaluationResultValue @ undefined:120": 1.1099999999999999,
+    "evaluate @ undefined:364": 1.085,
+    "perbaruiLencana @ http://localhost:3000/js/keranjang.js:40": 1.061,
+    "tambahKeKeranjang @ http://localhost:3000/js/keranjang.js:68": 1.049,
+    "requestAnimationFrame @ undefined:NaN": 0.891,
+    "PerformanceObserver.observe.type @ http://localhost:3000/alat/ukur.js:25": 0.637,
+    "raf @ undefined:7521": 0.556,
+    "eval @ undefined:7097": 0.549,
+    " @ undefined:5635": 0.54,
+    "trimStringWithEllipsis @ undefined:498": 0.535,
+    "_queryEngineAll @ undefined:7240": 0.535,
+    "isElementStyleVisibilityVisible @ undefined:3147": 0.533,
+    "isElementVisible @ undefined:3200": 0.532,
+    "computeBox @ undefined:3181": 0.531,
+    " @ undefined:5643": 0.53,
+    "checkElementStates @ undefined:7472": 0.528
+  },
+  "longTasks": [
+    {
+      "ts": 89737512697,
+      "durationMs": 240.066
+    },
+    {
+      "ts": 89736155906,
+      "durationMs": 149.746
+    },
+    {
+      "ts": 89735866325,
+      "durationMs": 141.172
+    },
+    {
+      "ts": 89736593381,
+      "durationMs": 138.122
+    },
+    {
+      "ts": 89736395131,
+      "durationMs": 136.568
+    },
+    {
+      "ts": 89739297248,
+      "durationMs": 66.271
+    },
+    {
+      "ts": 89738146750,
+      "durationMs": 51.882
+    },
+    {
+      "ts": 89734915768,
+      "durationMs": 50.536
+    },
+    {
+      "ts": 89739129614,
+      "durationMs": 50.459
+    },
+    {
+      "ts": 89739198524,
+      "durationMs": 50.141
+    }
+  ]
+}
