@@ -44,13 +44,11 @@ async function clickProduct(page, selector, count=1) {
   for(let run=1;run<=repeats;run++) {
     const context = await browser.newContext({viewport:{width:412,height:915},deviceScaleFactor:1});
     const page = await context.newPage(); page.setDefaultTimeout(180000);
+    await require('./variants.cjs')(page,phase);
     await page.addInitScript(()=>{
       performance.setResourceTimingBufferSize(20000);
-      const tasks=[],shifts=[],frames=[];let previous=0;
-      new PerformanceObserver(l=>tasks.push(...l.getEntries())).observe({type:'longtask',buffered:true});
-      new PerformanceObserver(l=>shifts.push(...l.getEntries().filter(e=>!e.hadRecentInput))).observe({type:'layout-shift',buffered:true});
-      const frame=t=>{if(previous&&t<=10000&&t-previous>50)frames.push(t-previous);previous=t;if(t<10000)requestAnimationFrame(frame);};requestAnimationFrame(frame);
-      window.loadMetrics=()=>{let cls=0,session=0,last=0,first=0;for(const e of shifts.filter(e=>e.startTime<=10000)){if(e.startTime-last<1000&&e.startTime-first<5000)session+=e.value;else{session=e.value;first=e.startTime;}last=e.startTime;cls=Math.max(cls,session);}const lt=tasks.filter(e=>e.startTime<=10000).map(e=>e.duration);return {windowMs:10000,capturedAtMs:performance.now(),cls,inp:null,jumlahLongTask:lt.length,longTaskTerlama:Math.max(0,...lt),frameLambat:frames.length,frameTerburuk:Math.max(0,...frames)};};
+      // Loading CLS and frame windows come from the trace, not another rAF observer.
+      window.loadMetrics=()=>({...window.AlatUkur?.ringkas(),capturedAtMs:performance.now()});
     });
     const cdp = await context.newCDPSession(page);
     await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});
@@ -68,13 +66,18 @@ async function clickProduct(page, selector, count=1) {
       if(scenario==='S1') {await page.locator('#kolom-cari').pressSequentially('sepatu',{delay:120});await delay(500);for(let i=0;i<6;i++) {await page.keyboard.press('Backspace');await delay(120);}await delay(1500);}
       if(scenario==='S2') {await clickProduct(page,'.tombol-tambah');await delay(1800);}
       if(scenario==='S3') {await context.request.delete('http://localhost:3000/api/pesanan');await clickProduct(page,'.tombol-beli',3);await delay(2500);}
-      if(scenario==='S4') {await page.locator('#tombol-voucher').click();await page.locator('#kolom-cari').pressSequentially('sepatu',{delay:120});await delay(2000);await page.waitForFunction(()=>document.querySelector('#progres').hidden,null,{timeout:180000});}
+      if(scenario==='S4') {
+        await page.evaluate(()=>{window.__voucherFrames=[];window.__voucherInputs=[];window.__stopVoucherProbe=false;const frame=()=>{const p=document.querySelector('#progres');if(!p.hidden)window.__voucherFrames.push({time:performance.now(),value:p.getAttribute('aria-valuenow'),text:p.textContent});if(!window.__stopVoucherProbe)requestAnimationFrame(frame);};requestAnimationFrame(frame);document.querySelector('#kolom-cari').addEventListener('input',()=>{if(!document.querySelector('#progres').hidden)window.__voucherInputs.push(performance.now());});});
+        await page.locator('#tombol-voucher').click();await page.locator('#kolom-cari').pressSequentially('sepatu',{delay:120});await delay(2000);await page.waitForFunction(()=>document.querySelector('#progres').hidden,null,{timeout:180000});
+        await page.evaluate(()=>window.__stopVoucherProbe=true);
+      }
       if(scenario==='S5') {await page.mouse.move(390,740);const start=Date.now();while(Date.now()-start<10000) {await page.mouse.wheel(0,160);await delay(100);} }
       if(scenario==='S6') await delay(10000);
       await traceEnd(cdp,`${phase}-${scenario}-${run}`);
       console.log('trace saved');
       const metrics=await page.evaluate(s=>({ ...(s==='S0'?window.loadMetrics():window.AlatUkur.ringkas()),cart:document.querySelector('#lencana-keranjang').textContent,orders:document.querySelector('#lencana-pesanan').textContent,results:document.querySelector('#ringkasan').textContent,analytics:window.Lacak.antrian,resources:performance.getEntriesByType('resource').map(x=>({name:x.name,duration:x.duration,start:x.startTime,end:x.responseEnd,bytes:x.transferSize})) }),scenario);
       console.log('metrics collected');
+      if(scenario==='S4') metrics.progress=await page.evaluate(()=>({frames:window.__voucherFrames,inputs:window.__voucherInputs}));
       fs.writeFileSync(`${out}/${scenario}-${run}.json`,JSON.stringify({phase,scenario,run,metrics,network,requested:[...reqs.values()],errors},null,2));
       if(run===1) {const shot=await cdp.send('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});fs.writeFileSync(`screenshots/${phase}-${scenario}.png`,Buffer.from(shot.data,'base64'));}
       cdp.off('Network.requestWillBeSent',request);cdp.off('Network.loadingFinished',finish);

@@ -1,0 +1,523 @@
+{
+  "phase": "audit-microtask",
+  "scenario": "S4",
+  "run": 3,
+  "metrics": {
+    "waktu": "2026-10-11T23:21:35.830Z",
+    "jumlahLongTask": 1,
+    "longTaskTerlama": 674,
+    "totalBlokir": 624,
+    "jumlahInteraksi": 7,
+    "inp": 688,
+    "inpRinci": {
+      "durasi": 688,
+      "jenis": "pointerdown",
+      "target": "#tombol-voucher",
+      "tundaInput": 2,
+      "proses": 1,
+      "presentasi": 685
+    },
+    "limaInteraksiTerlambat": [
+      {
+        "durasi": 688,
+        "jenis": "pointerdown",
+        "target": "#tombol-voucher",
+        "tundaInput": 2,
+        "proses": 1,
+        "presentasi": 685
+      },
+      {
+        "durasi": 120,
+        "jenis": "keyup",
+        "target": "#kolom-cari",
+        "tundaInput": 97,
+        "proses": 0,
+        "presentasi": 24
+      },
+      {
+        "durasi": 24,
+        "jenis": "keyup",
+        "target": "#kolom-cari",
+        "tundaInput": 0,
+        "proses": 0,
+        "presentasi": 24
+      },
+      {
+        "durasi": 24,
+        "jenis": "keyup",
+        "target": "#kolom-cari",
+        "tundaInput": 0,
+        "proses": 0,
+        "presentasi": 24
+      },
+      {
+        "durasi": 24,
+        "jenis": "keydown",
+        "target": "#kolom-cari",
+        "tundaInput": 0,
+        "proses": 0,
+        "presentasi": 23
+      }
+    ],
+    "cls": 0,
+    "frameLambat": 3,
+    "frameTerburuk": 673,
+    "cart": "0",
+    "orders": "2",
+    "results": "51 produk ditampilkan",
+    "analytics": [
+      {
+        "e": "page_view",
+        "id": "1vm2qc7",
+        "sig": "1v8vv1",
+        "n": 48,
+        "u": "/",
+        "t": 1791760885861
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "8n6jet",
+        "n": 20,
+        "u": "/",
+        "t": 1791760885889
+      },
+      {
+        "e": "apply_voucher",
+        "id": "1vm2qc7",
+        "sig": "4bvse1",
+        "n": 34,
+        "u": "/",
+        "t": 1791760892441
+      },
+      {
+        "e": "search",
+        "id": "1vm2qc7",
+        "sig": "1gydant",
+        "n": 28,
+        "u": "/",
+        "t": 1791760893166
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1emryj5",
+        "n": 21,
+        "u": "/",
+        "t": 1791760893249
+      },
+      {
+        "e": "search",
+        "id": "1vm2qc7",
+        "sig": "1ud4q55",
+        "n": 29,
+        "u": "/",
+        "t": 1791760893393
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://localhost:3000/css/toko.css",
+        "duration": 8.899999991059303,
+        "start": 14.800000011920929,
+        "end": 23.700000002980232,
+        "bytes": 11607
+      },
+      {
+        "name": "http://localhost:3000/vendor/lacak.min.js",
+        "duration": 8.700000002980232,
+        "start": 15.400000005960464,
+        "end": 24.100000008940697,
+        "bytes": 1120
+      },
+      {
+        "name": "http://localhost:3000/js/main.js",
+        "duration": 8.5,
+        "start": 15.700000002980232,
+        "end": 24.200000002980232,
+        "bytes": 1163
+      },
+      {
+        "name": "http://localhost:3000/js/katalog.js",
+        "duration": 4,
+        "start": 40.1000000089407,
+        "end": 44.1000000089407,
+        "bytes": 5971
+      },
+      {
+        "name": "http://localhost:3000/js/pencarian.js",
+        "duration": 3.8999999910593033,
+        "start": 40.30000001192093,
+        "end": 44.20000000298023,
+        "bytes": 2743
+      },
+      {
+        "name": "http://localhost:3000/js/keranjang.js",
+        "duration": 3.7999999970197678,
+        "start": 40.900000005960464,
+        "end": 44.70000000298023,
+        "bytes": 7008
+      },
+      {
+        "name": "http://localhost:3000/js/harga-promo.js",
+        "duration": 2.6000000089406967,
+        "start": 41,
+        "end": 43.6000000089407,
+        "bytes": 4444
+      },
+      {
+        "name": "http://localhost:3000/js/promo.js",
+        "duration": 3.0999999940395355,
+        "start": 41.30000001192093,
+        "end": 44.400000005960464,
+        "bytes": 2599
+      },
+      {
+        "name": "http://localhost:3000/js/gulir.js",
+        "duration": 3.2000000029802322,
+        "start": 41.5,
+        "end": 44.70000000298023,
+        "bytes": 2031
+      },
+      {
+        "name": "http://localhost:3000/js/kategori.js",
+        "duration": 3,
+        "start": 41.900000005960464,
+        "end": 44.900000005960464,
+        "bytes": 1770
+      },
+      {
+        "name": "http://localhost:3000/js/util.js",
+        "duration": 1.8999999910593033,
+        "start": 45.1000000089407,
+        "end": 47,
+        "bytes": 2251
+      },
+      {
+        "name": "http://localhost:3000/api/promo",
+        "duration": 1810.8999999910593,
+        "start": 52.80000001192093,
+        "end": 1863.7000000029802,
+        "bytes": 479
+      },
+      {
+        "name": "http://localhost:3000/api/produk",
+        "duration": 184.59999999403954,
+        "start": 53.400000005960464,
+        "end": 238,
+        "bytes": 347268
+      },
+      {
+        "name": "http://localhost:3000/alat/ukur.js",
+        "duration": 1.8999999910593033,
+        "start": 53.80000001192093,
+        "end": 55.70000000298023,
+        "bytes": 6770
+      },
+      {
+        "name": "http://localhost:3000/api/pesanan",
+        "duration": 24.600000008940697,
+        "start": 251.5,
+        "end": 276.1000000089407,
+        "bytes": 513
+      },
+      {
+        "name": "http://localhost:3000/img/p/1.svg",
+        "duration": 105.80000001192093,
+        "start": 286.5,
+        "end": 392.30000001192093,
+        "bytes": 1203
+      },
+      {
+        "name": "http://localhost:3000/img/p/2.svg",
+        "duration": 140.90000000596046,
+        "start": 286.70000000298023,
+        "end": 427.6000000089407,
+        "bytes": 1211
+      },
+      {
+        "name": "http://localhost:3000/img/p/8.svg",
+        "duration": 126.1000000089407,
+        "start": 7649,
+        "end": 7775.100000008941,
+        "bytes": 1208
+      },
+      {
+        "name": "http://localhost:3000/img/p/24.svg",
+        "duration": 240.79999999701977,
+        "start": 7649.4000000059605,
+        "end": 7890.20000000298,
+        "bytes": 1201
+      }
+    ],
+    "progress": {
+      "frames": [],
+      "inputs": []
+    }
+  },
+  "network": [
+    {
+      "url": "http://localhost:3000/css/toko.css",
+      "start": 116170.860408,
+      "type": "Stylesheet",
+      "end": 116170.869336,
+      "bytes": 11515,
+      "durationMs": 8.928000010200776
+    },
+    {
+      "url": "http://localhost:3000/?ukur=1",
+      "start": 116170.845853,
+      "type": "Document",
+      "end": 116170.84862,
+      "bytes": 5570,
+      "durationMs": 2.7669999981299043
+    },
+    {
+      "url": "http://localhost:3000/vendor/lacak.min.js",
+      "start": 116170.860858,
+      "type": "Script",
+      "end": 116170.869743,
+      "bytes": 1034,
+      "durationMs": 8.885000002919696
+    },
+    {
+      "url": "http://localhost:3000/js/main.js",
+      "start": 116170.861235,
+      "type": "Script",
+      "end": 116170.869778,
+      "bytes": 1077,
+      "durationMs": 8.542999989003874
+    },
+    {
+      "url": "http://localhost:3000/js/harga-promo.js",
+      "start": 116170.886502,
+      "type": "Script",
+      "end": 116170.889246,
+      "bytes": 4210,
+      "durationMs": 2.7440000121714547
+    },
+    {
+      "url": "http://localhost:3000/js/katalog.js",
+      "start": 116170.88547,
+      "type": "Script",
+      "end": 116170.889652,
+      "bytes": 5886,
+      "durationMs": 4.182000004220754
+    },
+    {
+      "url": "http://localhost:3000/js/pencarian.js",
+      "start": 116170.885884,
+      "type": "Script",
+      "end": 116170.88986,
+      "bytes": 2657,
+      "durationMs": 3.975999992690049
+    },
+    {
+      "url": "http://localhost:3000/js/promo.js",
+      "start": 116170.886878,
+      "type": "Script",
+      "end": 116170.889955,
+      "bytes": 2513,
+      "durationMs": 3.077000001212582
+    },
+    {
+      "url": "http://localhost:3000/js/keranjang.js",
+      "start": 116170.886297,
+      "type": "Script",
+      "end": 116170.890302,
+      "bytes": 6923,
+      "durationMs": 4.004999995231628
+    },
+    {
+      "url": "http://localhost:3000/js/gulir.js",
+      "start": 116170.887081,
+      "type": "Script",
+      "end": 116170.890268,
+      "bytes": 1945,
+      "durationMs": 3.1870000093476847
+    },
+    {
+      "url": "http://localhost:3000/js/kategori.js",
+      "start": 116170.8873,
+      "type": "Script",
+      "end": 116170.890502,
+      "bytes": 1684,
+      "durationMs": 3.201999992597848
+    },
+    {
+      "url": "http://localhost:3000/js/util.js",
+      "start": 116170.890552,
+      "type": "Script",
+      "end": 116170.892605,
+      "bytes": 2165,
+      "durationMs": 2.0530000037979335
+    },
+    {
+      "url": "http://localhost:3000/alat/ukur.js",
+      "start": 116170.899382,
+      "type": "Script",
+      "end": 116170.901375,
+      "bytes": 6685,
+      "durationMs": 1.9929999980377033
+    },
+    {
+      "url": "http://localhost:3000/api/produk",
+      "start": 116170.89881,
+      "type": "Fetch",
+      "end": 116171.083533,
+      "bytes": 347170,
+      "durationMs": 184.72299999848474
+    },
+    {
+      "url": "http://localhost:3000/api/pesanan",
+      "start": 116171.096665,
+      "type": "Fetch",
+      "end": 116171.121693,
+      "bytes": 412,
+      "durationMs": 25.02799998910632
+    },
+    {
+      "url": "http://localhost:3000/img/p/1.svg",
+      "start": 116171.131873,
+      "type": "Image",
+      "end": 116171.237839,
+      "bytes": 1100,
+      "durationMs": 105.96599998825695
+    },
+    {
+      "url": "http://localhost:3000/img/p/2.svg",
+      "start": 116171.132271,
+      "type": "Image",
+      "end": 116171.273193,
+      "bytes": 1108,
+      "durationMs": 140.92200000595767
+    },
+    {
+      "url": "http://localhost:3000/api/promo",
+      "start": 116170.898205,
+      "type": "Fetch",
+      "end": 116172.709238,
+      "bytes": 378,
+      "durationMs": 1811.0329999908572
+    },
+    {
+      "url": "http://localhost:3000/img/p/8.svg",
+      "start": 116178.494327,
+      "type": "Image",
+      "end": 116178.620712,
+      "bytes": 1105,
+      "durationMs": 126.38500001048669
+    },
+    {
+      "url": "http://localhost:3000/img/p/24.svg",
+      "start": 116178.494766,
+      "type": "Image",
+      "end": 116178.735795,
+      "bytes": 1098,
+      "durationMs": 241.02899999707006
+    }
+  ],
+  "requested": [
+    {
+      "url": "http://localhost:3000/?ukur=1",
+      "start": 116170.845853,
+      "type": "Document"
+    },
+    {
+      "url": "http://localhost:3000/css/toko.css",
+      "start": 116170.860408,
+      "type": "Stylesheet"
+    },
+    {
+      "url": "http://localhost:3000/vendor/lacak.min.js",
+      "start": 116170.860858,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/main.js",
+      "start": 116170.861235,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/katalog.js",
+      "start": 116170.88547,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/pencarian.js",
+      "start": 116170.885884,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/keranjang.js",
+      "start": 116170.886297,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/harga-promo.js",
+      "start": 116170.886502,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/promo.js",
+      "start": 116170.886878,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/gulir.js",
+      "start": 116170.887081,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/kategori.js",
+      "start": 116170.8873,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/js/util.js",
+      "start": 116170.890552,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/api/promo",
+      "start": 116170.898205,
+      "type": "Fetch"
+    },
+    {
+      "url": "http://localhost:3000/api/produk",
+      "start": 116170.89881,
+      "type": "Fetch"
+    },
+    {
+      "url": "http://localhost:3000/alat/ukur.js",
+      "start": 116170.899382,
+      "type": "Script"
+    },
+    {
+      "url": "http://localhost:3000/api/pesanan",
+      "start": 116171.096665,
+      "type": "Fetch"
+    },
+    {
+      "url": "http://localhost:3000/img/p/1.svg",
+      "start": 116171.131873,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/2.svg",
+      "start": 116171.132271,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/8.svg",
+      "start": 116178.494327,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/24.svg",
+      "start": 116178.494766,
+      "type": "Image"
+    }
+  ],
+  "errors": []
+}

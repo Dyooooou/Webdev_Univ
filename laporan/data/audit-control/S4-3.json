@@ -1,0 +1,536 @@
+{
+  "phase": "audit-control",
+  "scenario": "S4",
+  "run": 3,
+  "metrics": {
+    "waktu": "2026-10-11T23:23:00.571Z",
+    "jumlahLongTask": 0,
+    "longTaskTerlama": 0,
+    "totalBlokir": 0,
+    "jumlahInteraksi": 7,
+    "inp": 24,
+    "inpRinci": {
+      "durasi": 24,
+      "jenis": "pointerdown",
+      "target": "#tombol-voucher",
+      "tundaInput": 3,
+      "proses": 1,
+      "presentasi": 20
+    },
+    "limaInteraksiTerlambat": [
+      {
+        "durasi": 24,
+        "jenis": "pointerdown",
+        "target": "#tombol-voucher",
+        "tundaInput": 3,
+        "proses": 1,
+        "presentasi": 20
+      },
+      {
+        "durasi": 16,
+        "jenis": "keydown",
+        "target": "#kolom-cari",
+        "tundaInput": 0,
+        "proses": 0,
+        "presentasi": 16
+      },
+      {
+        "durasi": 16,
+        "jenis": "keydown",
+        "target": "#kolom-cari",
+        "tundaInput": 0,
+        "proses": 0,
+        "presentasi": 16
+      },
+      {
+        "durasi": 16,
+        "jenis": "keydown",
+        "target": "#kolom-cari",
+        "tundaInput": 0,
+        "proses": 0,
+        "presentasi": 16
+      },
+      {
+        "durasi": 16,
+        "jenis": "keydown",
+        "target": "#kolom-cari",
+        "tundaInput": 0,
+        "proses": 0,
+        "presentasi": 16
+      }
+    ],
+    "cls": 0,
+    "frameLambat": 1,
+    "frameTerburuk": 67,
+    "cart": "0",
+    "orders": "2",
+    "results": "51 produk ditampilkan",
+    "analytics": [
+      {
+        "e": "page_view",
+        "id": "1vm2qc7",
+        "sig": "1v8vv1",
+        "n": 48,
+        "u": "/",
+        "t": 1791760967189
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "8n6jet",
+        "n": 20,
+        "u": "/",
+        "t": 1791760967217
+      },
+      {
+        "e": "search",
+        "id": "1vm2qc7",
+        "sig": "1ud4q55",
+        "n": 29,
+        "u": "/",
+        "t": 1791760973877
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1emryj5",
+        "n": 21,
+        "u": "/",
+        "t": 1791760973905
+      },
+      {
+        "e": "apply_voucher",
+        "id": "1vm2qc7",
+        "sig": "4bvse1",
+        "n": 34,
+        "u": "/",
+        "t": 1791760977680
+      },
+      {
+        "e": "search",
+        "id": "1vm2qc7",
+        "sig": "1ud4q55",
+        "n": 29,
+        "u": "/",
+        "t": 1791760978196
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://localhost:3000/css/toko.css",
+        "duration": 1.5,
+        "start": 14.399999991059303,
+        "end": 15.899999991059303,
+        "bytes": 11607
+      },
+      {
+        "name": "http://localhost:3000/vendor/lacak.min.js",
+        "duration": 1.0999999940395355,
+        "start": 15,
+        "end": 16.099999994039536,
+        "bytes": 1120
+      },
+      {
+        "name": "http://localhost:3000/js/main.js",
+        "duration": 0.9000000059604645,
+        "start": 15.399999991059303,
+        "end": 16.299999997019768,
+        "bytes": 1163
+      },
+      {
+        "name": "http://localhost:3000/js/katalog.js",
+        "duration": 1.5999999940395355,
+        "start": 30,
+        "end": 31.599999994039536,
+        "bytes": 5971
+      },
+      {
+        "name": "http://localhost:3000/js/pencarian.js",
+        "duration": 1.2999999970197678,
+        "start": 30.200000002980232,
+        "end": 31.5,
+        "bytes": 2743
+      },
+      {
+        "name": "http://localhost:3000/js/keranjang.js",
+        "duration": 1,
+        "start": 30.5,
+        "end": 31.5,
+        "bytes": 7008
+      },
+      {
+        "name": "http://localhost:3000/js/harga-promo.js",
+        "duration": 1.5,
+        "start": 30.599999994039536,
+        "end": 32.099999994039536,
+        "bytes": 4410
+      },
+      {
+        "name": "http://localhost:3000/js/promo.js",
+        "duration": 1.4000000059604645,
+        "start": 30.899999991059303,
+        "end": 32.29999999701977,
+        "bytes": 2599
+      },
+      {
+        "name": "http://localhost:3000/js/gulir.js",
+        "duration": 1.2999999970197678,
+        "start": 31.299999997019768,
+        "end": 32.599999994039536,
+        "bytes": 2031
+      },
+      {
+        "name": "http://localhost:3000/js/kategori.js",
+        "duration": 1.2000000029802322,
+        "start": 31.5,
+        "end": 32.70000000298023,
+        "bytes": 1770
+      },
+      {
+        "name": "http://localhost:3000/js/util.js",
+        "duration": 1.0999999940395355,
+        "start": 47.70000000298023,
+        "end": 48.79999999701977,
+        "bytes": 2251
+      },
+      {
+        "name": "http://localhost:3000/api/promo",
+        "duration": 1804.4000000059605,
+        "start": 52.29999999701977,
+        "end": 1856.7000000029802,
+        "bytes": 479
+      },
+      {
+        "name": "http://localhost:3000/api/produk",
+        "duration": 190.59999999403954,
+        "start": 52.79999999701977,
+        "end": 243.3999999910593,
+        "bytes": 347268
+      },
+      {
+        "name": "http://localhost:3000/alat/ukur.js",
+        "duration": 0.7000000029802322,
+        "start": 53.5,
+        "end": 54.20000000298023,
+        "bytes": 6770
+      },
+      {
+        "name": "http://localhost:3000/api/pesanan",
+        "duration": 0.7999999970197678,
+        "start": 254.70000000298023,
+        "end": 255.5,
+        "bytes": 513
+      },
+      {
+        "name": "http://localhost:3000/img/p/1.svg",
+        "duration": 112.29999999701977,
+        "start": 287.70000000298023,
+        "end": 400,
+        "bytes": 1203
+      },
+      {
+        "name": "http://localhost:3000/img/p/2.svg",
+        "duration": 144.79999999701977,
+        "start": 288.20000000298023,
+        "end": 433,
+        "bytes": 1211
+      },
+      {
+        "name": "http://localhost:3000/img/p/8.svg",
+        "duration": 118.70000000298023,
+        "start": 6979.5,
+        "end": 7098.20000000298,
+        "bytes": 1208
+      },
+      {
+        "name": "http://localhost:3000/img/p/24.svg",
+        "duration": 230.20000000298023,
+        "start": 6980.0999999940395,
+        "end": 7210.29999999702,
+        "bytes": 1201
+      }
+    ],
+    "progress": {
+      "frames": [
+        {
+          "time": 10416.20000000298,
+          "value": "0",
+          "text": "\n      Menghitung harga promo… 0%\n      \n    "
+        },
+        {
+          "time": 10420.59999999404,
+          "value": "0",
+          "text": "\n      Menghitung harga promo… 0%\n      \n    "
+        },
+        {
+          "time": 10424.20000000298,
+          "value": "0",
+          "text": "\n      Menghitung harga promo… 0%\n      \n    "
+        },
+        {
+          "time": 10436.59999999404,
+          "value": "7",
+          "text": "\n      Menghitung harga promo… 7% (98 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10440.20000000298,
+          "value": "7",
+          "text": "\n      Menghitung harga promo… 7% (98 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10442.39999999106,
+          "value": "7",
+          "text": "\n      Menghitung harga promo… 7% (98 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10451.89999999106,
+          "value": "13",
+          "text": "\n      Menghitung harga promo… 13% (198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10454.79999999702,
+          "value": "13",
+          "text": "\n      Menghitung harga promo… 13% (198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10461.89999999106,
+          "value": "13",
+          "text": "\n      Menghitung harga promo… 13% (198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10466.09999999404,
+          "value": "13",
+          "text": "\n      Menghitung harga promo… 13% (198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10474.59999999404,
+          "value": "20",
+          "text": "\n      Menghitung harga promo… 20% (298 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10478.29999999702,
+          "value": "20",
+          "text": "\n      Menghitung harga promo… 20% (298 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10484.5,
+          "value": "20",
+          "text": "\n      Menghitung harga promo… 20% (298 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10491.39999999106,
+          "value": "27",
+          "text": "\n      Menghitung harga promo… 27% (398 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10496.79999999702,
+          "value": "27",
+          "text": "\n      Menghitung harga promo… 27% (398 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10502.59999999404,
+          "value": "27",
+          "text": "\n      Menghitung harga promo… 27% (398 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10510.09999999404,
+          "value": "33",
+          "text": "\n      Menghitung harga promo… 33% (498 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10514.70000000298,
+          "value": "33",
+          "text": "\n      Menghitung harga promo… 33% (498 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10520.70000000298,
+          "value": "33",
+          "text": "\n      Menghitung harga promo… 33% (498 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10528.29999999702,
+          "value": "40",
+          "text": "\n      Menghitung harga promo… 40% (598 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10533,
+          "value": "40",
+          "text": "\n      Menghitung harga promo… 40% (598 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10539,
+          "value": "40",
+          "text": "\n      Menghitung harga promo… 40% (598 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10548.5,
+          "value": "47",
+          "text": "\n      Menghitung harga promo… 47% (698 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10551.09999999404,
+          "value": "47",
+          "text": "\n      Menghitung harga promo… 47% (698 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10557,
+          "value": "47",
+          "text": "\n      Menghitung harga promo… 47% (698 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10563.09999999404,
+          "value": "47",
+          "text": "\n      Menghitung harga promo… 47% (698 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10570.29999999702,
+          "value": "53",
+          "text": "\n      Menghitung harga promo… 53% (798 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10575.5,
+          "value": "53",
+          "text": "\n      Menghitung harga promo… 53% (798 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10581.39999999106,
+          "value": "53",
+          "text": "\n      Menghitung harga promo… 53% (798 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10588.39999999106,
+          "value": "60",
+          "text": "\n      Menghitung harga promo… 60% (898 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10593.39999999106,
+          "value": "60",
+          "text": "\n      Menghitung harga promo… 60% (898 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10600.09999999404,
+          "value": "60",
+          "text": "\n      Menghitung harga promo… 60% (898 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10605.89999999106,
+          "value": "67",
+          "text": "\n      Menghitung harga promo… 67% (998 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10611.5,
+          "value": "67",
+          "text": "\n      Menghitung harga promo… 67% (998 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10617.59999999404,
+          "value": "67",
+          "text": "\n      Menghitung harga promo… 67% (998 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10625.5,
+          "value": "73",
+          "text": "\n      Menghitung harga promo… 73% (1098 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10630.09999999404,
+          "value": "73",
+          "text": "\n      Menghitung harga promo… 73% (1098 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10636.09999999404,
+          "value": "73",
+          "text": "\n      Menghitung harga promo… 73% (1098 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10645.20000000298,
+          "value": "80",
+          "text": "\n      Menghitung harga promo… 80% (1198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10647.89999999106,
+          "value": "80",
+          "text": "\n      Menghitung harga promo… 80% (1198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10654.20000000298,
+          "value": "80",
+          "text": "\n      Menghitung harga promo… 80% (1198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10660.20000000298,
+          "value": "80",
+          "text": "\n      Menghitung harga promo… 80% (1198 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10667.5,
+          "value": "87",
+          "text": "\n      Menghitung harga promo… 87% (1298 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10672.20000000298,
+          "value": "87",
+          "text": "\n      Menghitung harga promo… 87% (1298 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10678.29999999702,
+          "value": "87",
+          "text": "\n      Menghitung harga promo… 87% (1298 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10685.39999999106,
+          "value": "93",
+          "text": "\n      Menghitung harga promo… 93% (1398 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10690.5,
+          "value": "93",
+          "text": "\n      Menghitung harga promo… 93% (1398 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10696.5,
+          "value": "93",
+          "text": "\n      Menghitung harga promo… 93% (1398 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10704.09999999404,
+          "value": "100",
+          "text": "\n      Menghitung harga promo… 100% (1498 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10708.59999999404,
+          "value": "100",
+          "text": "\n      Menghitung harga promo… 100% (1498 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10714.59999999404,
+          "value": "100",
+          "text": "\n      Menghitung harga promo… 100% (1498 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10721.89999999106,
+          "value": "100",
+          "text": "\n      Menghitung harga promo… 100% (1500 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10727,
+          "value": "100",
+          "text": "\n      Menghitung harga promo… 100% (1500 dari 1500 produk)\n      \n    "
+        },
+        {
+          "time": 10733.29999999702,
+          "value": "100",
+          "text": "\n      Menghitung harga promo… 100% (1500 dari 1500 produk)\n      \n    "
+        }
+      ],
+      "inputs": [
+        10460.70000000298,
+        10598.5,
+        10731.20000000298
+      ]
+    }
+  },
+  "network": [],
+  "requested": [],
+  "errors": []
+}

@@ -1,0 +1,100 @@
+{
+  "S0": {
+    "runs": [],
+    "median": {}
+  },
+  "S1": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": 16,
+        "longTaskMs": 112,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 9.81887
+      },
+      {
+        "run": 2,
+        "inp": 24,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 9.01574
+      },
+      {
+        "run": 3,
+        "inp": 16,
+        "longTaskMs": 106,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 8.84346
+      }
+    ],
+    "median": {
+      "inp": 16,
+      "longTaskMs": 106,
+      "cls": 0,
+      "orders": 2,
+      "slowFrames10s": 1,
+      "mainTaskBusyPercent10s": 9.01574
+    }
+  },
+  "S2": {
+    "runs": [],
+    "median": {}
+  },
+  "S3": {
+    "runs": [],
+    "median": {}
+  },
+  "S4": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": 24,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 6.999
+      },
+      {
+        "run": 2,
+        "inp": 24,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 6.63933
+      },
+      {
+        "run": 3,
+        "inp": 24,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 6.86181
+      }
+    ],
+    "median": {
+      "inp": 24,
+      "longTaskMs": 0,
+      "cls": 0,
+      "orders": 2,
+      "slowFrames10s": 0,
+      "mainTaskBusyPercent10s": 6.86181
+    }
+  },
+  "S5": {
+    "runs": [],
+    "median": {}
+  },
+  "S6": {
+    "runs": [],
+    "median": {}
+  }
+}

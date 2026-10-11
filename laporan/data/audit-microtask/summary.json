@@ -1,0 +1,65 @@
+{
+  "S0": {
+    "runs": [],
+    "median": {}
+  },
+  "S1": {
+    "runs": [],
+    "median": {}
+  },
+  "S2": {
+    "runs": [],
+    "median": {}
+  },
+  "S3": {
+    "runs": [],
+    "median": {}
+  },
+  "S4": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": 704,
+        "longTaskMs": 686,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 2,
+        "mainTaskBusyPercent10s": 14.05451
+      },
+      {
+        "run": 2,
+        "inp": 1184,
+        "longTaskMs": 1170,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 2,
+        "mainTaskBusyPercent10s": 18.30573
+      },
+      {
+        "run": 3,
+        "inp": 688,
+        "longTaskMs": 674,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 2,
+        "mainTaskBusyPercent10s": 15.10168
+      }
+    ],
+    "median": {
+      "inp": 704,
+      "longTaskMs": 686,
+      "cls": 0,
+      "orders": 2,
+      "slowFrames10s": 2,
+      "mainTaskBusyPercent10s": 15.10168
+    }
+  },
+  "S5": {
+    "runs": [],
+    "median": {}
+  },
+  "S6": {
+    "runs": [],
+    "median": {}
+  }
+}
