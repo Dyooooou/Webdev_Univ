@@ -1,0 +1,163 @@
+{
+  "phase": "promo",
+  "scenario": "S6",
+  "run": 2,
+  "metrics": {
+    "waktu": "2026-10-11T23:16:57.688Z",
+    "jumlahLongTask": 1,
+    "longTaskTerlama": 61,
+    "totalBlokir": 11,
+    "jumlahInteraksi": 0,
+    "inp": null,
+    "inpRinci": null,
+    "limaInteraksiTerlambat": [],
+    "cls": 0,
+    "frameLambat": 5,
+    "frameTerburuk": 236,
+    "cart": "0",
+    "orders": "2",
+    "results": "1.500 produk ditampilkan",
+    "analytics": [
+      {
+        "e": "page_view",
+        "id": "1vm2qc7",
+        "sig": "1v8vv1",
+        "n": 48,
+        "u": "/",
+        "t": 1791760591826
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "8n6jet",
+        "n": 20,
+        "u": "/",
+        "t": 1791760591857
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://localhost:3000/css/toko.css",
+        "duration": 1.4000000059604645,
+        "start": 82.09999999403954,
+        "end": 83.5,
+        "bytes": 11607
+      },
+      {
+        "name": "http://localhost:3000/vendor/lacak.min.js",
+        "duration": 0.9000000059604645,
+        "start": 82.79999999701977,
+        "end": 83.70000000298023,
+        "bytes": 1120
+      },
+      {
+        "name": "http://localhost:3000/js/main.js",
+        "duration": 1.2000000029802322,
+        "start": 83,
+        "end": 84.20000000298023,
+        "bytes": 1163
+      },
+      {
+        "name": "http://localhost:3000/js/katalog.js",
+        "duration": 1.7000000029802322,
+        "start": 100.8999999910593,
+        "end": 102.59999999403954,
+        "bytes": 5971
+      },
+      {
+        "name": "http://localhost:3000/js/pencarian.js",
+        "duration": 1.5,
+        "start": 101.09999999403954,
+        "end": 102.59999999403954,
+        "bytes": 2743
+      },
+      {
+        "name": "http://localhost:3000/js/keranjang.js",
+        "duration": 1.2000000029802322,
+        "start": 101.3999999910593,
+        "end": 102.59999999403954,
+        "bytes": 7008
+      },
+      {
+        "name": "http://localhost:3000/js/harga-promo.js",
+        "duration": 1.5,
+        "start": 101.59999999403954,
+        "end": 103.09999999403954,
+        "bytes": 4410
+      },
+      {
+        "name": "http://localhost:3000/js/promo.js",
+        "duration": 1.0999999940395355,
+        "start": 102,
+        "end": 103.09999999403954,
+        "bytes": 2599
+      },
+      {
+        "name": "http://localhost:3000/js/gulir.js",
+        "duration": 1.0999999940395355,
+        "start": 102.20000000298023,
+        "end": 103.29999999701977,
+        "bytes": 2031
+      },
+      {
+        "name": "http://localhost:3000/js/kategori.js",
+        "duration": 0.7000000029802322,
+        "start": 102.59999999403954,
+        "end": 103.29999999701977,
+        "bytes": 1770
+      },
+      {
+        "name": "http://localhost:3000/js/util.js",
+        "duration": 1.0999999940395355,
+        "start": 120.29999999701977,
+        "end": 121.3999999910593,
+        "bytes": 2251
+      },
+      {
+        "name": "http://localhost:3000/api/promo",
+        "duration": 1808.5999999940395,
+        "start": 126,
+        "end": 1934.5999999940395,
+        "bytes": 479
+      },
+      {
+        "name": "http://localhost:3000/api/produk",
+        "duration": 183.1000000089407,
+        "start": 126.59999999403954,
+        "end": 309.70000000298023,
+        "bytes": 347268
+      },
+      {
+        "name": "http://localhost:3000/alat/ukur.js",
+        "duration": 0.8999999910593033,
+        "start": 127,
+        "end": 127.8999999910593,
+        "bytes": 6770
+      },
+      {
+        "name": "http://localhost:3000/api/pesanan",
+        "duration": 1,
+        "start": 322.3999999910593,
+        "end": 323.3999999910593,
+        "bytes": 513
+      },
+      {
+        "name": "http://localhost:3000/img/p/1.svg",
+        "duration": 101.5,
+        "start": 357.5,
+        "end": 459,
+        "bytes": 1203
+      },
+      {
+        "name": "http://localhost:3000/img/p/2.svg",
+        "duration": 150,
+        "start": 358,
+        "end": 508,
+        "bytes": 1211
+      }
+    ]
+  },
+  "network": [],
+  "requested": [],
+  "errors": []
+}

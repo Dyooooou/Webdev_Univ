@@ -1,0 +1,132 @@
+{
+  "S0": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 4,
+        "mainTaskBusyPercent10s": 13.66921,
+        "imageRequests10sAfterDOM": 2,
+        "imageRequests10sFromNavigation": 2,
+        "imageRequests": 2,
+        "domContentLoadedS": 0.06577699999616016,
+        "lastObservedImageEndS": 0.511253000004217,
+        "completedImages": 2,
+        "imageBytes": 2208,
+        "apiMs": 190.02900000486989
+      },
+      {
+        "run": 2,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 13.94677,
+        "imageRequests10sAfterDOM": 2,
+        "imageRequests10sFromNavigation": 2,
+        "imageRequests": 2,
+        "domContentLoadedS": 0.0021249999990686774,
+        "lastObservedImageEndS": 0.5076929999922868,
+        "completedImages": 2,
+        "imageBytes": 2208,
+        "apiMs": 183.25099999492522
+      },
+      {
+        "run": 3,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 13.73281,
+        "imageRequests10sAfterDOM": 2,
+        "imageRequests10sFromNavigation": 2,
+        "imageRequests": 2,
+        "domContentLoadedS": 0.002010000011068769,
+        "lastObservedImageEndS": 0.5098580000048969,
+        "completedImages": 2,
+        "imageBytes": 2208,
+        "apiMs": 193.08500000624917
+      }
+    ],
+    "median": {
+      "inp": null,
+      "longTaskMs": 0,
+      "cls": 0,
+      "orders": 2,
+      "slowFrames10s": 1,
+      "mainTaskBusyPercent10s": 13.73281,
+      "imageRequests10sAfterDOM": 2,
+      "imageRequests10sFromNavigation": 2,
+      "imageRequests": 2,
+      "domContentLoadedS": 0.0021249999990686774,
+      "lastObservedImageEndS": 0.5098580000048969,
+      "completedImages": 2,
+      "imageBytes": 2208,
+      "apiMs": 190.02900000486989
+    }
+  },
+  "S1": {
+    "runs": [],
+    "median": {}
+  },
+  "S2": {
+    "runs": [],
+    "median": {}
+  },
+  "S3": {
+    "runs": [],
+    "median": {}
+  },
+  "S4": {
+    "runs": [],
+    "median": {}
+  },
+  "S5": {
+    "runs": [],
+    "median": {}
+  },
+  "S6": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": null,
+        "longTaskMs": 65,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 12.20033
+      },
+      {
+        "run": 2,
+        "inp": null,
+        "longTaskMs": 61,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 2,
+        "mainTaskBusyPercent10s": 11.29926
+      },
+      {
+        "run": 3,
+        "inp": null,
+        "longTaskMs": 63,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 4,
+        "mainTaskBusyPercent10s": 11.12948
+      }
+    ],
+    "median": {
+      "inp": null,
+      "longTaskMs": 63,
+      "cls": 0,
+      "orders": 2,
+      "slowFrames10s": 2,
+      "mainTaskBusyPercent10s": 11.29926
+    }
+  }
+}

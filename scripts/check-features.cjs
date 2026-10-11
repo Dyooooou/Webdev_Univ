@@ -48,6 +48,18 @@ const mode=process.argv[2]||'catalog';
   await page.evaluate(()=>{const x=JSON.parse(localStorage.tk_keranjang);x[0].jumlah=98;localStorage.tk_keranjang=JSON.stringify(x);});
   await page.locator('.tombol-tambah').first().click();await page.locator('.tombol-tambah').first().click();assert.equal(await page.locator('#lencana-keranjang').textContent(),'99');checks.push('cart quantity limit 99 retained');
  }
+ if(mode==='promo'||mode==='all') {
+  const initial=await page.locator('#hm-detik').textContent();await page.waitForTimeout(1200);assert.notEqual(await page.locator('#hm-detik').textContent(),initial);checks.push('countdown changes once per second');
+  assert.equal(await page.locator('#berjalan-teks').evaluate(e=>getComputedStyle(e).animationName),'berjalan');
+  await page.emulateMedia({reducedMotion:'reduce'});assert.equal(await page.locator('#berjalan-teks').evaluate(e=>getComputedStyle(e).animationName),'none');await page.emulateMedia({reducedMotion:'no-preference'});checks.push('marquee retained and reduced motion honored');
+  for(const width of [320,412,560,1280]) {await page.setViewportSize({width,height:915});await page.waitForTimeout(150);assert.equal(await page.locator('#slot-promo').evaluate(e=>e.scrollHeight>e.clientHeight+2),false);}
+  checks.push('promo content fits reserved slot at 320/412/560/1280 px');await page.setViewportSize({width:412,height:915});
+  await page.locator('#slot-promo button').click();await page.locator('#kolom-cari').fill('sepatu');await page.waitForTimeout(350);await page.locator('#kolom-cari').fill('');await page.waitForTimeout(350);
+  await page.locator('#tombol-voucher').click();await page.waitForFunction(()=>document.querySelector('#progres').hidden);await page.waitForTimeout(200);
+  const events=await page.evaluate(()=>window.Lacak.antrian.map(x=>x.e));
+  for(const event of mode==='all'?['page_view','search','impression','add_to_cart','begin_checkout','apply_voucher','promo_click']:['page_view','search','impression','apply_voucher','promo_click'])assert.ok(events.includes(event),event);
+  checks.push('required analytics events retain meaningful SDK calls');
+ }
  assert.deepEqual(errors,[]);
  fs.mkdirSync('laporan/data',{recursive:true});fs.writeFileSync(`laporan/data/features-${mode}.json`,JSON.stringify({date:new Date().toISOString(),products:products.length,checks,errors},null,2));console.log(checks);
  await browser.close();

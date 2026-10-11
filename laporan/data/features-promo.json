@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-11T23:18:05.957Z",
+  "products": 1500,
+  "checks": [
+    "all products retained; DOM bounded",
+    "search count and ids exact",
+    "empty search, clearing, price sort",
+    "first, middle, and final catalogue rows reachable by scrolling",
+    "560 px cards have no clipped content",
+    "desktop resize keeps bounded DOM",
+    "category ids/count correct",
+    "countdown changes once per second",
+    "marquee retained and reduced motion honored",
+    "promo content fits reserved slot at 320/412/560/1280 px",
+    "required analytics events retain meaningful SDK calls"
+  ],
+  "errors": []
+}

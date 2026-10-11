@@ -1,6 +1,6 @@
 // Elemen kampanye: hitung mundur, teks berjalan, dan banner promo.
 
-import { $, el, tampilkanToast } from './util.js';
+import { $, el, tampilkanToast, kirimAnalitik } from './util.js';
 
 // Flash sale berakhir tengah malam nanti (waktu perangkat).
 function akhirFlashSale() {
@@ -14,50 +14,48 @@ const duaDigit = (n) => String(n).padStart(2, '0');
 function pasangHitungMundur() {
   const akhir = akhirFlashSale();
   const awal = Date.now();
-  const wadah = $('#hitung-mundur');
   const garis = $('#hm-garis');
-  const jam = $('#hm-jam'), menit = $('#hm-menit'), detik = $('#hm-detik'), senti = $('#hm-senti');
-
-  // 10 ms supaya angka perseratus detik terlihat mulus
-  setInterval(() => {
+  const jam = $('#hm-jam'), menit = $('#hm-menit'), detik = $('#hm-detik');
+  const perbarui = () => {
     const sisa = Math.max(akhir - Date.now(), 0);
     jam.textContent = duaDigit(Math.floor(sisa / 3600000));
     menit.textContent = duaDigit(Math.floor((sisa % 3600000) / 60000));
     detik.textContent = duaDigit(Math.floor((sisa % 60000) / 1000));
-    senti.textContent = duaDigit(Math.floor((sisa % 1000) / 10));
-
-    // garis di bawah angka menyusut mengikuti sisa waktu
-    const lebarPenuh = wadah.offsetWidth;
-    garis.style.width = Math.round(lebarPenuh * (sisa / (akhir - awal + 1))) + 'px';
-  }, 10);
+    garis.style.transform = `scaleX(${sisa / (akhir - awal + 1)})`;
+  };
+  let timer;
+  const visibilitas = () => {
+    clearInterval(timer);
+    document.documentElement.classList.toggle('tab-tersembunyi', document.hidden);
+    if (!document.hidden) { perbarui(); timer = setInterval(perbarui, 1000); }
+  };
+  document.addEventListener('visibilitychange', visibilitas);
+  visibilitas();
 }
 
 function pasangTeksBerjalan() {
-  const teks = $('#berjalan-teks');
-  let x = teks.parentElement.offsetWidth;
-  setInterval(() => {
-    x -= 1;
-    if (x < -teks.offsetWidth) x = teks.parentElement.offsetWidth;
-    teks.style.left = x + 'px';
-  }, 10);
+  // CSS transform animation is eligible for compositor execution.
+  $('#berjalan-teks').classList.add('bergerak');
 }
 
 async function pasangBannerPromo() {
+  const banner = $('#slot-promo');
+  try {
   const respons = await fetch('/api/promo');
+  if (!respons.ok) throw new Error('Promo tidak tersedia');
   const promo = await respons.json();
-
-  const banner = el('section', 'promo-banner');
   const teks = el('div');
   teks.append(el('h2', '', promo.judul), el('p', '', promo.isi));
   const tombol = el('button', '', promo.tombol);
   tombol.type = 'button';
   tombol.addEventListener('click', () => {
     tampilkanToast('Syarat promo: berlaku 12 Desember, satu voucher per akun, tidak bisa digabung.');
-    if (window.Lacak) window.Lacak.kirim('promo_click', { judul: promo.judul });
+    kirimAnalitik('promo_click', { judul: promo.judul });
   });
-  banner.append(teks, tombol);
-
-  $('#utama').prepend(banner);
+  banner.replaceChildren(teks, tombol);
+  } catch {
+    banner.replaceChildren(el('p', '', 'Penawaran belum tersedia. Produk dan voucher tetap dapat digunakan.'));
+  } finally { banner.removeAttribute('aria-busy'); }
 }
 
 export function pasangPromo() {
