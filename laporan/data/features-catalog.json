@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-11T23:06:07.953Z",
+  "products": 1500,
+  "checks": [
+    "all products retained; DOM bounded",
+    "search count and ids exact",
+    "empty search, clearing, price sort",
+    "first, middle, and final catalogue rows reachable by scrolling",
+    "560 px cards have no clipped content",
+    "desktop resize keeps bounded DOM",
+    "category ids/count correct"
+  ],
+  "errors": []
+}

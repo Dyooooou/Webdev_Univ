@@ -2,7 +2,7 @@
 
 import { $, el, formatRupiah, formatRibuan, hargaSetelahDiskon } from './util.js';
 import { tambahKeKeranjang, beliSekarang } from './keranjang.js';
-import { periksaGulir } from './gulir.js';
+import { amatiKartu, lepasKartu } from './gulir.js';
 
 export const keadaan = {
   semuaProduk: [],
@@ -19,13 +19,16 @@ export async function muatProduk() {
 function buatKartu(produk) {
   const kartu = el('article', 'kartu');
   kartu.dataset.id = produk.id;
+  kartu.setAttribute('role', 'listitem');
 
   if (produk.flashSale) kartu.append(el('span', 'lencana-kilat', '⚡ Kilat'));
 
   const media = el('a', 'kartu-media');
   media.href = '#produk-' + produk.id;
   const gambar = document.createElement('img');
-  gambar.src = produk.gambar;
+  gambar.dataset.src = produk.gambar;
+  gambar.width = gambar.height = 480;
+  gambar.decoding = 'async';
   gambar.alt = produk.nama;
   media.append(gambar);
 
@@ -59,28 +62,68 @@ function buatKartu(produk) {
   return kartu;
 }
 
-// Judul produk panjangnya beda-beda (1-3 baris). Supaya harga & tombol dalam
-// satu deret sejajar rapi, tinggi judul disamakan mengikuti judul tertinggi.
-// Mengukur semua judul terlalu lambat, jadi cukup ukur sebagian sebagai contoh.
-const JUMLAH_CONTOH = 24;
+// Full data stays in memory. Only a viewport-sized window occupies the DOM.
+// A fixed row pitch preserves the scrollbar and makes every result reachable.
+const TINGGI_BARIS = 520;
+const kartuAktif = new Map();
+let terpasang = false, terjadwal = false;
 
-function samakanTinggiJudul() {
-  const judul = document.querySelectorAll('.kartu-judul');
-  let tertinggi = 0;
-  for (let i = 0; i < judul.length && i < JUMLAH_CONTOH; i++) {
-    const j = judul[i];
-    j.style.height = 'auto';
-    const tinggi = j.offsetHeight;
-    if (tinggi > tertinggi) tertinggi = tinggi;
-    j.style.height = tertinggi + 'px';
+export function perbaruiJendela() {
+  const kisi = $('#kisi');
+  const kotak = kisi.getBoundingClientRect(); // all geometry reads precede writes
+  const lebar = kotak.width;
+  const celah = window.innerWidth <= 560 ? 8 : 12;
+  const kolom = window.innerWidth <= 560 ? 2 : Math.max(1, Math.floor((lebar + celah) / 180));
+  const jumlah = keadaan.ditampilkan.length;
+  if (!jumlah) return;
+  const baris = Math.ceil(jumlah / kolom);
+  const awal = Math.min(baris - 1, Math.max(0, Math.floor(-kotak.top / TINGGI_BARIS) - 1));
+  const akhir = Math.min(baris, Math.max(awal + 1, Math.ceil((innerHeight - kotak.top) / TINGGI_BARIS) + 1));
+  const perlu = new Set();
+  kisi.style.height = baris * TINGGI_BARIS + 'px';
+  for (let i = awal * kolom; i < Math.min(jumlah, akhir * kolom); i++) {
+    const produk = keadaan.ditampilkan[i];
+    perlu.add(produk.id);
+    let kartu = kartuAktif.get(produk.id);
+    if (!kartu) {
+      kartu = buatKartu(produk); kartuAktif.set(produk.id, kartu);
+      kartu.setAttribute('aria-setsize', jumlah);
+      kartu.setAttribute('aria-posinset', i + 1);
+      kisi.append(kartu); amatiKartu(kartu);
+    }
+    kartu.style.width = (lebar + celah) / kolom - celah + 'px';
+    kartu.style.left = (i % kolom) * (lebar + celah) / kolom + 'px';
+    kartu.style.top = Math.floor(i / kolom) * TINGGI_BARIS + 'px';
   }
-  judul.forEach((j) => { j.style.height = tertinggi + 'px'; });
+  for (const [id, kartu] of kartuAktif) {
+    // Preserve a focused card until focus leaves it, including keyboard users.
+    if (!perlu.has(id) && !kartu.contains(document.activeElement)) {
+      lepasKartu(kartu); kartu.remove(); kartuAktif.delete(id);
+    }
+  }
+}
+
+function jadwalkanJendela() {
+  if (terjadwal) return;
+  terjadwal = true;
+  requestAnimationFrame(() => { terjadwal = false; perbaruiJendela(); });
 }
 
 export function renderProduk(daftar) {
   const kisi = $('#kisi');
   keadaan.ditampilkan = daftar;
-  kisi.innerHTML = '';
+  for (const kartu of kartuAktif.values()) lepasKartu(kartu);
+  kartuAktif.clear();
+  kisi.replaceChildren();
+  kisi.style.height = '';
+  kisi.setAttribute('role', 'list');
+  if (!terpasang) {
+    window.addEventListener('scroll', jadwalkanJendela, { passive: true });
+    window.addEventListener('resize', jadwalkanJendela, { passive: true });
+    kisi.addEventListener('focusout', jadwalkanJendela);
+    new ResizeObserver(jadwalkanJendela).observe(kisi);
+    terpasang = true;
+  }
 
   if (daftar.length === 0) {
     const kosong = el('div', 'kosong');
@@ -88,16 +131,15 @@ export function renderProduk(daftar) {
     kisi.append(kosong);
   }
 
-  for (const produk of daftar) {
-    kisi.append(buatKartu(produk));
-  }
-
-  samakanTinggiJudul();
+  perbaruiJendela();
   $('#ringkasan').textContent = daftar.length.toLocaleString('id-ID') + ' produk ditampilkan';
-  periksaGulir();
 }
 
 
 export function perbaruiHargaVoucherDiKartu() {
-  renderProduk(keadaan.ditampilkan);
+  for (const [id, kartu] of kartuAktif) {
+    kartu.querySelector('.harga-voucher')?.remove();
+    const nilai = keadaan.hargaVoucher.get(id);
+    if (nilai) kartu.querySelector('.harga').append(el('span', 'harga-voucher', 'Pakai voucher: ' + formatRupiah(nilai)));
+  }
 }

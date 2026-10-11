@@ -4,6 +4,8 @@ import { $, el, hargaSetelahDiskon } from './util.js';
 import { keadaan, renderProduk } from './katalog.js';
 
 const saringan = { kata: '', kategori: 'Semua', urut: 'relevan' };
+const indeks = new WeakMap();
+let tundaCari;
 
 // "Sepatu Lari" == "sepatu  lari" == "SEPATU-LARI"
 function normalkan(teks) {
@@ -16,7 +18,8 @@ function normalkan(teks) {
 }
 
 function cocok(produk, kunci) {
-  const teks = normalkan(produk.nama + ' ' + produk.merek + ' ' + produk.kategori + ' ' + produk.kota);
+  let teks = indeks.get(produk);
+  if (!teks) { teks = normalkan(produk.nama + ' ' + produk.merek + ' ' + produk.kategori + ' ' + produk.kota); indeks.set(produk, teks); }
   return kunci.split(' ').every((k) => teks.includes(k));
 }
 
@@ -44,7 +47,8 @@ export function pasangPencarian() {
   const kolom = $('#kolom-cari');
   kolom.addEventListener('input', () => {
     saringan.kata = kolom.value;
-    terapkanSaringan();
+    clearTimeout(tundaCari);
+    tundaCari = setTimeout(terapkanSaringan, 150);
   });
 
   $('#pilih-urut').addEventListener('change', (e) => {

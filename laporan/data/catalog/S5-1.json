@@ -1,0 +1,1415 @@
+{
+  "phase": "catalog",
+  "scenario": "S5",
+  "run": 1,
+  "metrics": {
+    "waktu": "2026-10-11T23:04:12.893Z",
+    "jumlahLongTask": 1,
+    "longTaskTerlama": 52,
+    "totalBlokir": 2,
+    "jumlahInteraksi": 0,
+    "inp": null,
+    "inpRinci": null,
+    "limaInteraksiTerlambat": [],
+    "cls": 0,
+    "frameLambat": 3,
+    "frameTerburuk": 230,
+    "cart": "0",
+    "orders": "3",
+    "results": "1.500 produk ditampilkan",
+    "analytics": [
+      {
+        "e": "page_view",
+        "id": "1vm2qc7",
+        "sig": "1v8vv1",
+        "n": 48,
+        "u": "/",
+        "t": 1791759830324
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "8n6jet",
+        "n": 20,
+        "u": "/",
+        "t": 1791759830361
+      },
+      {
+        "e": "search",
+        "id": "1vm2qc7",
+        "sig": "1ud4q55",
+        "n": 29,
+        "u": "/",
+        "t": 1791759837103
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1emryj5",
+        "n": 21,
+        "u": "/",
+        "t": 1791759837142
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "4428v1",
+        "n": 20,
+        "u": "/",
+        "t": 1791759840981
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "82i2ul",
+        "n": 20,
+        "u": "/",
+        "t": 1791759841446
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "um00it",
+        "n": 16,
+        "u": "/",
+        "t": 1791759841849
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "a3ng91",
+        "n": 21,
+        "u": "/",
+        "t": 1791759842155
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "ky6a1h",
+        "n": 22,
+        "u": "/",
+        "t": 1791759842517
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1b9ctdh",
+        "n": 22,
+        "u": "/",
+        "t": 1791759842979
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1vdj53x",
+        "n": 22,
+        "u": "/",
+        "t": 1791759843352
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "11q9o8t",
+        "n": 22,
+        "u": "/",
+        "t": 1791759843714
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "2v6joh",
+        "n": 22,
+        "u": "/",
+        "t": 1791759844069
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "64zuqt",
+        "n": 22,
+        "u": "/",
+        "t": 1791759844561
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "sc0jox",
+        "n": 17,
+        "u": "/",
+        "t": 1791759844908
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "ctr44t",
+        "n": 22,
+        "u": "/",
+        "t": 1791759845379
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1v0ug99",
+        "n": 22,
+        "u": "/",
+        "t": 1791759845735
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1mszh2x",
+        "n": 22,
+        "u": "/",
+        "t": 1791759846183
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1tvisth",
+        "n": 22,
+        "u": "/",
+        "t": 1791759846535
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "3xhsml",
+        "n": 22,
+        "u": "/",
+        "t": 1791759846929
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "14uxh3x",
+        "n": 22,
+        "u": "/",
+        "t": 1791759847251
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1b7zbkl",
+        "n": 22,
+        "u": "/",
+        "t": 1791759847722
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "10tei2p",
+        "n": 22,
+        "u": "/",
+        "t": 1791759848062
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "13ynqd1",
+        "n": 22,
+        "u": "/",
+        "t": 1791759848424
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1eylofx",
+        "n": 22,
+        "u": "/",
+        "t": 1791759848777
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "rbvji5",
+        "n": 22,
+        "u": "/",
+        "t": 1791759849245
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "15vlmv9",
+        "n": 22,
+        "u": "/",
+        "t": 1791759849576
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "yp1ga9",
+        "n": 22,
+        "u": "/",
+        "t": 1791759850105
+      },
+      {
+        "e": "impression",
+        "id": "1vm2qc7",
+        "sig": "1wzo9k5",
+        "n": 22,
+        "u": "/",
+        "t": 1791759850457
+      }
+    ],
+    "resources": [
+      {
+        "name": "http://localhost:3000/css/toko.css",
+        "duration": 1.7999999970197678,
+        "start": 16.80000001192093,
+        "end": 18.600000008940697,
+        "bytes": 11011
+      },
+      {
+        "name": "http://localhost:3000/vendor/lacak.min.js",
+        "duration": 1.2999999970197678,
+        "start": 17.400000005960464,
+        "end": 18.700000002980232,
+        "bytes": 1120
+      },
+      {
+        "name": "http://localhost:3000/js/main.js",
+        "duration": 1.7999999970197678,
+        "start": 17.700000002980232,
+        "end": 19.5,
+        "bytes": 1163
+      },
+      {
+        "name": "http://localhost:3000/js/katalog.js",
+        "duration": 1.2999999970197678,
+        "start": 36.80000001192093,
+        "end": 38.1000000089407,
+        "bytes": 5997
+      },
+      {
+        "name": "http://localhost:3000/js/pencarian.js",
+        "duration": 0.8999999910593033,
+        "start": 37.1000000089407,
+        "end": 38,
+        "bytes": 2743
+      },
+      {
+        "name": "http://localhost:3000/js/keranjang.js",
+        "duration": 0.9000000059604645,
+        "start": 37.5,
+        "end": 38.400000005960464,
+        "bytes": 5956
+      },
+      {
+        "name": "http://localhost:3000/js/harga-promo.js",
+        "duration": 0.9000000059604645,
+        "start": 38,
+        "end": 38.900000005960464,
+        "bytes": 3401
+      },
+      {
+        "name": "http://localhost:3000/js/promo.js",
+        "duration": 1,
+        "start": 38.30000001192093,
+        "end": 39.30000001192093,
+        "bytes": 2491
+      },
+      {
+        "name": "http://localhost:3000/js/gulir.js",
+        "duration": 0.7999999970197678,
+        "start": 38.70000000298023,
+        "end": 39.5,
+        "bytes": 2031
+      },
+      {
+        "name": "http://localhost:3000/js/kategori.js",
+        "duration": 0.9000000059604645,
+        "start": 39,
+        "end": 39.900000005960464,
+        "bytes": 1770
+      },
+      {
+        "name": "http://localhost:3000/js/util.js",
+        "duration": 1.5999999940395355,
+        "start": 58.6000000089407,
+        "end": 60.20000000298023,
+        "bytes": 1966
+      },
+      {
+        "name": "http://localhost:3000/api/promo",
+        "duration": 1806.7999999970198,
+        "start": 64.1000000089407,
+        "end": 1870.9000000059605,
+        "bytes": 479
+      },
+      {
+        "name": "http://localhost:3000/api/produk",
+        "duration": 187.90000000596046,
+        "start": 64.70000000298023,
+        "end": 252.6000000089407,
+        "bytes": 347268
+      },
+      {
+        "name": "http://localhost:3000/alat/ukur.js",
+        "duration": 1.300000011920929,
+        "start": 65.5,
+        "end": 66.80000001192093,
+        "bytes": 6770
+      },
+      {
+        "name": "http://localhost:3000/api/pesanan",
+        "duration": 0.7999999970197678,
+        "start": 267.30000001192093,
+        "end": 268.1000000089407,
+        "bytes": 619
+      },
+      {
+        "name": "http://localhost:3000/img/p/1.svg",
+        "duration": 98.79999999701977,
+        "start": 307.40000000596046,
+        "end": 406.20000000298023,
+        "bytes": 1203
+      },
+      {
+        "name": "http://localhost:3000/img/p/2.svg",
+        "duration": 140.69999998807907,
+        "start": 307.80000001192093,
+        "end": 448.5,
+        "bytes": 1211
+      },
+      {
+        "name": "http://localhost:3000/img/p/8.svg",
+        "duration": 131.59999999403954,
+        "start": 7090.600000008941,
+        "end": 7222.20000000298,
+        "bytes": 1208
+      },
+      {
+        "name": "http://localhost:3000/img/p/24.svg",
+        "duration": 238.20000000298023,
+        "start": 7091.20000000298,
+        "end": 7329.4000000059605,
+        "bytes": 1201
+      },
+      {
+        "name": "http://localhost:3000/img/p/3.svg",
+        "duration": 184.29999999701977,
+        "start": 10807.300000011921,
+        "end": 10991.60000000894,
+        "bytes": 1208
+      },
+      {
+        "name": "http://localhost:3000/img/p/4.svg",
+        "duration": 222.59999999403954,
+        "start": 10807.90000000596,
+        "end": 11030.5,
+        "bytes": 1209
+      },
+      {
+        "name": "http://localhost:3000/img/p/5.svg",
+        "duration": 254.69999998807907,
+        "start": 11171.300000011921,
+        "end": 11426,
+        "bytes": 1200
+      },
+      {
+        "name": "http://localhost:3000/img/p/6.svg",
+        "duration": 292.09999999403954,
+        "start": 11171.60000000894,
+        "end": 11463.70000000298,
+        "bytes": 1206
+      },
+      {
+        "name": "http://localhost:3000/img/p/7.svg",
+        "duration": 86.30000001192093,
+        "start": 11510.5,
+        "end": 11596.800000011921,
+        "bytes": 1208
+      },
+      {
+        "name": "http://localhost:3000/img/p/9.svg",
+        "duration": 165.29999999701977,
+        "start": 11983.60000000894,
+        "end": 12148.90000000596,
+        "bytes": 1215
+      },
+      {
+        "name": "http://localhost:3000/img/p/10.svg",
+        "duration": 197.6000000089407,
+        "start": 11984,
+        "end": 12181.60000000894,
+        "bytes": 1207
+      },
+      {
+        "name": "http://localhost:3000/img/p/11.svg",
+        "duration": 232,
+        "start": 12341.70000000298,
+        "end": 12573.70000000298,
+        "bytes": 1206
+      },
+      {
+        "name": "http://localhost:3000/img/p/12.svg",
+        "duration": 270.8999999910593,
+        "start": 12342.10000000894,
+        "end": 12613,
+        "bytes": 1203
+      },
+      {
+        "name": "http://localhost:3000/img/p/13.svg",
+        "duration": 62.599999994039536,
+        "start": 12693.300000011921,
+        "end": 12755.90000000596,
+        "bytes": 1205
+      },
+      {
+        "name": "http://localhost:3000/img/p/14.svg",
+        "duration": 103.5,
+        "start": 12693.800000011921,
+        "end": 12797.300000011921,
+        "bytes": 1205
+      },
+      {
+        "name": "http://localhost:3000/img/p/15.svg",
+        "duration": 143.70000000298023,
+        "start": 13052.60000000894,
+        "end": 13196.300000011921,
+        "bytes": 1212
+      },
+      {
+        "name": "http://localhost:3000/img/p/16.svg",
+        "duration": 174,
+        "start": 13052.800000011921,
+        "end": 13226.800000011921,
+        "bytes": 1197
+      },
+      {
+        "name": "http://localhost:3000/img/p/17.svg",
+        "duration": 213.59999999403954,
+        "start": 13548.300000011921,
+        "end": 13761.90000000596,
+        "bytes": 1201
+      },
+      {
+        "name": "http://localhost:3000/img/p/18.svg",
+        "duration": 254.29999999701977,
+        "start": 13548.60000000894,
+        "end": 13802.90000000596,
+        "bytes": 1200
+      },
+      {
+        "name": "http://localhost:3000/img/p/19.svg",
+        "duration": 296.20000000298023,
+        "start": 13899.10000000894,
+        "end": 14195.300000011921,
+        "bytes": 1210
+      },
+      {
+        "name": "http://localhost:3000/img/p/20.svg",
+        "duration": 82.40000000596046,
+        "start": 13899.5,
+        "end": 13981.90000000596,
+        "bytes": 1202
+      },
+      {
+        "name": "http://localhost:3000/img/p/21.svg",
+        "duration": 132.5,
+        "start": 14261.40000000596,
+        "end": 14393.90000000596,
+        "bytes": 1209
+      },
+      {
+        "name": "http://localhost:3000/img/p/22.svg",
+        "duration": 163.09999999403954,
+        "start": 14261.60000000894,
+        "end": 14424.70000000298,
+        "bytes": 1203
+      },
+      {
+        "name": "http://localhost:3000/img/p/23.svg",
+        "duration": 197.3999999910593,
+        "start": 14624.800000011921,
+        "end": 14822.20000000298,
+        "bytes": 1204
+      },
+      {
+        "name": "http://localhost:3000/img/p/24.svg",
+        "duration": 240.29999999701977,
+        "start": 14625.300000011921,
+        "end": 14865.60000000894,
+        "bytes": 1201
+      },
+      {
+        "name": "http://localhost:3000/img/p/25.svg",
+        "duration": 277.6000000089407,
+        "start": 15226.70000000298,
+        "end": 15504.300000011921,
+        "bytes": 1205
+      },
+      {
+        "name": "http://localhost:3000/img/p/26.svg",
+        "duration": 68.59999999403954,
+        "start": 15227.10000000894,
+        "end": 15295.70000000298,
+        "bytes": 1205
+      },
+      {
+        "name": "http://localhost:3000/img/p/27.svg",
+        "duration": 107.70000000298023,
+        "start": 15556.10000000894,
+        "end": 15663.800000011921,
+        "bytes": 1195
+      },
+      {
+        "name": "http://localhost:3000/img/p/28.svg",
+        "duration": 142.29999999701977,
+        "start": 15556.60000000894,
+        "end": 15698.90000000596,
+        "bytes": 1210
+      },
+      {
+        "name": "http://localhost:3000/img/p/29.svg",
+        "duration": 182.70000000298023,
+        "start": 15903.70000000298,
+        "end": 16086.40000000596,
+        "bytes": 1202
+      },
+      {
+        "name": "http://localhost:3000/img/p/30.svg",
+        "duration": 213.40000000596046,
+        "start": 15903.90000000596,
+        "end": 16117.300000011921,
+        "bytes": 1207
+      },
+      {
+        "name": "http://localhost:3000/img/p/31.svg",
+        "duration": 253,
+        "start": 16242.800000011921,
+        "end": 16495.80000001192,
+        "bytes": 1198
+      },
+      {
+        "name": "http://localhost:3000/img/p/32.svg",
+        "duration": 289.20000000298023,
+        "start": 16243.10000000894,
+        "end": 16532.30000001192,
+        "bytes": 1206
+      },
+      {
+        "name": "http://localhost:3000/img/p/33.svg",
+        "duration": 97.80000001192093,
+        "start": 16728,
+        "end": 16825.80000001192,
+        "bytes": 1213
+      },
+      {
+        "name": "http://localhost:3000/img/p/34.svg",
+        "duration": 130.8999999910593,
+        "start": 16728.60000000894,
+        "end": 16859.5,
+        "bytes": 1212
+      },
+      {
+        "name": "http://localhost:3000/img/p/35.svg",
+        "duration": 168.90000000596046,
+        "start": 17084.70000000298,
+        "end": 17253.60000000894,
+        "bytes": 1202
+      },
+      {
+        "name": "http://localhost:3000/img/p/36.svg",
+        "duration": 207.90000000596046,
+        "start": 17085.20000000298,
+        "end": 17293.10000000894,
+        "bytes": 1200
+      },
+      {
+        "name": "http://localhost:3000/img/p/37.svg",
+        "duration": 244.6000000089407,
+        "start": 17436,
+        "end": 17680.60000000894,
+        "bytes": 1204
+      },
+      {
+        "name": "http://localhost:3000/img/p/38.svg",
+        "duration": 275.40000000596046,
+        "start": 17436.20000000298,
+        "end": 17711.60000000894,
+        "bytes": 1200
+      },
+      {
+        "name": "http://localhost:3000/img/p/39.svg",
+        "duration": 75.8999999910593,
+        "start": 17782.30000001192,
+        "end": 17858.20000000298,
+        "bytes": 1200
+      },
+      {
+        "name": "http://localhost:3000/img/p/40.svg",
+        "duration": 107.09999999403954,
+        "start": 17782.60000000894,
+        "end": 17889.70000000298,
+        "bytes": 1206
+      },
+      {
+        "name": "http://localhost:3000/img/p/41.svg",
+        "duration": 148.69999998807907,
+        "start": 18249.30000001192,
+        "end": 18398,
+        "bytes": 1206
+      },
+      {
+        "name": "http://localhost:3000/img/p/42.svg",
+        "duration": 179.09999999403954,
+        "start": 18249.90000000596,
+        "end": 18429,
+        "bytes": 1197
+      },
+      {
+        "name": "http://localhost:3000/img/p/43.svg",
+        "duration": 221.59999999403954,
+        "start": 18606.30000001192,
+        "end": 18827.90000000596,
+        "bytes": 1204
+      },
+      {
+        "name": "http://localhost:3000/img/p/44.svg",
+        "duration": 261.20000000298023,
+        "start": 18606.70000000298,
+        "end": 18867.90000000596,
+        "bytes": 1208
+      },
+      {
+        "name": "http://localhost:3000/img/p/45.svg",
+        "duration": 287.20000000298023,
+        "start": 18963,
+        "end": 19250.20000000298,
+        "bytes": 1199
+      },
+      {
+        "name": "http://localhost:3000/img/p/46.svg",
+        "duration": 91.5,
+        "start": 18963.40000000596,
+        "end": 19054.90000000596,
+        "bytes": 1197
+      },
+      {
+        "name": "http://localhost:3000/img/p/47.svg",
+        "duration": 123.5,
+        "start": 19302.10000000894,
+        "end": 19425.60000000894,
+        "bytes": 1211
+      },
+      {
+        "name": "http://localhost:3000/img/p/48.svg",
+        "duration": 169.80000001192093,
+        "start": 19302.5,
+        "end": 19472.30000001192,
+        "bytes": 1210
+      },
+      {
+        "name": "http://localhost:3000/img/p/49.svg",
+        "duration": 204.40000000596046,
+        "start": 19950.70000000298,
+        "end": 20155.10000000894,
+        "bytes": 1203
+      },
+      {
+        "name": "http://localhost:3000/img/p/50.svg",
+        "duration": 235,
+        "start": 19950.90000000596,
+        "end": 20185.90000000596,
+        "bytes": 1204
+      },
+      {
+        "name": "http://localhost:3000/img/p/51.svg",
+        "duration": 276.20000000298023,
+        "start": 20289.90000000596,
+        "end": 20566.10000000894,
+        "bytes": 1209
+      },
+      {
+        "name": "http://localhost:3000/img/p/52.svg",
+        "duration": 79.6000000089407,
+        "start": 20290.20000000298,
+        "end": 20369.80000001192,
+        "bytes": 1207
+      },
+      {
+        "name": "http://localhost:3000/img/p/53.svg",
+        "duration": 102.5,
+        "start": 20629.5,
+        "end": 20732,
+        "bytes": 1211
+      },
+      {
+        "name": "http://localhost:3000/img/p/54.svg",
+        "duration": 140.30000001192093,
+        "start": 20630,
+        "end": 20770.30000001192,
+        "bytes": 1205
+      }
+    ]
+  },
+  "network": [
+    {
+      "url": "http://localhost:3000/img/p/3.svg",
+      "start": 115126.099495,
+      "type": "Image",
+      "end": 115126.284155,
+      "bytes": 1105,
+      "durationMs": 184.65999999898486
+    },
+    {
+      "url": "http://localhost:3000/img/p/4.svg",
+      "start": 115126.10031,
+      "type": "Image",
+      "end": 115126.323117,
+      "bytes": 1106,
+      "durationMs": 222.8070000128355
+    },
+    {
+      "url": "http://localhost:3000/img/p/5.svg",
+      "start": 115126.463688,
+      "type": "Image",
+      "end": 115126.718618,
+      "bytes": 1097,
+      "durationMs": 254.92999999551103
+    },
+    {
+      "url": "http://localhost:3000/img/p/6.svg",
+      "start": 115126.4641,
+      "type": "Image",
+      "end": 115126.756247,
+      "bytes": 1103,
+      "durationMs": 292.1470000001136
+    },
+    {
+      "url": "http://localhost:3000/img/p/7.svg",
+      "start": 115126.802867,
+      "type": "Image",
+      "end": 115126.889397,
+      "bytes": 1105,
+      "durationMs": 86.5300000004936
+    },
+    {
+      "url": "http://localhost:3000/img/p/9.svg",
+      "start": 115127.275998,
+      "type": "Image",
+      "end": 115127.441559,
+      "bytes": 1112,
+      "durationMs": 165.56100000161678
+    },
+    {
+      "url": "http://localhost:3000/img/p/10.svg",
+      "start": 115127.276424,
+      "type": "Image",
+      "end": 115127.474171,
+      "bytes": 1104,
+      "durationMs": 197.7469999983441
+    },
+    {
+      "url": "http://localhost:3000/img/p/11.svg",
+      "start": 115127.634108,
+      "type": "Image",
+      "end": 115127.866242,
+      "bytes": 1103,
+      "durationMs": 232.13400000531692
+    },
+    {
+      "url": "http://localhost:3000/img/p/12.svg",
+      "start": 115127.634713,
+      "type": "Image",
+      "end": 115127.905572,
+      "bytes": 1100,
+      "durationMs": 270.8589999965625
+    },
+    {
+      "url": "http://localhost:3000/img/p/13.svg",
+      "start": 115127.985592,
+      "type": "Image",
+      "end": 115128.048504,
+      "bytes": 1102,
+      "durationMs": 62.912000008509494
+    },
+    {
+      "url": "http://localhost:3000/img/p/14.svg",
+      "start": 115127.986187,
+      "type": "Image",
+      "end": 115128.089878,
+      "bytes": 1102,
+      "durationMs": 103.69099999661557
+    },
+    {
+      "url": "http://localhost:3000/img/p/15.svg",
+      "start": 115128.344985,
+      "type": "Image",
+      "end": 115128.488964,
+      "bytes": 1109,
+      "durationMs": 143.97900000039954
+    },
+    {
+      "url": "http://localhost:3000/img/p/16.svg",
+      "start": 115128.345393,
+      "type": "Image",
+      "end": 115128.519439,
+      "bytes": 1094,
+      "durationMs": 174.0460000000894
+    },
+    {
+      "url": "http://localhost:3000/img/p/17.svg",
+      "start": 115128.840618,
+      "type": "Image",
+      "end": 115129.054477,
+      "bytes": 1098,
+      "durationMs": 213.858999995864
+    },
+    {
+      "url": "http://localhost:3000/img/p/18.svg",
+      "start": 115128.841179,
+      "type": "Image",
+      "end": 115129.095458,
+      "bytes": 1097,
+      "durationMs": 254.27900000067893
+    },
+    {
+      "url": "http://localhost:3000/img/p/20.svg",
+      "start": 115129.191931,
+      "type": "Image",
+      "end": 115129.274502,
+      "bytes": 1099,
+      "durationMs": 82.5710000062827
+    },
+    {
+      "url": "http://localhost:3000/img/p/19.svg",
+      "start": 115129.19135,
+      "type": "Image",
+      "end": 115129.487868,
+      "bytes": 1107,
+      "durationMs": 296.518000002834
+    },
+    {
+      "url": "http://localhost:3000/img/p/21.svg",
+      "start": 115129.553848,
+      "type": "Image",
+      "end": 115129.686519,
+      "bytes": 1106,
+      "durationMs": 132.67099999939092
+    },
+    {
+      "url": "http://localhost:3000/img/p/22.svg",
+      "start": 115129.554244,
+      "type": "Image",
+      "end": 115129.717359,
+      "bytes": 1100,
+      "durationMs": 163.11500000301749
+    },
+    {
+      "url": "http://localhost:3000/img/p/23.svg",
+      "start": 115129.91727,
+      "type": "Image",
+      "end": 115130.114783,
+      "bytes": 1101,
+      "durationMs": 197.51299999188632
+    },
+    {
+      "url": "http://localhost:3000/img/p/24.svg",
+      "start": 115129.917871,
+      "type": "Image",
+      "end": 115130.158171,
+      "bytes": 1098,
+      "durationMs": 240.300000004936
+    },
+    {
+      "url": "http://localhost:3000/img/p/26.svg",
+      "start": 115130.519549,
+      "type": "Image",
+      "end": 115130.588269,
+      "bytes": 1102,
+      "durationMs": 68.7199999956647
+    },
+    {
+      "url": "http://localhost:3000/img/p/25.svg",
+      "start": 115130.519119,
+      "type": "Image",
+      "end": 115130.796905,
+      "bytes": 1102,
+      "durationMs": 277.78599999146536
+    },
+    {
+      "url": "http://localhost:3000/img/p/27.svg",
+      "start": 115130.848708,
+      "type": "Image",
+      "end": 115130.956411,
+      "bytes": 1092,
+      "durationMs": 107.70300000149291
+    },
+    {
+      "url": "http://localhost:3000/img/p/28.svg",
+      "start": 115130.848945,
+      "type": "Image",
+      "end": 115130.991465,
+      "bytes": 1107,
+      "durationMs": 142.51999999396503
+    },
+    {
+      "url": "http://localhost:3000/img/p/29.svg",
+      "start": 115131.196091,
+      "type": "Image",
+      "end": 115131.379052,
+      "bytes": 1099,
+      "durationMs": 182.96099999861326
+    },
+    {
+      "url": "http://localhost:3000/img/p/30.svg",
+      "start": 115131.196501,
+      "type": "Image",
+      "end": 115131.409884,
+      "bytes": 1104,
+      "durationMs": 213.38299999479204
+    },
+    {
+      "url": "http://localhost:3000/img/p/31.svg",
+      "start": 115131.535119,
+      "type": "Image",
+      "end": 115131.78838,
+      "bytes": 1095,
+      "durationMs": 253.2610000052955
+    },
+    {
+      "url": "http://localhost:3000/img/p/32.svg",
+      "start": 115131.535725,
+      "type": "Image",
+      "end": 115131.824892,
+      "bytes": 1103,
+      "durationMs": 289.16700000991113
+    },
+    {
+      "url": "http://localhost:3000/img/p/33.svg",
+      "start": 115132.020445,
+      "type": "Image",
+      "end": 115132.118429,
+      "bytes": 1110,
+      "durationMs": 97.98399999272078
+    },
+    {
+      "url": "http://localhost:3000/img/p/34.svg",
+      "start": 115132.021066,
+      "type": "Image",
+      "end": 115132.152018,
+      "bytes": 1109,
+      "durationMs": 130.9519999922486
+    },
+    {
+      "url": "http://localhost:3000/img/p/35.svg",
+      "start": 115132.377166,
+      "type": "Image",
+      "end": 115132.546279,
+      "bytes": 1099,
+      "durationMs": 169.11299999628682
+    },
+    {
+      "url": "http://localhost:3000/img/p/36.svg",
+      "start": 115132.377561,
+      "type": "Image",
+      "end": 115132.585732,
+      "bytes": 1097,
+      "durationMs": 208.17100000567734
+    },
+    {
+      "url": "http://localhost:3000/img/p/37.svg",
+      "start": 115132.728328,
+      "type": "Image",
+      "end": 115132.973227,
+      "bytes": 1101,
+      "durationMs": 244.89899999753106
+    },
+    {
+      "url": "http://localhost:3000/img/p/38.svg",
+      "start": 115132.728729,
+      "type": "Image",
+      "end": 115133.00427,
+      "bytes": 1097,
+      "durationMs": 275.54100000998005
+    },
+    {
+      "url": "http://localhost:3000/img/p/39.svg",
+      "start": 115133.074672,
+      "type": "Image",
+      "end": 115133.150839,
+      "bytes": 1097,
+      "durationMs": 76.16699999198318
+    },
+    {
+      "url": "http://localhost:3000/img/p/40.svg",
+      "start": 115133.075067,
+      "type": "Image",
+      "end": 115133.182227,
+      "bytes": 1103,
+      "durationMs": 107.15999999956694
+    },
+    {
+      "url": "http://localhost:3000/img/p/41.svg",
+      "start": 115133.541534,
+      "type": "Image",
+      "end": 115133.690605,
+      "bytes": 1103,
+      "durationMs": 149.0709999925457
+    },
+    {
+      "url": "http://localhost:3000/img/p/42.svg",
+      "start": 115133.542343,
+      "type": "Image",
+      "end": 115133.721578,
+      "bytes": 1094,
+      "durationMs": 179.23500000324566
+    },
+    {
+      "url": "http://localhost:3000/img/p/43.svg",
+      "start": 115133.898694,
+      "type": "Image",
+      "end": 115134.120529,
+      "bytes": 1101,
+      "durationMs": 221.83500000392087
+    },
+    {
+      "url": "http://localhost:3000/img/p/44.svg",
+      "start": 115133.899115,
+      "type": "Image",
+      "end": 115134.160512,
+      "bytes": 1105,
+      "durationMs": 261.39700000931043
+    },
+    {
+      "url": "http://localhost:3000/img/p/46.svg",
+      "start": 115134.255865,
+      "type": "Image",
+      "end": 115134.347497,
+      "bytes": 1094,
+      "durationMs": 91.63199999602512
+    },
+    {
+      "url": "http://localhost:3000/img/p/45.svg",
+      "start": 115134.255256,
+      "type": "Image",
+      "end": 115134.542789,
+      "bytes": 1096,
+      "durationMs": 287.5329999951646
+    },
+    {
+      "url": "http://localhost:3000/img/p/47.svg",
+      "start": 115134.594351,
+      "type": "Image",
+      "end": 115134.718225,
+      "bytes": 1108,
+      "durationMs": 123.87399999715853
+    },
+    {
+      "url": "http://localhost:3000/img/p/48.svg",
+      "start": 115134.594944,
+      "type": "Image",
+      "end": 115134.764954,
+      "bytes": 1107,
+      "durationMs": 170.01000000163913
+    },
+    {
+      "url": "http://localhost:3000/img/p/49.svg",
+      "start": 115135.242904,
+      "type": "Image",
+      "end": 115135.447678,
+      "bytes": 1100,
+      "durationMs": 204.77399999799673
+    },
+    {
+      "url": "http://localhost:3000/img/p/50.svg",
+      "start": 115135.243491,
+      "type": "Image",
+      "end": 115135.478436,
+      "bytes": 1101,
+      "durationMs": 234.94500000379048
+    },
+    {
+      "url": "http://localhost:3000/img/p/52.svg",
+      "start": 115135.582744,
+      "type": "Image",
+      "end": 115135.662369,
+      "bytes": 1104,
+      "durationMs": 79.6249999984866
+    },
+    {
+      "url": "http://localhost:3000/img/p/51.svg",
+      "start": 115135.582346,
+      "type": "Image",
+      "end": 115135.858725,
+      "bytes": 1106,
+      "durationMs": 276.3790000026347
+    },
+    {
+      "url": "http://localhost:3000/img/p/53.svg",
+      "start": 115135.921924,
+      "type": "Image",
+      "end": 115136.024525,
+      "bytes": 1108,
+      "durationMs": 102.6010000059614
+    },
+    {
+      "url": "http://localhost:3000/img/p/54.svg",
+      "start": 115135.922341,
+      "type": "Image",
+      "end": 115136.06292,
+      "bytes": 1102,
+      "durationMs": 140.57899999897927
+    }
+  ],
+  "requested": [
+    {
+      "url": "http://localhost:3000/img/p/3.svg",
+      "start": 115126.099495,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/4.svg",
+      "start": 115126.10031,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/5.svg",
+      "start": 115126.463688,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/6.svg",
+      "start": 115126.4641,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/7.svg",
+      "start": 115126.802867,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/9.svg",
+      "start": 115127.275998,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/10.svg",
+      "start": 115127.276424,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/11.svg",
+      "start": 115127.634108,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/12.svg",
+      "start": 115127.634713,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/13.svg",
+      "start": 115127.985592,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/14.svg",
+      "start": 115127.986187,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/15.svg",
+      "start": 115128.344985,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/16.svg",
+      "start": 115128.345393,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/17.svg",
+      "start": 115128.840618,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/18.svg",
+      "start": 115128.841179,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/19.svg",
+      "start": 115129.19135,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/20.svg",
+      "start": 115129.191931,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/21.svg",
+      "start": 115129.553848,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/22.svg",
+      "start": 115129.554244,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/23.svg",
+      "start": 115129.91727,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/24.svg",
+      "start": 115129.917871,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/25.svg",
+      "start": 115130.519119,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/26.svg",
+      "start": 115130.519549,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/27.svg",
+      "start": 115130.848708,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/28.svg",
+      "start": 115130.848945,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/29.svg",
+      "start": 115131.196091,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/30.svg",
+      "start": 115131.196501,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/31.svg",
+      "start": 115131.535119,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/32.svg",
+      "start": 115131.535725,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/33.svg",
+      "start": 115132.020445,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/34.svg",
+      "start": 115132.021066,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/35.svg",
+      "start": 115132.377166,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/36.svg",
+      "start": 115132.377561,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/37.svg",
+      "start": 115132.728328,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/38.svg",
+      "start": 115132.728729,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/39.svg",
+      "start": 115133.074672,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/40.svg",
+      "start": 115133.075067,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/41.svg",
+      "start": 115133.541534,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/42.svg",
+      "start": 115133.542343,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/43.svg",
+      "start": 115133.898694,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/44.svg",
+      "start": 115133.899115,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/45.svg",
+      "start": 115134.255256,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/46.svg",
+      "start": 115134.255865,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/47.svg",
+      "start": 115134.594351,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/48.svg",
+      "start": 115134.594944,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/49.svg",
+      "start": 115135.242904,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/50.svg",
+      "start": 115135.243491,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/51.svg",
+      "start": 115135.582346,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/52.svg",
+      "start": 115135.582744,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/53.svg",
+      "start": 115135.921924,
+      "type": "Image"
+    },
+    {
+      "url": "http://localhost:3000/img/p/54.svg",
+      "start": 115135.922341,
+      "type": "Image"
+    }
+  ],
+  "errors": []
+}

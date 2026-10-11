@@ -9,12 +9,12 @@ export function el(tag, kelas, teks) {
   return node;
 }
 
-export function formatRupiah(angka) {
-  const pemformat = new Intl.NumberFormat('id-ID', {
+const pemformat = new Intl.NumberFormat('id-ID', {
     style: 'currency',
     currency: 'IDR',
     maximumFractionDigits: 0,
-  });
+});
+export function formatRupiah(angka) {
   return pemformat.format(angka);
 }
 
