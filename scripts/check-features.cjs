@@ -30,6 +30,24 @@ const mode=process.argv[2]||'catalog';
  await page.setViewportSize({width:412,height:915});await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(400);
  await page.getByRole('button',{name:'Fashion Pria',exact:true}).click();assert.deepEqual((await state()).ids,products.filter(p=>p.kategori==='Fashion Pria').map(p=>p.id));checks.push('category ids/count correct');
  await page.getByRole('button',{name:'Semua',exact:true}).click();
+ if(mode==='checkout'||mode==='all') {
+  await page.locator('.tombol-tambah').first().click();await page.waitForTimeout(300);
+  assert.equal(await page.locator('#lencana-keranjang').textContent(),'1');
+  const history=await page.evaluate(()=>({base:JSON.parse(localStorage.tk_riwayat).length,journal:Object.keys(localStorage).filter(k=>k.startsWith('tk_aktivitas_')).map(k=>JSON.parse(localStorage[k]))}));
+  assert.equal(history.base,9000);assert.equal(history.journal.filter(x=>x.jenis==='keranjang').length,1);checks.push('one cart click adds one item; 9000 history entries preserved plus new journal event');
+  await page.reload();await page.waitForSelector('.tombol-beli');assert.equal(await page.locator('#lencana-keranjang').textContent(),'1');
+  await context.request.delete('http://localhost:3000/api/pesanan');
+  const buy=page.locator('.tombol-beli').first();await buy.scrollIntoViewIfNeeded();const b=await buy.boundingBox();
+  for(let i=0;i<3;i++) await page.mouse.click(b.x+b.width/2,b.y+b.height/2);
+  assert.equal(await buy.isDisabled(),true);assert.match(await buy.textContent(),/Memproses|Dipesan/);
+  await page.waitForTimeout(700);assert.equal((await (await context.request.get('http://localhost:3000/api/pesanan')).json()).length,1);checks.push('three real clicks produce exactly one server order; visible busy state');
+  await page.waitForTimeout(1500);
+  await page.route('**/api/pesanan',async route=>{if(route.request().method()==='POST')await route.fulfill({status:500,body:'injected failure'});else await route.continue();});
+  await buy.click();await page.waitForTimeout(400);assert.equal(await buy.isEnabled(),true);assert.match(await page.locator('#toast').textContent(),/belum dapat dipastikan/);
+  await page.unroute('**/api/pesanan');await buy.click();await page.waitForTimeout(700);assert.equal((await (await context.request.get('http://localhost:3000/api/pesanan')).json()).length,2);checks.push('injected HTTP failure releases guard; retry succeeds');
+  await page.evaluate(()=>{const x=JSON.parse(localStorage.tk_keranjang);x[0].jumlah=98;localStorage.tk_keranjang=JSON.stringify(x);});
+  await page.locator('.tombol-tambah').first().click();await page.locator('.tombol-tambah').first().click();assert.equal(await page.locator('#lencana-keranjang').textContent(),'99');checks.push('cart quantity limit 99 retained');
+ }
  assert.deepEqual(errors,[]);
  fs.mkdirSync('laporan/data',{recursive:true});fs.writeFileSync(`laporan/data/features-${mode}.json`,JSON.stringify({date:new Date().toISOString(),products:products.length,checks,errors},null,2));console.log(checks);
  await browser.close();

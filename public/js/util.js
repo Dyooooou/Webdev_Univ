@@ -32,6 +32,15 @@ export function salinDalam(objek) {
   return JSON.parse(JSON.stringify(objek));
 }
 
+// rAF runs before paint; a subsequent task allows the feedback frame first.
+export function setelahRender(pekerjaan) {
+  requestAnimationFrame(() => setTimeout(pekerjaan, 0));
+}
+
+export function kirimAnalitik(jenis, data) {
+  setelahRender(() => window.Lacak?.kirim(jenis, data));
+}
+
 // Pengurutan sederhana, dipakai untuk daftar pendek di bagian kaki halaman.
 export function urutkanGelembung(daftar, banding) {
   const hasil = daftar.slice();
