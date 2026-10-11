@@ -1,12 +1,13 @@
 const {chromium}=require('../.tools/node_modules/playwright');
 const fs=require('node:fs');const assert=require('node:assert/strict');
 const mode=process.argv[2]||'catalog';
+const origin=process.env.TEST_ORIGIN||'http://localhost:3000';
 (async()=>{
  const browser=await chromium.launch({channel:'chrome',headless:true});
  const context=await browser.newContext({viewport:{width:412,height:915}});const page=await context.newPage();const cdp=await context.newCDPSession(page);await cdp.send('Emulation.setCPUThrottlingRate',{rate:4});
  const errors=[];page.on('pageerror',e=>errors.push(e.message));
- await page.goto('http://localhost:3000/?ukur=1');await page.waitForFunction(()=>document.querySelectorAll('.kartu').length>0);await page.waitForTimeout(2100);
- const products=await (await context.request.get('http://localhost:3000/api/produk')).json();
+ await page.goto(origin+'/?ukur=1');await page.waitForFunction(()=>document.querySelectorAll('.kartu').length>0);await page.waitForTimeout(2100);
+ const products=await (await context.request.get(origin+'/api/produk')).json();
  const checks=[];
  const state=()=>page.evaluate(async()=>{const {keadaan}=await import('/js/katalog.js');return {ids:keadaan.ditampilkan.map(p=>p.id),dom:document.querySelectorAll('.kartu').length};});
  assert.equal((await state()).ids.length,products.length);assert.ok((await state()).dom<40);checks.push('all products retained; DOM bounded');
@@ -36,15 +37,15 @@ const mode=process.argv[2]||'catalog';
   const history=await page.evaluate(()=>({base:JSON.parse(localStorage.tk_riwayat).length,journal:Object.keys(localStorage).filter(k=>k.startsWith('tk_aktivitas_')).map(k=>JSON.parse(localStorage[k]))}));
   assert.equal(history.base,9000);assert.equal(history.journal.filter(x=>x.jenis==='keranjang').length,1);checks.push('one cart click adds one item; 9000 history entries preserved plus new journal event');
   await page.reload();await page.waitForSelector('.tombol-beli');assert.equal(await page.locator('#lencana-keranjang').textContent(),'1');
-  await context.request.delete('http://localhost:3000/api/pesanan');
+  await context.request.delete(origin+'/api/pesanan');
   const buy=page.locator('.tombol-beli').first();await buy.scrollIntoViewIfNeeded();const b=await buy.boundingBox();
   for(let i=0;i<3;i++) await page.mouse.click(b.x+b.width/2,b.y+b.height/2);
   assert.equal(await buy.isDisabled(),true);assert.match(await buy.textContent(),/Memproses|Dipesan/);
-  await page.waitForTimeout(700);assert.equal((await (await context.request.get('http://localhost:3000/api/pesanan')).json()).length,1);checks.push('three real clicks produce exactly one server order; visible busy state');
+  await page.waitForTimeout(700);assert.equal((await (await context.request.get(origin+'/api/pesanan')).json()).length,1);checks.push('three real clicks produce exactly one server order; visible busy state');
   await page.waitForTimeout(1500);
   await page.route('**/api/pesanan',async route=>{if(route.request().method()==='POST')await route.fulfill({status:500,body:'injected failure'});else await route.continue();});
   await buy.click();await page.waitForTimeout(400);assert.equal(await buy.isEnabled(),true);assert.match(await page.locator('#toast').textContent(),/belum dapat dipastikan/);
-  await page.unroute('**/api/pesanan');await buy.click();await page.waitForTimeout(700);assert.equal((await (await context.request.get('http://localhost:3000/api/pesanan')).json()).length,2);checks.push('injected HTTP failure releases guard; retry succeeds');
+  await page.unroute('**/api/pesanan');await buy.click();await page.waitForTimeout(700);assert.equal((await (await context.request.get(origin+'/api/pesanan')).json()).length,2);checks.push('injected HTTP failure releases guard; retry succeeds');
   await page.evaluate(()=>{const x=JSON.parse(localStorage.tk_keranjang);x[0].jumlah=98;localStorage.tk_keranjang=JSON.stringify(x);});
   await page.locator('.tombol-tambah').first().click();await page.locator('.tombol-tambah').first().click();assert.equal(await page.locator('#lencana-keranjang').textContent(),'99');checks.push('cart quantity limit 99 retained');
  }

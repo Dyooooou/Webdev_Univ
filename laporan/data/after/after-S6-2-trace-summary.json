@@ -1,0 +1,126 @@
+{
+  "source": "after-S6-2.json.gz",
+  "thread": 36352,
+  "windowStartUs": 116536224918,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 0,
+  "mainTaskBusyPercent10s": 13.62457,
+  "traceCLS": 0,
+  "layoutShifts": [],
+  "totals": {
+    "RunTask": {
+      "count": 4987,
+      "totalMs": 1363.7049999999638,
+      "maxMs": 26.172
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 5184,
+      "totalMs": 69.57400000000003,
+      "maxMs": 0.387
+    },
+    "FireAnimationFrame": {
+      "count": 1649,
+      "totalMs": 211.50999999999954,
+      "maxMs": 24.969
+    },
+    "FunctionCall": {
+      "count": 1669,
+      "totalMs": 166.56800000000027,
+      "maxMs": 24.802
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 4,
+      "totalMs": 0.006,
+      "maxMs": 0.003
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 13,
+      "totalMs": 0.777,
+      "maxMs": 0.597
+    },
+    "V8.GC_MC_COMPLETE_SWEEPING": {
+      "count": 1,
+      "totalMs": 0.007,
+      "maxMs": 0.007
+    },
+    "V8.GC_MC_SWEEP": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "UpdateLayoutTree": {
+      "count": 1669,
+      "totalMs": 191.9460000000002,
+      "maxMs": 0.407
+    },
+    "PrePaint": {
+      "count": 1669,
+      "totalMs": 191.09299999999993,
+      "maxMs": 0.794
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 3250,
+      "totalMs": 57.63399999999946,
+      "maxMs": 0.377
+    },
+    "Layerize": {
+      "count": 1458,
+      "totalMs": 14.95899999999981,
+      "maxMs": 0.595
+    },
+    "HitTest": {
+      "count": 40,
+      "totalMs": 4.705,
+      "maxMs": 0.364
+    },
+    "TimerFire": {
+      "count": 20,
+      "totalMs": 7.192,
+      "maxMs": 0.619
+    },
+    "Layout": {
+      "count": 20,
+      "totalMs": 11.642999999999999,
+      "maxMs": 0.823
+    },
+    "Paint": {
+      "count": 40,
+      "totalMs": 11.218000000000002,
+      "maxMs": 0.799
+    },
+    "ParseHTML": {
+      "count": 20,
+      "totalMs": 1.5209999999999997,
+      "maxMs": 0.193
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 2,
+      "totalMs": 0.03,
+      "maxMs": 0.015
+    },
+    "SimpleWatcher::OnHandleReady": {
+      "count": 5,
+      "totalMs": 0.26,
+      "maxMs": 0.176
+    },
+    "Receive mojo message": {
+      "count": 4,
+      "totalMs": 0.23399999999999999,
+      "maxMs": 0.173
+    },
+    "Receive mojo reply": {
+      "count": 1,
+      "totalMs": 0.005,
+      "maxMs": 0.005
+    }
+  },
+  "sampledSelfMs": {
+    "(idle) @ undefined:NaN": 8640.578000000083,
+    "(program) @ undefined:NaN": 1328.8779999999979,
+    "pantauFrame @ http://localhost:3000/alat/ukur.js:58": 24.953999999999997,
+    "requestAnimationFrame @ undefined:NaN": 4.689999999999999,
+    "gambar @ http://localhost:3000/alat/ukur.js:96": 1.157,
+    "ringkas @ http://localhost:3000/alat/ukur.js:66": 0.28200000000000003
+  },
+  "longTasks": []
+}

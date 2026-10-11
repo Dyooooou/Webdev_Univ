@@ -1,0 +1,357 @@
+{
+  "source": "after-S4-2.json.gz",
+  "thread": 36352,
+  "windowStartUs": 116517932383,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 0,
+  "mainTaskBusyPercent10s": 6.51461,
+  "traceCLS": 0,
+  "layoutShifts": [],
+  "totals": {
+    "RunTask": {
+      "count": 1748,
+      "totalMs": 651.4609999999942,
+      "maxMs": 26.75
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 1529,
+      "totalMs": 13.638999999999974,
+      "maxMs": 0.208
+    },
+    "Receive mojo message": {
+      "count": 40,
+      "totalMs": 40.537,
+      "maxMs": 26.742
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 3,
+      "totalMs": 0.005,
+      "maxMs": 0.003
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 15,
+      "totalMs": 2.0069999999999992,
+      "maxMs": 1.987
+    },
+    "V8.GC_MC_COMPLETE_SWEEPING": {
+      "count": 1,
+      "totalMs": 0.012,
+      "maxMs": 0.012
+    },
+    "FireAnimationFrame": {
+      "count": 930,
+      "totalMs": 79.33300000000015,
+      "maxMs": 1.801
+    },
+    "FunctionCall": {
+      "count": 994,
+      "totalMs": 96.36000000000044,
+      "maxMs": 15.921
+    },
+    "UpdateLayoutTree": {
+      "count": 511,
+      "totalMs": 53.09600000000011,
+      "maxMs": 0.802
+    },
+    "PrePaint": {
+      "count": 533,
+      "totalMs": 53.52300000000001,
+      "maxMs": 0.988
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 877,
+      "totalMs": 13.956999999999987,
+      "maxMs": 0.185
+    },
+    "Layerize": {
+      "count": 401,
+      "totalMs": 15.548999999999872,
+      "maxMs": 0.619
+    },
+    "EventDispatch": {
+      "count": 98,
+      "totalMs": 27.217000000000027,
+      "maxMs": 2.406
+    },
+    "TimerFire": {
+      "count": 25,
+      "totalMs": 71.082,
+      "maxMs": 16.091
+    },
+    "Paint": {
+      "count": 74,
+      "totalMs": 35.635999999999996,
+      "maxMs": 1.641
+    },
+    "ScrollLayer": {
+      "count": 1,
+      "totalMs": 0.016,
+      "maxMs": 0.016
+    },
+    "PaintTiming::NotifyScroll": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "HitTest": {
+      "count": 48,
+      "totalMs": 5.008000000000001,
+      "maxMs": 0.361
+    },
+    "Layout": {
+      "count": 46,
+      "totalMs": 32.136,
+      "maxMs": 6.22
+    },
+    "LatencyInfo.Flow": {
+      "count": 38,
+      "totalMs": 19.130000000000003,
+      "maxMs": 3.647
+    },
+    "Responsiveness.Renderer.UserInteraction": {
+      "count": 13,
+      "totalMs": 0.023000000000000003,
+      "maxMs": 0.003
+    },
+    "FireIdleCallback": {
+      "count": 7,
+      "totalMs": 2.1529999999999996,
+      "maxMs": 1.19
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 10,
+      "totalMs": 0.30900000000000005,
+      "maxMs": 0.168
+    },
+    "ParseHTML": {
+      "count": 10,
+      "totalMs": 0.466,
+      "maxMs": 0.181
+    },
+    "ResourceChangePriority": {
+      "count": 2,
+      "totalMs": 0.006,
+      "maxMs": 0.005
+    },
+    "V8.GC_HEAP_EXTERNAL_PROLOGUE": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "MinorGC": {
+      "count": 1,
+      "totalMs": 0.989,
+      "maxMs": 0.989
+    },
+    "V8.GC_HEAP_PROLOGUE": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER": {
+      "count": 1,
+      "totalMs": 0.792,
+      "maxMs": 0.792
+    },
+    "V8.GC_HEAP_PROLOGUE_SAFEPOINT": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_SCAVENGE": {
+      "count": 1,
+      "totalMs": 0.781,
+      "maxMs": 0.781
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_IDENTIFY": {
+      "count": 1,
+      "totalMs": 0.022,
+      "maxMs": 0.022
+    },
+    "ComputeWeaknessProcessor start": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_COMPUTE_WEAKNESS_PARALLEL": {
+      "count": 1,
+      "totalMs": 0.012,
+      "maxMs": 0.012
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_COLLECT_OLD_TO_NEW_PAGES": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_PARALLEL_PHASE": {
+      "count": 1,
+      "totalMs": 0.375,
+      "maxMs": 0.375
+    },
+    "Parallel scavenge started": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_ROOTS": {
+      "count": 1,
+      "totalMs": 0.186,
+      "maxMs": 0.186
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_WEAK_GLOBAL_HANDLES_PROCESS": {
+      "count": 1,
+      "totalMs": 0.016,
+      "maxMs": 0.016
+    },
+    "ClearWeaknessProcessor start": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_TRACED_HANDLES_RESET_PARALLEL": {
+      "count": 1,
+      "totalMs": 0.011,
+      "maxMs": 0.011
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_FINALIZE": {
+      "count": 1,
+      "totalMs": 0.186,
+      "maxMs": 0.186
+    },
+    "V8.GC_SCAVENGER_SCAVENGE_RESTORE_AND_QUARANTINE_PINNED": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "V8.GC_SCAVENGER_FREE_REMEMBERED_SET": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_SCAVENGER_RESIZE_NEW_SPACE": {
+      "count": 1,
+      "totalMs": 0.004,
+      "maxMs": 0.004
+    },
+    "V8.GC_HEAP_EPILOGUE_SAFEPOINT": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "V8.GC_HEAP_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.003,
+      "maxMs": 0.003
+    },
+    "V8.GC_HEAP_EXTERNAL_EPILOGUE": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    },
+    "DocumentLoader::DocumentLoader": {
+      "count": 4,
+      "totalMs": 0.343,
+      "maxMs": 0.17
+    },
+    "DocumentLoader::CommitNavigation": {
+      "count": 4,
+      "totalMs": 3.419,
+      "maxMs": 1.175
+    },
+    "DocumentLoader::InitializeWindow": {
+      "count": 4,
+      "totalMs": 0.264,
+      "maxMs": 0.184
+    },
+    "DocumentLoader::RecordUseCountersForCommit": {
+      "count": 4,
+      "totalMs": 0.009000000000000001,
+      "maxMs": 0.003
+    },
+    "DocumentLoader::DidInstallNewDocument": {
+      "count": 4,
+      "totalMs": 0.02,
+      "maxMs": 0.006
+    },
+    "DocumentLoader::DidCommitNavigation": {
+      "count": 4,
+      "totalMs": 0.006,
+      "maxMs": 0.002
+    },
+    "DocumentLoader::StartLoadingResponse": {
+      "count": 4,
+      "totalMs": 1.524,
+      "maxMs": 0.56
+    },
+    "DocumentLoader::CreateParserPostCommit": {
+      "count": 4,
+      "totalMs": 0.366,
+      "maxMs": 0.168
+    },
+    "DocumentLoader::FinishedLoading": {
+      "count": 4,
+      "totalMs": 0.996,
+      "maxMs": 0.384
+    },
+    "HTMLDocumentParser::DocumentElementAvailable": {
+      "count": 4,
+      "totalMs": 0.011000000000000001,
+      "maxMs": 0.004
+    },
+    "DecodedDataDocumentParser::AppendBytes": {
+      "count": 4,
+      "totalMs": 1.61,
+      "maxMs": 0.41
+    },
+    "SimpleWatcher::OnHandleReady": {
+      "count": 44,
+      "totalMs": 1.1370000000000002,
+      "maxMs": 0.171
+    },
+    "Closed mojo endpoint": {
+      "count": 28,
+      "totalMs": 0.35200000000000004,
+      "maxMs": 0.163
+    }
+  },
+  "sampledSelfMs": {
+    "(idle) @ undefined:NaN": 2183.1479999999924,
+    "(program) @ undefined:NaN": 567.869,
+    "simulasiCicilan @ http://localhost:3000/js/harga-promo.js:12": 26.216,
+    "f @ http://localhost:3000/vendor/lacak.min.js:2": 24.468999999999998,
+    "terapkanVoucher @ http://localhost:3000/js/harga-promo.js:42": 5.909,
+    "requestAnimationFrame @ undefined:NaN": 2.325,
+    "evaluate @ undefined:364": 2.294,
+    " @ undefined:NaN": 1.495,
+    "setupHitTargetInterceptor @ undefined:7857": 1.168,
+    "elementsFromPoint @ undefined:NaN": 1.145,
+    "querySelector @ undefined:NaN": 1.119,
+    "focus @ undefined:NaN": 1.065,
+    "getAriaDisabled @ undefined:4190": 1.0390000000000001,
+    "(garbage collector) @ undefined:NaN": 0.937,
+    "getBoundingClientRect @ undefined:NaN": 0.811,
+    "renderProduk @ http://localhost:3000/js/katalog.js:112": 0.724,
+    "terapkanSaringan @ http://localhost:3000/js/pencarian.js:33": 0.692,
+    "add @ undefined:NaN": 0.68,
+    "hitungHargaPromo @ http://localhost:3000/js/harga-promo.js:29": 0.645,
+    "perbaruiJendela @ http://localhost:3000/js/katalog.js:71": 0.608,
+    "frame @ undefined:1": 0.551,
+    " @ undefined:1": 0.54,
+    "query @ undefined:5844": 0.527,
+    "query @ undefined:5816": 0.524,
+    "setTimeout @ undefined:NaN": 0.514,
+    "el @ http://localhost:3000/js/util.js:5": 0.51,
+    " @ http://localhost:3000/js/pencarian.js:23": 0.503,
+    "gambar @ http://localhost:3000/alat/ukur.js:96": 0.379,
+    "expectHitTarget @ undefined:7771": 0.373,
+    "pantauFrame @ http://localhost:3000/alat/ukur.js:58": 0.277,
+    "listener @ undefined:7874": 0.212,
+    "perbarui @ http://localhost:3000/js/promo.js:19": 0.198,
+    "PerformanceObserver.observe.type @ http://localhost:3000/alat/ukur.js:45": 0.12,
+    " @ http://localhost:3000/js/katalog.js:109": 0.103,
+    "listener @ undefined:8178": 0.102,
+    "periksaGulir @ http://localhost:3000/js/gulir.js:27": 0.092,
+    "retarget @ undefined:7451": 0.018
+  },
+  "longTasks": []
+}

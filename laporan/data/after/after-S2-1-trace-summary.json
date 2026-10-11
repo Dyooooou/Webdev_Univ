@@ -1,0 +1,249 @@
+{
+  "source": "after-S2-1.json.gz",
+  "thread": 9280,
+  "windowStartUs": 116447781255,
+  "frameWindowMs": 10000,
+  "slowFrames10s": 0,
+  "mainTaskBusyPercent10s": 5.17784,
+  "traceCLS": 0.0001398193132247163,
+  "layoutShifts": [
+    {
+      "ts": 116450482639,
+      "score": 0.0001398193132247163,
+      "nodes": [
+        {
+          "new_rect": [
+            109,
+            429,
+            82,
+            58
+          ],
+          "node_id": 129,
+          "old_rect": [
+            119,
+            429,
+            72,
+            58
+          ]
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "RunTask": {
+      "count": 1367,
+      "totalMs": 517.7839999999986,
+      "maxMs": 34.708
+    },
+    "BlinkScheduler_PerformMicrotaskCheckpoint": {
+      "count": 1244,
+      "totalMs": 10.236000000000011,
+      "maxMs": 0.176
+    },
+    "Receive mojo message": {
+      "count": 38,
+      "totalMs": 46.550999999999995,
+      "maxMs": 34.69
+    },
+    "V8.GC_TIME_TO_SAFEPOINT": {
+      "count": 3,
+      "totalMs": 0.167,
+      "maxMs": 0.164
+    },
+    "V8.GC_HEAP_ENSURE_SWEEPING_COMPLETED": {
+      "count": 15,
+      "totalMs": 0.029000000000000005,
+      "maxMs": 0.004
+    },
+    "FireAnimationFrame": {
+      "count": 495,
+      "totalMs": 50.30500000000001,
+      "maxMs": 1.383
+    },
+    "FunctionCall": {
+      "count": 525,
+      "totalMs": 70.61600000000016,
+      "maxMs": 12.885
+    },
+    "UpdateLayoutTree": {
+      "count": 511,
+      "totalMs": 57.80400000000005,
+      "maxMs": 0.825
+    },
+    "PrePaint": {
+      "count": 515,
+      "totalMs": 46.980000000000054,
+      "maxMs": 0.78
+    },
+    "IntersectionObserverController::computeIntersections": {
+      "count": 928,
+      "totalMs": 16.387999999999995,
+      "maxMs": 0.38
+    },
+    "Layerize": {
+      "count": 407,
+      "totalMs": 10.083999999999973,
+      "maxMs": 0.8
+    },
+    "ScrollLayer": {
+      "count": 1,
+      "totalMs": 0.03,
+      "maxMs": 0.03
+    },
+    "PaintTiming::NotifyScroll": {
+      "count": 1,
+      "totalMs": 0.001,
+      "maxMs": 0.001
+    },
+    "EventDispatch": {
+      "count": 48,
+      "totalMs": 2.7839999999999985,
+      "maxMs": 1.636
+    },
+    "Layout": {
+      "count": 25,
+      "totalMs": 40.054,
+      "maxMs": 25.161
+    },
+    "Paint": {
+      "count": 39,
+      "totalMs": 24.653,
+      "maxMs": 2.613
+    },
+    "TimerFire": {
+      "count": 10,
+      "totalMs": 29.323,
+      "maxMs": 12.898
+    },
+    "ResourceChangePriority": {
+      "count": 2,
+      "totalMs": 0.009000000000000001,
+      "maxMs": 0.007
+    },
+    "PageTimingMetricsSender::SendNow": {
+      "count": 6,
+      "totalMs": 0.404,
+      "maxMs": 0.177
+    },
+    "DocumentLoader::DocumentLoader": {
+      "count": 4,
+      "totalMs": 0.016,
+      "maxMs": 0.005
+    },
+    "DocumentLoader::CommitNavigation": {
+      "count": 4,
+      "totalMs": 3.2329999999999997,
+      "maxMs": 1.004
+    },
+    "DocumentLoader::InitializeWindow": {
+      "count": 4,
+      "totalMs": 0.7350000000000001,
+      "maxMs": 0.191
+    },
+    "DocumentLoader::RecordUseCountersForCommit": {
+      "count": 4,
+      "totalMs": 0.005,
+      "maxMs": 0.002
+    },
+    "DocumentLoader::DidInstallNewDocument": {
+      "count": 4,
+      "totalMs": 0.17200000000000001,
+      "maxMs": 0.158
+    },
+    "DocumentLoader::DidCommitNavigation": {
+      "count": 4,
+      "totalMs": 0.171,
+      "maxMs": 0.167
+    },
+    "DocumentLoader::StartLoadingResponse": {
+      "count": 4,
+      "totalMs": 1.036,
+      "maxMs": 0.4
+    },
+    "DocumentLoader::CreateParserPostCommit": {
+      "count": 4,
+      "totalMs": 0.396,
+      "maxMs": 0.192
+    },
+    "DocumentLoader::FinishedLoading": {
+      "count": 4,
+      "totalMs": 0.635,
+      "maxMs": 0.206
+    },
+    "ParseHTML": {
+      "count": 12,
+      "totalMs": 1.5400000000000003,
+      "maxMs": 0.381
+    },
+    "HTMLDocumentParser::DocumentElementAvailable": {
+      "count": 4,
+      "totalMs": 0.008,
+      "maxMs": 0.003
+    },
+    "DecodedDataDocumentParser::AppendBytes": {
+      "count": 4,
+      "totalMs": 1.476,
+      "maxMs": 0.427
+    },
+    "SimpleWatcher::OnHandleReady": {
+      "count": 51,
+      "totalMs": 0.8790000000000001,
+      "maxMs": 0.175
+    },
+    "Closed mojo endpoint": {
+      "count": 26,
+      "totalMs": 0.03700000000000002,
+      "maxMs": 0.011
+    },
+    "HitTest": {
+      "count": 17,
+      "totalMs": 1.696,
+      "maxMs": 0.206
+    },
+    "LatencyInfo.Flow": {
+      "count": 7,
+      "totalMs": 31.991999999999997,
+      "maxMs": 29.195
+    },
+    "Receive mojo reply": {
+      "count": 7,
+      "totalMs": 0.015,
+      "maxMs": 0.004
+    },
+    "Responsiveness.Renderer.UserInteraction": {
+      "count": 1,
+      "totalMs": 0.002,
+      "maxMs": 0.002
+    }
+  },
+  "sampledSelfMs": {
+    "(idle) @ undefined:NaN": 2492.5899999999992,
+    "(program) @ undefined:NaN": 450.8879999999999,
+    "k @ http://localhost:3000/vendor/lacak.min.js:2": 24.906000000000002,
+    " @ undefined:NaN": 1.8270000000000002,
+    " @ undefined:1": 1.673,
+    "gambar @ http://localhost:3000/alat/ukur.js:96": 1.358,
+    "evaluate @ undefined:364": 1.066,
+    "requestAnimationFrame @ undefined:NaN": 0.967,
+    "getBoundingClientRect @ undefined:NaN": 0.5850000000000001,
+    "querySelectorAll @ undefined:7192": 0.578,
+    "_promiseAwareJsonValueNoThrow @ undefined:386": 0.559,
+    "retarget @ undefined:7451": 0.556,
+    "previewNode @ undefined:7986": 0.549,
+    "catatAktivitas @ http://localhost:3000/js/keranjang.js:20": 0.546,
+    "query @ undefined:5816": 0.544,
+    "computeBox @ undefined:3181": 0.544,
+    "perbaruiJendela @ http://localhost:3000/js/katalog.js:71": 0.543,
+    "tambahKeKeranjang @ http://localhost:3000/js/keranjang.js:84": 0.543,
+    "jsonValue @ undefined:381": 0.541,
+    "oneLine @ undefined:8428": 0.538,
+    " @ undefined:5635": 0.531,
+    "buatKartu @ http://localhost:3000/js/katalog.js:19": 0.386,
+    "perbarui @ http://localhost:3000/js/promo.js:19": 0.355,
+    " @ http://localhost:3000/js/katalog.js:54": 0.29,
+    "IntersectionObserver.rootMargin @ http://localhost:3000/js/gulir.js:4": 0.233,
+    "pantauFrame @ http://localhost:3000/alat/ukur.js:58": 0.175,
+    "PerformanceObserver.observe.type @ http://localhost:3000/alat/ukur.js:45": 0.174
+  },
+  "longTasks": []
+}

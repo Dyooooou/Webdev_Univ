@@ -1,0 +1,307 @@
+{
+  "S0": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 12.79409,
+        "imageRequests10sAfterDOM": 2,
+        "imageRequests10sFromNavigation": 2,
+        "imageRequests": 2,
+        "domContentLoadedS": 0.065348999996786,
+        "lastObservedImageEndS": 0.5143430000025546,
+        "completedImages": 2,
+        "imageBytes": 2208,
+        "apiMs": 192.06299999495968
+      },
+      {
+        "run": 2,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 13.0222,
+        "imageRequests10sAfterDOM": 2,
+        "imageRequests10sFromNavigation": 2,
+        "imageRequests": 2,
+        "domContentLoadedS": 0.001852000001235865,
+        "lastObservedImageEndS": 0.5041130000026897,
+        "completedImages": 2,
+        "imageBytes": 2208,
+        "apiMs": 186.6640000080224
+      },
+      {
+        "run": 3,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 13.61517,
+        "imageRequests10sAfterDOM": 2,
+        "imageRequests10sFromNavigation": 2,
+        "imageRequests": 2,
+        "domContentLoadedS": 0.0019529999990481883,
+        "lastObservedImageEndS": 0.501256999996258,
+        "completedImages": 2,
+        "imageBytes": 2208,
+        "apiMs": 184.70700000762008
+      }
+    ],
+    "median": {
+      "inp": null,
+      "longTaskMs": 0,
+      "cls": 0,
+      "orders": 1,
+      "slowFrames10s": 0,
+      "mainTaskBusyPercent10s": 13.0222,
+      "imageRequests10sAfterDOM": 2,
+      "imageRequests10sFromNavigation": 2,
+      "imageRequests": 2,
+      "domContentLoadedS": 0.0019529999990481883,
+      "lastObservedImageEndS": 0.5041130000026897,
+      "completedImages": 2,
+      "imageBytes": 2208,
+      "apiMs": 186.6640000080224
+    }
+  },
+  "S1": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": 24,
+        "longTaskMs": 64,
+        "cls": 0,
+        "orders": 2,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 8.74824
+      },
+      {
+        "run": 2,
+        "inp": 16,
+        "longTaskMs": 69,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 7.58812
+      },
+      {
+        "run": 3,
+        "inp": 16,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 7.91857
+      }
+    ],
+    "median": {
+      "inp": 16,
+      "longTaskMs": 64,
+      "cls": 0,
+      "orders": 1,
+      "slowFrames10s": 1,
+      "mainTaskBusyPercent10s": 7.91857
+    }
+  },
+  "S2": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": 40,
+        "longTaskMs": 0,
+        "cls": 0.0001398193132247163,
+        "orders": 2,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 5.17784
+      },
+      {
+        "run": 2,
+        "inp": 40,
+        "longTaskMs": 0,
+        "cls": 0.0001398193132247163,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 5.14176
+      },
+      {
+        "run": 3,
+        "inp": 48,
+        "longTaskMs": 0,
+        "cls": 0.0001398193132247163,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 5.19649
+      }
+    ],
+    "median": {
+      "inp": 40,
+      "longTaskMs": 0,
+      "cls": 0.0001398193132247163,
+      "orders": 1,
+      "slowFrames10s": 0,
+      "mainTaskBusyPercent10s": 5.17784
+    }
+  },
+  "S3": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": 368,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 5.57936
+      },
+      {
+        "run": 2,
+        "inp": 368,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 5.2321
+      },
+      {
+        "run": 3,
+        "inp": 376,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 5.12487
+      }
+    ],
+    "median": {
+      "inp": 368,
+      "longTaskMs": 0,
+      "cls": 0,
+      "orders": 1,
+      "slowFrames10s": 0,
+      "mainTaskBusyPercent10s": 5.2321
+    }
+  },
+  "S4": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": 24,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 6.69828
+      },
+      {
+        "run": 2,
+        "inp": 16,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 6.51461
+      },
+      {
+        "run": 3,
+        "inp": 16,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 6.47898
+      }
+    ],
+    "median": {
+      "inp": 16,
+      "longTaskMs": 0,
+      "cls": 0,
+      "orders": 1,
+      "slowFrames10s": 0,
+      "mainTaskBusyPercent10s": 6.51461
+    }
+  },
+  "S5": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 1,
+        "mainTaskBusyPercent10s": 34.1001
+      },
+      {
+        "run": 2,
+        "inp": null,
+        "longTaskMs": 51,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 3,
+        "mainTaskBusyPercent10s": 33.31998
+      },
+      {
+        "run": 3,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 4,
+        "mainTaskBusyPercent10s": 32.05706
+      }
+    ],
+    "median": {
+      "inp": null,
+      "longTaskMs": 0,
+      "cls": 0,
+      "orders": 1,
+      "slowFrames10s": 3,
+      "mainTaskBusyPercent10s": 33.31998
+    }
+  },
+  "S6": {
+    "runs": [
+      {
+        "run": 1,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 13.45723
+      },
+      {
+        "run": 2,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 0,
+        "mainTaskBusyPercent10s": 13.62457
+      },
+      {
+        "run": 3,
+        "inp": null,
+        "longTaskMs": 0,
+        "cls": 0,
+        "orders": 1,
+        "slowFrames10s": 3,
+        "mainTaskBusyPercent10s": 12.84938
+      }
+    ],
+    "median": {
+      "inp": null,
+      "longTaskMs": 0,
+      "cls": 0,
+      "orders": 1,
+      "slowFrames10s": 0,
+      "mainTaskBusyPercent10s": 13.45723
+    }
+  }
+}

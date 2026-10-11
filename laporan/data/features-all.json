@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-11T23:30:14.263Z",
+  "products": 3000,
+  "checks": [
+    "all products retained; DOM bounded",
+    "search count and ids exact",
+    "empty search, clearing, price sort",
+    "first, middle, and final catalogue rows reachable by scrolling",
+    "560 px cards have no clipped content",
+    "desktop resize keeps bounded DOM",
+    "category ids/count correct",
+    "one cart click adds one item; 9000 history entries preserved plus new journal event",
+    "three real clicks produce exactly one server order; visible busy state",
+    "injected HTTP failure releases guard; retry succeeds",
+    "cart quantity limit 99 retained",
+    "countdown changes once per second",
+    "marquee retained and reduced motion honored",
+    "promo content fits reserved slot at 320/412/560/1280 px",
+    "required analytics events retain meaningful SDK calls"
+  ],
+  "errors": []
+}

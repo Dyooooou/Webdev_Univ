@@ -1,0 +1,16 @@
+const fs=require('node:fs');const {chromium}=require('../.tools/node_modules/playwright');
+const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;');
+(async()=>{
+ const browser=await chromium.launch({channel:'chrome',headless:true});const page=await browser.newPage({viewport:{width:1440,height:980}});
+ const style='<style>body{font:18px Segoe UI;background:#f3f6fb;color:#16253e;padding:28px}h1{font-size:28px}.cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}section{padding:22px;background:white;border:1px solid #ccd5e3;border-radius:10px}pre{font:16px/1.8 Consolas;background:#16253e;color:#d9e9ff;padding:18px}small{font-size:14px}svg{width:100%;height:500px}p{line-height:1.5}</style>';
+ const sections=['before','after'].map(phase=>{
+  const d=JSON.parse(fs.readFileSync(`laporan/data/${phase}/S0-1.json`));const nav=d.requested.find(x=>x.type==='Document').start;
+  const images=d.network.filter(x=>x.url.includes('/img/p/'));const max=Math.max(...images.map(x=>x.end-nav));const list=images.length>12?images.slice(0,8).concat(images.slice(-4)):images;
+  return `<section><h2>${phase==='before'?'Sebelum':'Sesudah'} — S0 ulangan 1</h2><p>${d.requested.filter(x=>x.url.includes('/img/p/')).length} permintaan gambar · ${images.reduce((n,x)=>n+x.bytes,0).toLocaleString('id-ID')} byte<br>Gambar terakhir: ${max.toFixed(3)} s dari navigasi</p><svg viewBox="0 0 600 500">${list.map((x,i)=>{const start=x.start-nav;return `<text x="0" y="${25+i*35}" font-size="13">${esc(x.url.split('/').at(-1))}</text><rect x="${100+start/max*380}" y="${12+i*35}" width="${Math.max(1,(x.end-x.start)/max*380)}" height="20" fill="#3e6ed5"/><text x="490" y="${25+i*35}" font-size="12">${(x.end-nav).toFixed(2)} s</text>`;}).join('')}<text x="100" y="465" font-size="14">Sumbu waktu: 0–${max.toFixed(2)} s (skala panel berbeda)</text></svg><small>${images.length>12?'Delapan gambar selesai pertama dan empat terakhir ditampilkan.':'Seluruh gambar awal ditampilkan.'} Lebar batang = durasi request asli, termasuk antrean; bukan latensi server murni.</small></section>`;
+ }).join('');
+ await page.setContent(style+'<h1>Network — bukti CDP asli, viewport 412 × 915, CPU 4×</h1><p>Visualisasi data Network Chrome dari laporan/data/*/S0-1.json, bukan gambar panel DevTools yang direka.</p><div class="cols">'+sections+'</div>');
+ await page.screenshot({path:'screenshots/01-network-before-after.png',fullPage:true});
+ await page.setContent(style+'<h1>S3 — stdout server asli, tiga ulangan</h1><p>DELETE /api/pesanan sebelum setiap ulangan; tiga klik cepat pada produk #1.</p><div class="cols">'+['before','after'].map(p=>`<section><h2>${p==='before'?'Sebelum: tiga pesanan per ulangan':'Sesudah: satu pesanan per ulangan'}</h2><pre>${esc(fs.readFileSync(`laporan/data/${p}-server-orders.txt`,'utf8'))}</pre><small>Sumber: laporan/data/${p}-server-orders.txt</small></section>`).join('')+'</div><p>Log sesudah adalah tiga baris terakhir dari server-since-baseline.txt, setelah seri final S3. Gambar ini merender keluaran nyata; tidak menyimulasikan terminal.</p>');
+ await page.screenshot({path:'screenshots/02-server-orders-before-after.png',fullPage:true});
+ await browser.close();
+})().catch(e=>{console.error(e);process.exit(1)});
