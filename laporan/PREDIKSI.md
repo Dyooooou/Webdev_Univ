@@ -108,4 +108,17 @@ Tanggal: 12 Oktober 2026 (WIB). Baseline commit `48f838f`, kode asli `9da21d1`. 
 
 ## Sesudah perbaikan
 
-Belum diukur pada saat commit prediksi. Hash perbaikan, hasil median, ketepatan prediksi, dan efek samping akan ditambahkan di sini setelah verifikasi.
+Ditambahkan setelah seri final; bagian sebelum perbaikan tetap sama dengan commit **820616b**. Angka berikut median tiga ulangan, kecuali uji oracle/progres yang disebut terpisah. [Data final](data/after/summary.json), [baseline](data/before/summary.json).
+
+| Prediksi | Commit perbaikan | Hasil aktual dan penilaian | Efek samping / trade-off |
+|---|---|---|---|
+| P-01 pencarian | `b18d174` | INP 2544→16 ms, long task panel 2104→64 ms. Median tercapai; trace ulangan 3 tetap memuat task IPC 116,7 ms, bukan klaim semua task lolos. | Debounce 150 ms menunda hasil; ukuran baris tetap dapat menyisakan ruang. Semua produk tetap ada; fokus kartu dipertahankan. |
+| P-02 scroll | `b18d174` | Frame >50 ms/10 s 52→3. Prediksi ≤2 belum tercapai. | Observer/impresi asinkron; busy scroll masih 33,32%, termasuk SDK, browser dan alat. |
+| P-03 gambar | `b18d174` | Total gambar pemuatan awal 1500→2; gambar terakhir selesai 70,69→0,504 s. Target request tercapai; waktu paint gambar tidak diukur. Baseline 10 detik awal bernilai 0 karena startup terlambat. | Scroll cepat dapat mendahului gambar; dimensi placeholder tetap. Waktu selesai request bukan waktu paint. |
+| P-04 keranjang | `c3bddc7` | INP 368→40 ms, long task 246→tidak teramati ≥50 ms. Tercapai. Riwayat dasar 9000 entri tetap utuh dengan jurnal baru. | Persistensi aktivitas tertunda dengan flush pagehide; kuota storage masih terbatas. Payload analitik lebih sedikit. |
+| P-05 checkout | `c3bddc7` | Pesanan 3→1 pada semua ulangan; error/retry lolos. INP 424→368 ms: prediksi ≤200 belum tercapai. | Pointerdown lanjutan pada disabled menunggu presentasi berikutnya; guard klien bukan idempotency lintas tab. |
+| P-06 voucher | `d26d1c3` | INP 3696→16 ms, long task 3487→tidak teramati. Oracle 3028 cocok, 16 nilai progres dan 6 input selama hitung pada uji khusus. Tercapai. | Task/jeda menambah waktu total; harga diterapkan atomik. Simulasi final tetap ada, hanya hasil terbuang yang dihapus. |
+| P-07 idle | `dcc5f7a` | Frame lambat 123→0 tercapai; busy 64,89→13,46% belum mencapai prediksi <10%. | Centisecond disembunyikan; jam/menit/detik tetap. Timer 1 Hz dan alat/browser masih bekerja. Baterai tidak diukur. |
+| P-08 CLS | `b18d174`, `dcc5f7a` | CLS 0,474→0, tercapai. Slot promo diuji pada 320/412/560/1280 px. | Slot tetap memakai ruang saat gagal; fallback ditampilkan. |
+
+Data antara dan audit tetap disimpan. Probe rAF tambahan pada seri antara menyebabkan overhead sekitar 106 ms dan dihapus sebelum seri akhir; baseline asli juga tidak memakai probe tersebut. Penjelasan di [skrip reproduksi](../scripts/README.md). Tidak ada prediksi awal yang ditulis ulang agar cocok dengan hasil.

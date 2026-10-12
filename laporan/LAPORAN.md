@@ -1,220 +1,118 @@
-# Laporan audit performa dan interaksi TokoKilat
+﻿# Laporan audit performa dan interaksi TokoKilat
 
-Tim: .....   Anggota: [JULIAN DIO SAPUTRA] Tanggal: 25 September 2026
+Tanggal audit: 12 Oktober 2026. Identitas yang tersedia: **JULIAN DIO SAPUTRA**. Nama tim, anggota lain (tugas meminta 3–4 orang), dan kontribusi manusia belum diberikan; tidak diasumsikan.
 
+## 1. Ringkasan eksekutif
 
-## 1. Ringkasan eksekutif (maks. 150 kata)
-
-Halaman flash sale TokoKilat nyaris tak bisa dipakai di HP kelas bawah karena main thread browser
-terus-menerus sibuk: satu aksi pengguna (mengetik, menekan tombol, memakai voucher, menggulir)
-memicu pekerjaan sinkron yang panjang, dan bahkan saat dibiarkan diam halaman tetap bekerja.
-Masalah terbesar adalah voucher membeku.
-Disini memperbaiki delapan temuan tanpa menghapus fitur. Hasilnya, INP
-menurun pesanan ganda tidak lagi terjadi (3 klik menghasilkan 1 pesanan),
-CLS turun, dan aktivitas main thread saat diam turun.
-Target yang belum tercapai: LANCAR 
+Delapan tiket ditelusuri melalui trace Chrome sebelum perubahan. Penyebab terbesar adalah render seluruh katalog, pembacaan layout setelah penulisan, dan antrean microtask voucher. Perbaikan membatasi DOM sesuai viewport, memisahkan task perhitungan, mengecilkan payload analitik, melindungi checkout, serta menstabilkan layout dan animasi. Pada 1.500 produk, median INP pencarian turun 2544 menjadi 16 ms, keranjang 368 menjadi 40 ms, dan voucher 3696 menjadi 16 ms. Tiga klik menghasilkan satu pesanan; CLS turun 0,474 menjadi 0; pemuatan gambar awal turun dari 1500 menjadi 2. Semua 3000 produk tetap lolos pemeriksaan fungsi. Target belum seluruhnya tercapai: INP S3 368 ms, S5 tiga frame lambat, idle 13,46%, serta satu task IPC 116,7 ms pada trace S1. Data dan keterbatasan tersebut dipertahankan, bukan disembunyikan.
 
 ## 2. Lingkungan pengukuran
 
-- Laptop: [ISI: CPU, RAM, OS].
-- Chrome: [ISI: versi]. Jumlah produk: [ISI: `npm start` / `start:ringan` / `start:berat`].
-- Protokol: sesuai TUGAS.md bagian 7 (Incognito, viewport 412 x 915, CPU 4x slowdown, 3 ulangan, median, muat ulang sekali sebelum mengukur).
-- Penyimpangan dari protokol:  "tidak ada"
+Intel Core Ultra 7 255HX, 20 logical CPU, RAM 31,4 GiB, Windows 11 Home Single Language; Chrome **154.0.8037.98**, Node 25.9.0. [Metadata mesin](data/after/environment.json). Pengukuran memakai 1500 produk (`JUMLAH_PRODUK=1500`, setara mode ringan): percobaan awal 3000 produk terlalu berat untuk pengukuran praktis. Uji fungsi akhir tetap memakai 3000 produk.
+
+Sebelum/sesudah memakai mesin sama, context sementara terisolasi tanpa ekstensi, viewport **412 × 915**, CDP CPU **4×**, jaringan tanpa throttle, seed pada pemuatan pertama lalu satu reload, tiga ulangan, median, Reset sebelum skenario interaksi. Tidak ada benchmark paralel. Penyimpangan: Chrome **headless melalui CDP**, bukan UI DevTools terbuka; status versi stabil terbaru, listrik laptop, dan penutupan aplikasi lain tidak diverifikasi. Ini bukan pengujian Android fisik.
+
+[Prosedur dan skrip](../scripts/README.md) menjelaskan batas pengukuran. Trace asli disimpan lossless sebagai `.json.gz`, dapat diimpor ke Performance (dekompresi bila diperlukan). Screenshot flame chart adalah **visualisasi event CDP asli**, bukan tiruan UI DevTools. INP/long task berasal dari alat bawaan; CLS S0 dari LayoutShift trace karena alat baseline terlambat aktif. Frame S5/S6 dihitung dari interval rAF >50 ms pada **10 detik pertama trace**, agar waktu ekspor tidak ikut dihitung. Busy adalah proporsi RunTask pada jendela tersebut, termasuk browser/alat ukur.
 
 ## 3. Hasil sebelum dan sesudah
 
-| Skenario | Metrik | Sebelum (median) | Sesudah (median) | Target | Tercapai? |
-|---|---|---|---|---|---|
-| S0 | CLS | [ISI] | [ISI] | <= 0,1 | [ISI] |
-| S0 | Jumlah permintaan gambar dalam 10 dtk pertama | [ISI] | [ISI] | sebanding dengan yang terlihat | [ISI] |
-| S1 | INP | [ISI] | [ISI] | <= 200 ms | [ISI] |
-| S1 | Long task terlama | [ISI] | [ISI] | <= 100 ms | [ISI] |
-| S2 | INP | [ISI] | [ISI] | <= 200 ms | [ISI] |
-| S3 | Jumlah pesanan dari 3 klik | [ISI] | [ISI] | 1 | [ISI] |
-| S4 | INP / progres tergambar bertahap? | [ISI] | [ISI] | bertahap, kolom cari responsif | [ISI] |
-| S5 | Frame > 50 ms per 10 dtk | [ISI] | [ISI] | <= 2 | [ISI] |
-| S6 | Frame > 50 ms per 10 dtk | [ISI] | [ISI] | <= 2 | [ISI] |
+Sumber: [tiga ulangan sebelum](data/before/summary.json), [sesudah](data/after/summary.json). Semua angka tabel adalah median.
 
-## 4. Temuan
+| Skenario / metrik | Sebelum | Sesudah | Target / hasil |
+|---|---:|---:|---|
+| S0 CLS | 0,474 | 0 | ≤0,1: tercapai |
+| S0 gambar, 10 detik dari navigasi | 0 | 2 | Baseline belum mulai request; lihat catatan |
+| S0 total gambar sampai selesai diamati | 1500 | 2 | Sesuai viewport: tercapai |
+| S0 byte gambar / gambar terakhir selesai | 1.652.982 / 70,69 s | 2.208 / 0,504 s | Beban pemuatan berkurang |
+| S1 INP / long task terlama (ms) | 2544 / 2104 | 16 / 64 | Median ≤200 / ≤100; catatan outlier |
+| S2 INP / long task (ms) | 368 / 246 | 40 / tidak teramati | Tercapai |
+| S3 pesanan dari tiga klik | 3 | 1 | Tepat satu: tercapai |
+| S3 INP / long task (ms) | 424 / 209 | 368 / tidak teramati | INP **belum** ≤200 |
+| S4 INP / long task (ms) | 3696 / 3487 | 16 / tidak teramati | Tercapai; progres/input aktif |
+| S5 long task (ms) | 218 | tidak teramati | Median tercapai; maksimum ulangan 51 |
+| S5 frame >50 ms / 10 s | 52 | 3 | **Belum** ≤2 |
+| S6 frame >50 ms / 10 s | 123 | 0 | Tercapai |
+| S6 busy main thread | 64,89% | 13,46% | Turun; **belum mendekati nol** |
 
-Urutan di bawah adalah perkiraan awal. **Susun ulang berdasarkan dampak terukur** setelah data ada.
+“Tidak teramati” berarti tidak ada long task ≥50 ms yang dicatat, bukan CPU nol. S1 ulangan ketiga memiliki RunTask IPC `Receive mojo message` **116,731 ms** pada trace, tidak tercatat oleh observer long task; belum cukup bukti mengatribusikannya ke aplikasi. Karena itu klaim ketat *semua task ≤100 ms* belum terbukti. Baseline S0 terlambat memulai gambar: angka 0 dalam 10 detik **bukan keberhasilan lazy loading**; total 1500 dan waterfall menunjukkan banjir request setelah startup. Waktu selesai gambar bukan waktu gambar terlihat/paint.
 
-### T-01: Perhitungan voucher berjalan sebagai satu task panjang
-- **Tiket terkait:** TK-1057
-- **Gejala bagi pengguna:** layar beku, tulisan "menghitung 0%" lalu tiba-tiba selesai, scroll dan ketik tidak bisa.
-- **Bukti:** [ISI: tangkapan layar flame chart S4 dengan satu Task merah berdurasi [ISI] ms; anotasi `terapkanVoucher` → `hitungHargaPromo` → `simulasiCicilan`]
-- **Akar masalah dan mekanismenya:** `harga-promo.js`, fungsi `terapkanVoucher`. `async`/`await` pada
-  fungsi yang tidak menunggu apa pun hanya menyambung *microtask*. Antrean microtask dikosongkan habis
-  sebelum browser mendapat *rendering opportunity*, sehingga seluruh loop atas semua produk berjalan
-  dalam satu task. Bar progres diubah ribuan kali, tetapi tidak ada frame yang digambar di antaranya
-  (hanya nilai akhir yang terlihat). Selain itu `hitungHargaPromo` memanggil `simulasiCicilan` 41 kali
-  per produk (40 pemanggilan di loop "kestabilan pembulatan" yang hasilnya dibuang), dan tiap panggilan
-  sendiri berloop sampai 24 x 24 iterasi. [VERIFIKASI: bottom-up menunjukkan `simulasiCicilan` dominan]
-- **Kualitas yang terdampak (ISO/IEC 25010):** *time behaviour* (task [ISI] ms jauh melewati 50 ms),
-  *resource utilization* (CPU main thread penuh). Pada interaction capability: *self-descriptiveness*
-  (progres "0%" menyesatkan, pengguna mengira aplikasi crash) dan *operability* (input tidak dapat dipakai selama perhitungan).
-- **Perbaikan:** memecah loop menjadi potongan dengan anggaran waktu (mis. ~8-10 ms), lalu memberi
-  kesempatan render antar potongan dengan `scheduler.yield()` / `setTimeout` / `requestAnimationFrame`
-  (pilih yang didukung target). Menghapus 40 pemanggilan sia-sia setelah dipastikan hasil akhir tidak
-  berubah. Render ulang kartu dilakukan sekali di akhir.
-- **Trade-off:** total waktu bisa sedikit lebih panjang karena jeda antar potongan, tetapi UI tetap
-  responsif. Alternatif: Web Worker (tidak memblokir sama sekali, tetapi menambah kompleksitas
-  komunikasi data, dan tugas ini tetap platform web murni). Alternatif lain: hitung harga hanya untuk
-  kartu yang terlihat (lazy), lebih hemat tetapi mengubah semantik "diterapkan di semua produk".
-- **Hasil:** longest task [ISI] → [ISI] ms; INP S4 [ISI] → [ISI] ms; progres tergambar [ISI] langkah.
+[Video demo](../demo/demo.mp4): **124,76 detik**, 1280 × 1024, 25 fps, CPU 4×. S1/S4 baseline dipercepat 5,00×/5,86× dengan label; adegan lain kecepatan asli. [Naskah](../demo/SCRIPT.md), [chapter](../demo/chapters.json), [verifikasi decode](../demo/verification.json). Durasi screencast bukan median benchmark.
 
-### T-02: Setiap ketukan membangun ulang seluruh daftar produk
-- **Tiket terkait:** TK-1041
-- **Gejala bagi pengguna:** huruf muncul terlambat, HP seperti hang saat mengetik.
-- **Bukti:** [ISI: flame chart S1, track Interactions (INP [ISI] ms), Task per ketukan [ISI] ms, tahap Layout/Recalculate Style dominan]
-- **Akar masalah dan mekanismenya:** `pencarian.js` → handler `input` memanggil `terapkanSaringan` →
-  `renderProduk` (`katalog.js`), yang mengosongkan `#kisi` dan membuat ulang seluruh kartu di DOM pada
-  setiap ketukan. Lalu `samakanTinggiJudul` menulis `style.height` dan membaca `offsetHeight` bergantian
-  (memaksa layout sinkron berulang-ulang, layout thrashing), dan `periksaGulir` membaca
-  `getBoundingClientRect` untuk semua kartu setelah DOM berubah (satu lagi layout paksa). Event `search`
-  juga dikirim ke SDK pada setiap ketukan. [VERIFIKASI: tampilkan peringatan "Forced reflow" di trace]
-- **Kualitas yang terdampak:** *time behaviour* (INP), *resource utilization* (CPU, memori karena DOM
-  dibuat ulang). *Operability*: umpan balik huruf yang diketik tertunda sehingga pengguna mengulang atau meninggalkan pencarian.
-- **Perbaikan:** debounce input, render bertahap/ber-batch (atau hanya merender yang perlu), memisah
-  fase baca dan tulis layout (baca dulu semua, baru tulis), mengganti pengukuran tinggi judul dengan CSS
-  (mis. `min-height` berbasis `lh`/`line-clamp`) bila memungkinkan, dan mengirim event `search` sekali
-  setelah jeda mengetik.
-- **Trade-off:** debounce menambah jeda hasil (mis. 150 ms) tetapi menjaga kolom input tetap lancar.
-  Virtualisasi daftar sangat efektif tetapi mengubah cara semua produk dijangkau lewat scroll
-  (aturan 3 mensyaratkan tetap terjangkau dan jumlah hasil tetap benar).
-- **Hasil:** INP S1 [ISI] → [ISI] ms; long task terlama [ISI] → [ISI] ms.
+## 4. Temuan berdasarkan dampak terukur
 
-### T-03: Handler "+ Keranjang" dan "Beli sekarang" melakukan kerja berat sebelum memberi umpan balik
-- **Tiket terkait:** TK-1044, TK-1052
-- **Gejala bagi pengguna:** tombol seolah tidak bereaksi, pengguna menekan berulang sehingga keranjang jadi 3.
-- **Bukti:** [ISI: flame chart S2, Task [ISI] ms dengan `JSON.parse`/`JSON.stringify`/`localStorage` dan `Lacak.kirim`]
-- **Akar masalah dan mekanismenya:** `keranjang.js`. Riwayat contoh berisi 9.000 entri; setiap klik
-  melakukan `bacaRiwayat` (parse JSON) dan `simpanRiwayat` (stringify + tulis `localStorage` sinkron),
-  serta mengirim `riwayat` penuh ke `Lacak.kirim` (serialisasi besar). Perubahan visual (teks tombol,
-  toast) baru terjadi setelahnya, jadi frame berikutnya terlambat dan pengguna tidak melihat respons
-  untuk beberapa ratus ms. [VERIFIKASI: peran `Lacak.kirim` vs `localStorage` di bottom-up]
-- **Kualitas yang terdampak:** *time behaviour* (INP), *self-descriptiveness* (tak ada umpan balik),
-  *user error protection* (pengguna terdorong menekan berulang, jumlah keranjang salah).
-- **Perbaikan:** beri umpan balik visual lebih dulu, lalu jalankan persistensi dan pelacakan setelahnya
-  (mis. `requestAnimationFrame` + task terpisah atau `requestIdleCallback`). Kirim payload yang ramping
-  ke SDK (id produk, jumlah, bukan seluruh riwayat), dan batasi/rapikan riwayat yang disimpan. Event
-  `add_to_cart` tetap terkirim dengan informasi bermakna (aturan 1).
-- **Trade-off:** menunda penyimpanan memperkecil jendela waktu data tersimpan bila tab ditutup tepat
-  setelah klik (mitigasi: simpan di `pagehide`). Payload ramping mengurangi konteks yang diminta tim
-  data, perlu disepakati.
-- **Hasil:** INP S2 [ISI] → [ISI] ms.
+### T-01 — Voucher memblokir input (TK-1057)
 
-### T-04: "Beli sekarang" tidak punya perlindungan klik ganda
-- **Tiket terkait:** TK-1052
-- **Gejala bagi pengguna:** satu pembelian menjadi tiga pesanan dan refund.
-- **Bukti:** [ISI: log terminal server menampilkan 3 pesanan; lencana "Pesanan" = 3; trace S3 memperlihatkan 3 handler dan 3 `fetch`]
-- **Akar masalah dan mekanismenya:** `beliSekarang` bukan idempoten dan tidak menonaktifkan tombol
-  maupun memberi status "memproses". Karena handler lambat (T-03) dan balasan server datang
-  belakangan, pengguna menekan lagi, dan tiap klik adalah task sendiri yang memicu `POST /api/pesanan` baru.
-- **Kualitas yang terdampak:** *user error protection* (tidak ada pencegahan kesalahan yang mudah
-  dihindari), *self-descriptiveness* (tak ada status "sedang diproses"). Dampak bisnis langsung (refund).
-- **Perbaikan:** tandai "sedang diproses" per produk (flag in-flight), `disabled` + `aria-busy` dan teks
-  "Memproses…" seketika, lepas setelah respons. Pertimbangkan kunci idempotensi bila API mendukung (server
-  tidak boleh diubah, jadi guard di klien).
-- **Trade-off:** guard klien tidak melindungi dari pembukaan di dua tab atau refresh; perlindungan penuh
-  perlu idempotency key di backend (rekomendasi, bagian 6).
-- **Hasil:** pesanan dari 3 klik [ISI] → 1.
+`terapkanVoucher` melanjutkan promise yang langsung selesai sebagai **microtask**, bukan task baru; browser belum mendapat kesempatan paint. `hitungHargaPromo` juga membuang 40 hasil `simulasiCicilan` per produk. Trace menunjukkan simulasi dan render ulang. [S4 sebelum](../screenshots/before-S4-1-flame.png) memperlihatkan blok panjang; [sesudah](../screenshots/after-S4-1-flame.png) menunjukkan task lebih pendek. INP **3696 →16 ms**, long task **3487 → tidak teramati**.
 
-### T-05: Handler scroll membaca dan menulis layout semua kartu
-- **Tiket terkait:** TK-1063
-- **Gejala bagi pengguna:** scroll patah-patah.
-- **Bukti:** [ISI: track Frames S5 dengan frame > 50 ms sebanyak [ISI]; flame chart handler `scroll` dan "Forced reflow"]
-- **Akar masalah dan mekanismenya:** `gulir.js`. `periksaGulir` dipanggil pada setiap `scroll`,
-  `touchmove`, `wheel`; ia menghitung `scrollHeight`, memanggil `getBoundingClientRect()` untuk **semua**
-  `.kartu`, dan menulis `style.minHeight`/`classList` di dalam loop yang sama (baca-tulis bergantian). Listener
-  `touchmove` dan `wheel` didaftarkan dengan `passive: false` dan dapat memanggil `preventDefault`, sehingga
-  browser harus menunggu JavaScript sebelum boleh menggulir di compositor.
-- **Kualitas yang terdampak:** *time behaviour*, *user engagement* (pengalaman menggulir yang buruk
-  menurunkan keterlibatan), *inclusivity* (perangkat murah paling terdampak).
-- **Perbaikan:** ganti dengan `IntersectionObserver` untuk efek kartu muncul dan pencatatan impresi,
-  jadikan listener `passive: true` (atau hapus), batasi pembaruan bar progres/header dengan
-  `requestAnimationFrame`, animasikan bar lewat `transform: scaleX`.
-- **Trade-off:** `IntersectionObserver` bersifat asinkron sehingga impresi tercatat sedikit lebih lambat
-  dan perlu ambang yang tepat. Melepas `preventDefault` bisa mengaktifkan kembali pull-to-refresh (ganti
-  dengan CSS `overscroll-behavior`).
-- **Hasil:** frame > 50 ms per 10 dtk: [ISI] → [ISI].
+Perbaikan mempertahankan simulasi final dan seluruh aturan, memakai anggaran 4 ms/maksimum 100 produk lalu task `setTimeout(16)`, memperbarui progres, dan menerapkan peta harga secara atomik. [Oracle](data/voucher-correctness.json): **3028** perbandingan harga/cicilan cocok, 16 nilai progres (0–100) mendapat frame, enam input saat hitung aktif pada uji khusus. *Time behaviour/resource utilization* membaik karena kerja sia-sia hilang; *operability/self-descriptiveness* membaik karena input dan progres benar-benar dapat digambar. Trade-off: jeda menambah waktu total; Worker lebih kompleks tetapi dapat memindahkan CPU dari main thread.
 
-### T-06: Halaman tetap bekerja keras saat diam
-- **Tiket terkait:** TK-1070
-- **Gejala bagi pengguna:** HP panas dan baterai cepat turun.
-- **Bukti:** [ISI: trace S6; aktivitas main thread [ISI]% saat diam; ringkasan Layout/Paint per detik]
-- **Akar masalah dan mekanismenya:** `promo.js` memakai dua `setInterval` 10 ms (100 kali/detik):
-  hitung mundur menulis teks dan `style.width` serta membaca `offsetWidth` (layout paksa), dan teks
-  berjalan menulis `style.left` dan membaca `offsetWidth` tiap tick. Di CSS, animasi `denyut`
-  pada lencana kilat menganimasikan `top` dan `box-shadow` (Layout + Paint), tanpa henti, untuk setiap
-  kartu kilat; `.kaki-hias` memakai `filter: blur` besar dan `box-shadow` tebal yang mahal untuk di-paint.
-  [VERIFIKASI: track Layout/Paint tidak pernah tenang pada S6]
-- **Kualitas yang terdampak:** *resource utilization* (CPU, baterai), *time behaviour* (frame terlewat),
-  *capacity* (tak ada sisa kapasitas untuk interaksi).
-- **Perbaikan:** hitung mundur di-update cukup 1 kali per detik untuk jam/menit/detik (atau
-  `requestAnimationFrame` bila senti detik dipertahankan), garis menyusut dengan `transform: scaleX`; teks
-  berjalan dengan CSS `animation` pada `transform`; animasi `denyut` memakai `transform`/`opacity`
-  saja; jeda animasi saat tab tersembunyi atau elemen di luar layar; sederhanakan `.kaki-hias`.
-- **Trade-off:** angka perseratus detik menjadi kurang "mulus" bila diturunkan frekuensinya;
-  perlu disepakati dengan desain (aturan 4: bentuk visual boleh disesuaikan dengan alasan).
-- **Hasil:** aktivitas main thread saat diam [ISI]% → [ISI]%; frame > 50 ms [ISI] → [ISI].
+### T-02 — Setiap input membangun seluruh katalog (TK-1041)
 
-### T-07: Pergeseran tata letak (CLS)
-- **Tiket terkait:** TK-1078
-- **Gejala bagi pengguna:** halaman loncat saat akan menekan, yang kepencet iklan promo.
-- **Bukti:** [ISI: track Layout Shifts pada S0, skor CLS [ISI], elemen penyebab]
-- **Akar masalah dan mekanismenya:** (a) `pasangBannerPromo` menyisipkan banner dengan
-  `prepend` setelah `fetch /api/promo`, mendorong seluruh konten ke bawah; (b) gambar kartu tidak punya
-  `width`/`height`/`aspect-ratio` sehingga tingginya berubah saat gambar dimuat; (c) kartu
-  bertransisi `margin-top` (properti layout) ketika muncul. [VERIFIKASI: elemen mana yang tercatat di Layout Shifts]
-- **Kualitas yang terdampak:** *user error protection* (salah tekan karena target berpindah),
-  *operability*, *user engagement* (kepercayaan menurun, tampak seperti manipulasi).
-- **Perbaikan:** sediakan ruang tetap untuk banner sebelum data tiba (slot `min-height`/skeleton),
-  beri `width`/`height` atau `aspect-ratio` pada gambar, ganti transisi `margin-top` dengan `transform`/`opacity`.
-- **Trade-off:** ruang cadangan menyisakan area kosong bila promo tidak ada; bentuk skeleton perlu dijaga sinkron dengan ukuran banner nyata.
-- **Hasil:** CLS [ISI] → [ISI].
+`pencarian.js → renderProduk → samakanTinggiJudul` membuat ribuan node, bergantian menulis tinggi dan membaca `offsetHeight`; layout kotor harus dihitung sinkron. Pemindaian gulir menambah pembacaan geometri. [S1 sebelum](../screenshots/before-S1-1-flame.png) dan [sesudah](../screenshots/after-S1-1-flame.png): INP **2544 →16 ms**, long task median **2104 →64 ms**.
 
-### T-08: Seluruh gambar dimuat sekaligus
-- **Tiket terkait:** TK-1081
-- **Gejala bagi pengguna:** kotak abu-abu lama, kuota cepat habis.
-- **Bukti:** [ISI: panel Network S0: [ISI] permintaan gambar, gambar terakhir selesai pada [ISI] detik, total [ISI] MB]
-- **Akar masalah dan mekanismenya:** `katalog.js` membuat `<img src>` untuk setiap produk tanpa
-  `loading="lazy"` atau `decoding="async"`, sehingga browser meminta ribuan gambar yang jauh di luar layar
-  dan bersaing untuk bandwidth dengan gambar yang terlihat. Ini bukan masalah kecepatan server
-  (cek waktu respons satu gambar di Network: [ISI]).
-- **Kualitas yang terdampak:** *resource utilization* (bandwidth, kuota pengguna), *time behaviour*
-  (gambar penting terlambat), *inclusivity* (pengguna dengan kuota/jaringan terbatas).
-- **Perbaikan:** `loading="lazy"`, `decoding="async"`, dimensi gambar eksplisit; bila perlu
-  `IntersectionObserver` untuk memuat sedikit sebelum masuk layar.
-- **Trade-off:** pada scroll sangat cepat gambar mungkin tampil terlambat (placeholder tetap perlu);
-  lazy loading menunda pemuatan sehingga perlu *margin* pra-muat yang cukup.
-- **Hasil:** permintaan gambar [ISI] → [ISI]; waktu gambar pertama terlihat [ISI] → [ISI].
+Debounce 150 ms dan cache normalisasi mengurangi pengulangan; `katalog.js` memasang kartu hanya pada jendela viewport dengan overscan, sementara seluruh data/filter/jumlah tetap lengkap. Ukuran baris CSS menggantikan pengukuran judul. *Time behaviour/capacity* membaik karena DOM dibatasi; *operability/inclusivity* membaik karena mengetik tidak menunggu seluruh katalog. Trade-off: hasil tertunda 150 ms, ruang kartu tetap dapat kosong; fokus kartu dipertahankan, namun pembaca layar perlu uji manusia lebih lanjut.
+
+### T-03 — Checkout tidak menjaga request yang sedang berjalan (TK-1052)
+
+Setiap klik asli mengirim POST baru. Guard per produk dipasang **sebelum** pekerjaan lain, dengan `disabled`, `aria-busy`, status Memproses, dan pemulihan bila request gagal. [Log server sebelum/sesudah](../screenshots/02-server-orders-before-after.png) memperlihatkan **3 →1** pesanan per ulangan; [S3 sesudah](../screenshots/after-S3-1-flame.png) menunjukkan interaksi dan task. Log sesudah memilih tiga ulangan final dari stdout lengkap, bukan hasil yang direka.
+
+*Resource utilization* membaik karena request duplikat hilang; *user error protection/self-descriptiveness* mencegah pembelian tak sengaja dan menjelaskan status. INP tetap **368 ms**: trace mencatat pointerdown lanjutan pada tombol disabled dengan processing mendekati nol, tetapi menunggu presentasi berikutnya; respons pertama sekitar 16 ms. Ini observasi, bukan bukti bug Chrome. Trade-off: guard klien tidak melindungi lintas tab/refresh; idempotency backend tetap diperlukan.
+
+### T-04 — Umpan balik keranjang menunggu serialisasi (TK-1044)
+
+`bacaRiwayat/simpanRiwayat` memproses 9000 entri dan mengirim seluruh riwayat ke SDK sebelum frame respons. [S2 sebelum](../screenshots/before-S2-1-flame.png) dibanding [sesudah](../screenshots/after-S2-1-flame.png): INP **368 →40 ms**, long task **246 → tidak teramati**.
+
+Riwayat dasar tetap utuh; aktivitas baru menjadi record jurnal kecil, disimpan setelah paint dengan flush `pagehide`. Payload event ringkas tetap bermakna. *Time behaviour/resource utilization* membaik karena serialisasi berkurang; *self-descriptiveness/user error protection* membaik karena respons cepat mengurangi dorongan mengulang klik. Trade-off: ada jendela persistensi tertunda; kegagalan kuota dipertahankan dalam antrean dan diberi pesan. Konteks SDK lebih sedikit.
+
+### T-05 — Scroll memaksa layout seluruh kartu (TK-1063)
+
+`periksaGulir` membaca `getBoundingClientRect` dan menulis style/class dalam loop seluruh kartu; listener wheel/touch yang memblokir membuat compositor menunggu JS. [S5 sebelum](../screenshots/before-S5-1-flame.png) dan [sesudah](../screenshots/after-S5-1-flame.png) menunjukkan **52 →3** interval frame >50 ms/10 s; busy **67,73 →33,32%**.
+
+IntersectionObserver menangani reveal, impresi unik, dan pemuatan gambar; scroll pasif/rAF hanya memperbarui header/progres transform. Virtualisasi menjaga daftar panjang tetap terjangkau. *Time behaviour/capacity* membaik; *operability/user engagement/inclusivity* membaik karena scroll lebih lancar pada CPU terbatas. Trade-off: observer asinkron dan SDK impresi masih menghabiskan CPU; target dua frame belum tercapai.
+
+### T-06 — Idle tetap menjalankan layout/paint (TK-1070)
+
+Dua interval 10 ms menulis lebar/posisi dan membaca ukuran; badge menganimasikan `top/box-shadow`. [S6 sebelum](../screenshots/before-S6-1-flame.png) dan [sesudah](../screenshots/after-S6-1-flame.png): busy **64,89 →13,46%**, frame lambat **123 →0**. Median Layout/Paint final sekitar **11,6/11,2 ms** pada jendela idle.
+
+Countdown menjadi 1 Hz (jam/menit/detik dipertahankan), marquee/badge memakai transform/opacity, dijeda saat tersembunyi/tidak terlihat, dengan reduced-motion. Dekorasi blur disederhanakan. *Resource utilization/capacity* menyediakan ruang untuk input; *inclusivity/user engagement* mengurangi beban pengalaman perangkat terbatas. Baterai/suhu tidak diukur. Trade-off: centisecond disembunyikan; timer, browser, profiling dan sampler bawaan masih aktif, jadi belum idle nol.
+
+### T-07 — Ruang banner dan media belum dicadangkan (TK-1078)
+
+Banner async di-prepend, gambar tanpa dimensi, dan reveal `margin-top` mengubah geometri setelah konten tampil. Slot banner, dimensi 480 ×480/aspect ratio, baris tetap, dan transform reveal menstabilkan layout. [S0 sebelum](../screenshots/before-S0-1-flame.png) dan [sesudah](../screenshots/after-S0-1-flame.png) memuat Layout Shifts: **CLS 0,474 →0**.
+
+*Time behaviour/resource utilization* membaik lewat layout ulang yang berkurang; *user error protection/operability* menjaga target klik tidak berpindah. Trade-off: slot tetap memakan ruang jika promo gagal, sehingga menampilkan fallback; ukuran diuji 320/412/560/1280 px. Data tidak dapat menyimpulkan niat pembuat iklan.
+
+### T-08 — Gambar di luar layar berebut pemuatan (TK-1081)
+
+Pembuatan `img src` untuk semua produk langsung mengantrekan 1500 gambar. Observer kini memasang sumber pada jarak pra-muat 240 px, dengan decoding async/dimensi eksplisit. [Waterfall CDP sebelum/sesudah](../screenshots/01-network-before-after.png) menunjukkan request asli (sumbu waktu berbeda diberi label). Total awal **1500 →2**, median gambar terakhir selesai **70,69 →0,504 s**.
+
+*Resource utilization/time behaviour* membaik karena bandwidth dan antrean berkurang; *inclusivity/operability* membantu pengguna berkuota kecil. Seluruh gambar tetap dapat dimuat saat menggulir. Trade-off: gulir sangat cepat dapat mendahului gambar; placeholder mempertahankan ukuran. Ini mengukur request selesai, bukan LCP atau waktu paint gambar.
 
 ## 5. Dugaan yang ternyata keliru
 
-| Dugaan | Sumber | Fakta menurut pengukuran |
-|---|---|---|
-| Loop O(n²) di `kategori.js` adalah biang kerok utama | Rudi #1 | [ISI: berapa ms total `pasangKaki` di trace; jumlah kategori/merek hanya [ISI], jadi dampaknya [ISI]] |
-| API produk lambat, perlu server tambahan | Rudi #2 | [ISI: waktu respons `/api/produk` di Network [ISI] ms; porsi terhadap total beban halaman [ISI]] |
-| Ganti bubble sort dengan quicksort | Rudi #3 | [ISI: `urutkanGelembung` hanya mengurutkan [ISI] merek, durasi [ISI] ms, tidak terlihat di bottom-up] |
-| Voucher sudah `async` jadi aman | Rudi #4 | Keliru: `await` pada promise yang langsung selesai tidak memberi rendering opportunity (lihat T-01). Trace: task [ISI] ms |
-| SDK analitik berat tapi tidak boleh disentuh | Rudi #5 | [ISI: sebagian benar/salah? Ukur kontribusi `Lacak.kirim` dan payload-nya. Cara dan isi pemanggilan boleh diubah] |
-| Tombol "+ Keranjang" rusak | TK-1044 | Tombol berfungsi; yang terlambat adalah umpan baliknya (T-03) |
-| Server lemot sehingga gambar lambat | TK-1081 | [ISI: waktu respons gambar [ISI] ms, masalahnya jumlah permintaan (T-08)] |
-| Halaman loncat disengaja demi klik iklan | TK-1078 | Bukan niat; akibat ruang banner tidak dicadangkan (T-07) |
+[Benchmark diagnosis terisolasi](data/diagnosis.json) dan [trace diagnosis](trace/diagnosis.json.gz) memakai CPU 4×; bukan pengganti baseline interaksi.
+
+| Dugaan / sumber | Fakta pengukuran dan keputusan |
+|---|---|
+| O(n²) kategori penyebab utama — Rudi #1 | Hanya 8 kategori/12 merek; `pasangKaki` 38,7/1,0/1,4 ms, median 1,4. Bukan sumber blok detik pada tiap input. |
+| API perlu server tambahan — Rudi #2 | API produk median S0 192,6 ms; gambar terakhir 70,69 s dan task interaksi beberapa detik. Tambah server tidak menghilangkan kerja sinkron UI. |
+| Ganti bubble sort — Rudi #3 | 12 merek; median rerata 1000 panggilan **0,0019 ms/panggilan**. Dampak praktis kecil dibanding render. |
+| Async voucher aman — Rudi #4 | Salah: microtask belum memberi paint; long task S4 3487 ms. Audit microtask masih menghasilkan 686 ms dan nol frame progres. |
+| SDK berat dan tak bisa diperbaiki — Rudi #5 | Sebagian benar: vendor tetap utuh, payload/waktu panggilan boleh diubah. Benchmark SDK median payload besar **75 ms**, kecil **12,3 ms**. |
+| Tombol keranjang rusak — TK-1044 | Klik bekerja, umpan balik tertunda 368 ms; setelah perbaikan 40 ms. |
+| Semua gambar lambat karena server — TK-1081 | Request gambar pertama sekitar **106,3 ms** median; antrean 1500 request dan pekerjaan UI lebih menjelaskan ekor 70,69 s. |
+| Loncat sengaja untuk iklan — TK-1078 | Trace membuktikan pergeseran layout, bukan niat. Reservasi ruang menghilangkan CLS pada seri ini. |
 
 ## 6. Yang belum beres dan rekomendasi
 
-- **Backend:** tambahkan pagination/filter di API produk; idempotency key untuk `POST /api/pesanan`
-  agar tidak bergantung pada guard klien; sediakan gambar dengan ukuran sesuai tampilan (`srcset`).
-- **Vendor SDK:** minta dukungan pengiriman batch dan payload ringan; [ISI: dampak sisa SDK di trace].
-- **Desain:** sepakati penyederhanaan efek visual (denyut kartu, senti detik, blur dekoratif) untuk perangkat kelas bawah.
-- **Sisa:** [ISI: target yang belum tercapai beserta penyebabnya, risiko regresi, dan hal yang belum diuji].
+Target tersisa adalah S3 INP, S5 frame, busy idle, dan outlier IPC S1 sebagaimana tabel. Pisahkan overhead browser/profiling dari aplikasi pada eksperimen lanjutan; jangan menghapus sampel yang buruk. SDK tetap mempunyai biaya sinkron; batching vendor dapat membantu. Backend sebaiknya menambah pagination/filter, idempotency key, dan gambar responsif. Itu rekomendasi, **tidak diimplementasikan** karena server/vendor dilindungi.
+
+[Uji fungsi 3000 produk](data/features-all.json) lulus tanpa page error: pencarian/filter/sort tepat, baris awal/tengah/akhir terjangkau, responsif, keranjang persisten/batas 99, history 9000 + jurnal, checkout gagal/retry, promo/countdown/marquee, dan ketujuh event analitik. Oracle voucher mencakup kedua kode dan batas aturan. Risiko tersisa: pembaca layar, storage quota lintas tab, Android fisik, jaringan lambat, dan masa pemakaian lama belum diuji menyeluruh. Tidak mengklaim penghematan baterai aktual.
 
 ## 7. Pernyataan penggunaan AI dan pembagian kerja
 
-- **Alat AI:** [ISI: nama, mis. Claude] dipakai untuk [ISI: membaca kode dan merumuskan hipotesis awal,
-  menyusun draf laporan, menulis draf kode perbaikan]. Semua hipotesis diverifikasi dengan rekaman
-  panel Performance sendiri dan semua angka berasal dari pengukuran tim.
-- **Audit usulan AI:** lihat `laporan/AUDIT-AI.md`.
-- **Pembagian kerja:** [ISI: nama, kontribusi tiap anggota].
+**OpenAI Codex** membaca kode, membuat hipotesis, menulis perbaikan dan skrip, menjalankan Chrome/CDP, merekam demo, serta menyusun laporan ini. Angka berasal dari eksekusi nyata oleh agen, **bukan klaim pengukuran manual tim**. [Audit AI](AUDIT-AI.md) menguji dua alternatif yang tidak memadai terhadap kontrol, dengan trace dan source kandidat. Probe rAF tambahan pada pengukuran antara teridentifikasi menimbulkan overhead 106 ms; dibuang sebelum seri final, data lama tetap disimpan.
+
+Prediksi dibekukan dalam commit `820616b`, sebelum perbaikan pertama `b18d174`; [PREDIKSI.md](PREDIKSI.md) memisahkan hasil setelahnya. `server.js`, vendor, dan alat ukur tetap tidak berubah. Aplikasi tidak memakai framework/dependensi baru; Playwright/FFmpeg hanya tooling lokal yang diabaikan Git.
+
+Nama yang tersedia adalah JULIAN DIO SAPUTRA; pembagian kerja tim belum dapat diisi tanpa fakta dari anggota. Pemilik tugas perlu melengkapi identitas/kontribusi aktual dan meninjau seluruh bukti. Sesi individu **20 menit diagnosis tanpa AI/internet, lalu 5–10 menit penjelasan** harus dilakukan mahasiswa di kelas; agen tidak dapat menggantikannya. [Indeks seluruh screenshot](../screenshots/INDEX.md) dan [checklist akhir](COMPLETION.md) memetakan luaran.
