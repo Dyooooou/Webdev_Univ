@@ -122,3 +122,7 @@ Ditambahkan setelah seri final; bagian sebelum perbaikan tetap sama dengan commi
 | P-08 CLS | `b18d174`, `dcc5f7a` | CLS 0,474→0, tercapai. Slot promo diuji pada 320/412/560/1280 px. | Slot tetap memakai ruang saat gagal; fallback ditampilkan. |
 
 Data antara dan audit tetap disimpan. Probe rAF tambahan pada seri antara menyebabkan overhead sekitar 106 ms dan dihapus sebelum seri akhir; baseline asli juga tidak memakai probe tersebut. Penjelasan di [skrip reproduksi](../scripts/README.md). Tidak ada prediksi awal yang ditulis ulang agar cocok dengan hasil.
+
+### Mengapa beberapa prediksi meleset
+
+P-02 terlalu menganggap penghapusan layout thrashing cukup untuk meniadakan seluruh frame lambat. Kartu yang masuk jendela tetap perlu dibuat, di-paint, dan dikirim impresinya ke SDK; browser/alat ukur ikut dihitung. P-05 menyamakan biaya handler kecil dengan INP kecil, padahal INP juga mencakup waktu sampai presentasi setelah pointerdown pada tombol disabled. P-07 meremehkan kerja yang masih berasal dari timer, browser/profiling, dan sampler rAF bawaan; transform mengurangi Layout/Paint tetapi tidak membuat seluruh RunTask mendekati nol. P-03 membuktikan request selesai cepat, belum mengukur waktu paint gambar secara khusus. Batas inferensi tersebut dipisahkan dari hasil yang benar-benar diukur.

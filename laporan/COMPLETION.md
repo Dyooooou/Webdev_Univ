@@ -1,4 +1,4 @@
-﻿# Checklist penyelesaian dan panduan peninjauan
+# Checklist penyelesaian dan panduan peninjauan
 
 Sumber: [TUGAS.md](../TUGAS.md), [README](../README.md), dan ketiga templat laporan. Urutan pekerjaan mengikuti checklist yang ditampilkan sebelum implementasi.
 
@@ -11,7 +11,7 @@ Sumber: [TUGAS.md](../TUGAS.md), [README](../README.md), dan ketiga templat lapo
 | 5 | Ulang S0–S6 tiga kali, median; minimal tiga pasangan trace; buat screenshot nyata dan bukti Network/log server | Selesai | `e29036f`; **21 pasangan** baseline/final; [data akhir](data/after/summary.json), [45 screenshot](../screenshots/INDEX.md) |
 | 6 | Naskah, rekam otomatis S1–S5 sebelum/sesudah CPU 4×, subtitle, video maksimal tiga menit | Selesai | `8fa9a33`; [MP4 124,76 detik](../demo/demo.mp4), [ffprobe/decode](../demo/verification.json), [naskah](../demo/SCRIPT.md) |
 | 7 | Isi tujuh bagian laporan, hasil prediksi/trade-off, AI disclosure, referensi seluruh bukti, maksimal setara enam halaman | Selesai untuk analisis; identitas tim perlu tindakan pemilik | [LAPORAN](LAPORAN.md), [PREDIKSI](PREDIKSI.md); render QA **5 halaman A4** telah diperiksa |
-| 8 | Baca ulang instruksi; audit semua luaran, integritas trace, tautan, Git, file terlindungi dan batas video | Pemeriksaan akhir sedang dijalankan | Hasil akan dicatat setelah pemeriksaan |
+| 8 | Baca ulang instruksi; audit semua luaran, integritas trace, tautan, Git, file terlindungi dan batas video | Selesai | [Hasil audit dan SHA-256 artefak](data/final-audit.json): 42 trace valid, 45 PNG valid, tautan valid, file terlindungi sama |
 
 ## Cakupan fitur yang diverifikasi
 
@@ -30,6 +30,7 @@ Target bukan semuanya lulus: S3 INP 368 ms, S5 tiga frame >50 ms, S6 busy 13,46%
 7. `253993b` — `test: audit two AI alternatives against controlled browser traces`
 8. `e29036f` — `test: verify final performance and full catalogue behavior`
 9. `8fa9a33` — `docs: record captioned before and after interaction demo`
+10. `a7ed805` — `docs: complete measured report and evidence index`
 
 Commit dokumentasi/audit berikutnya dapat dilihat melalui `git log --oneline 9da21d1..HEAD`. Tidak ada push, perubahan remote, commit kosong, atau penulisan ulang riwayat.
 
