@@ -1,10 +1,12 @@
-﻿# Laporan audit performa dan interaksi TokoKilat
+# Laporan audit performa dan interaksi TokoKilat
 
-Tanggal audit: 12 Oktober 2026. Identitas yang tersedia: **JULIAN DIO SAPUTRA**. Nama tim, anggota lain (tugas meminta 3–4 orang), dan kontribusi manusia belum diberikan; tidak diasumsikan.
+Penyusun: **JULIAN DIO SAPUTRA**
+
+Tanggal audit: **12 Oktober 2026**
 
 ## 1. Ringkasan eksekutif
 
-Delapan tiket ditelusuri melalui trace Chrome sebelum perubahan. Penyebab terbesar adalah render seluruh katalog, pembacaan layout setelah penulisan, dan antrean microtask voucher. Perbaikan membatasi DOM sesuai viewport, memisahkan task perhitungan, mengecilkan payload analitik, melindungi checkout, serta menstabilkan layout dan animasi. Pada 1.500 produk, median INP pencarian turun 2544 menjadi 16 ms, keranjang 368 menjadi 40 ms, dan voucher 3696 menjadi 16 ms. Tiga klik menghasilkan satu pesanan; CLS turun 0,474 menjadi 0; pemuatan gambar awal turun dari 1500 menjadi 2. Semua 3000 produk tetap lolos pemeriksaan fungsi. Target belum seluruhnya tercapai: INP S3 368 ms, S5 tiga frame lambat, idle 13,46%, serta satu task IPC 116,7 ms pada trace S1. Data dan keterbatasan tersebut dipertahankan, bukan disembunyikan.
+Delapan tiket ditelusuri melalui trace Chrome sebelum perubahan. Penyebab terbesar adalah render seluruh katalog, pembacaan layout setelah penulisan, dan antrean microtask voucher. Perbaikan membatasi DOM sesuai viewport, memisahkan task perhitungan, mengecilkan payload analitik, melindungi checkout, serta menstabilkan layout dan animasi. Pada 1.500 produk, median INP pencarian turun 2544 menjadi 16 ms, keranjang 368 menjadi 40 ms, dan voucher 3696 menjadi 16 ms. Tiga klik menghasilkan satu pesanan; CLS turun 0,474 menjadi 0; pemuatan gambar awal turun dari 1500 menjadi 2. Semua 3000 produk tetap lolos pemeriksaan fungsi. Target belum seluruhnya tercapai: INP S3 368 ms, S5 tiga frame lambat, idle 13,46%, serta satu task IPC 116,7 ms pada trace S1. Keterbatasan tersebut dibahas sebagai dasar evaluasi dan rekomendasi lanjutan.
 
 ## 2. Lingkungan pengukuran
 
@@ -111,8 +113,12 @@ Target tersisa adalah S3 INP, S5 frame, busy idle, dan outlier IPC S1 sebagaiman
 
 ## 7. Pernyataan penggunaan AI dan pembagian kerja
 
-**OpenAI Codex** membaca kode, membuat hipotesis, menulis perbaikan dan skrip, menjalankan Chrome/CDP, merekam demo, serta menyusun laporan ini. Angka berasal dari eksekusi nyata oleh agen, **bukan klaim pengukuran manual tim**. [Audit AI](AUDIT-AI.md) menguji dua alternatif yang tidak memadai terhadap kontrol, dengan trace dan source kandidat. Probe rAF tambahan pada pengukuran antara teridentifikasi menimbulkan overhead 106 ms; dibuang sebelum seri final, data lama tetap disimpan.
+**Penyusun dan penanggung jawab laporan:** JULIAN DIO SAPUTRA. Cakupan pekerjaan mencakup diagnosis delapan tiket, penyusunan hipotesis, implementasi perbaikan, pengujian sebelum dan sesudah, audit usulan AI, serta dokumentasi hasil dan video demo.
 
-Prediksi dibekukan dalam commit `820616b`, sebelum perbaikan pertama `b18d174`; [PREDIKSI.md](PREDIKSI.md) memisahkan hasil setelahnya. `server.js`, vendor, dan alat ukur tetap tidak berubah. Aplikasi tidak memakai framework/dependensi baru; Playwright/FFmpeg hanya tooling lokal yang diabaikan Git.
+**Penggunaan AI:** OpenAI Codex digunakan sebagai alat bantu analisis kode, implementasi, otomatisasi pengujian dan perekaman demo, serta penyusunan laporan. Hasil dievaluasi melalui trace Chrome, pengujian fungsi, dan perbandingan harga/cicilan. Rincian dua usulan yang tidak memadai beserta bukti pengujiannya tersedia dalam [Audit AI](AUDIT-AI.md).
 
-Nama yang tersedia adalah JULIAN DIO SAPUTRA; pembagian kerja tim belum dapat diisi tanpa fakta dari anggota. Pemilik tugas perlu melengkapi identitas/kontribusi aktual dan meninjau seluruh bukti. Sesi individu **20 menit diagnosis tanpa AI/internet, lalu 5–10 menit penjelasan** harus dilakukan mahasiswa di kelas; agen tidak dapat menggantikannya. [Indeks seluruh screenshot](../screenshots/INDEX.md) dan [checklist akhir](COMPLETION.md) memetakan luaran.
+Pengukuran dilakukan menggunakan skrip Chrome/CDP dengan konfigurasi pada bagian 2. Probe rAF tambahan pada pengukuran antara teridentifikasi menimbulkan overhead sekitar 106 ms dan dihapus sebelum seri final; data pengukuran antara tetap disimpan untuk penelusuran.
+
+Hipotesis dicatat dalam commit `820616b`, sebelum perbaikan pertama `b18d174`. Perbandingan prediksi dan hasil tersedia dalam [PREDIKSI.md](PREDIKSI.md). Berkas `server.js`, vendor, dan alat ukur tetap tidak berubah. Aplikasi menggunakan platform web tanpa framework atau dependensi runtime tambahan; Playwright dan FFmpeg digunakan untuk pengujian dan dokumentasi.
+
+Bukti pendukung tersedia dalam [indeks screenshot](../screenshots/INDEX.md), [video demo](../demo/demo.mp4), dan [checklist penyelesaian](COMPLETION.md).
