@@ -24,6 +24,7 @@ for style, size in [('Heading1', 17), ('Heading2', 13), ('Heading3', 11)]:
     styles[style].leading = size + 3
     styles[style].spaceBefore = 10
     styles[style].spaceAfter = 6
+    styles[style].keepWithNext = True
 styles.add(ParagraphStyle(name='CellReport', parent=styles['BodyReport'], fontSize=9, leading=11.5, spaceAfter=0))
 
 def inline(text):
@@ -48,7 +49,7 @@ while i < len(lines):
             if not all(re.fullmatch(r'[-:]+', c) for c in cells):
                 rows.append([Paragraph(inline(c), styles['CellReport']) for c in cells])
             i += 1
-        widths = [174, 75, 75, 187] if len(rows[0]) == 4 else [175, 336]
+        widths = {2: [150, 361], 4: [174, 75, 75, 187], 6: [52, 116, 74, 90, 95, 84]}[len(rows[0])]
         table = Table(rows, colWidths=widths, repeatRows=1, hAlign='LEFT')
         table.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#e8eef3')), ('VALIGN', (0, 0), (-1, -1), 'TOP'), ('LINEBELOW', (0, 0), (-1, -1), .35, colors.HexColor('#cbd5df')), ('LEFTPADDING', (0, 0), (-1, -1), 5), ('RIGHTPADDING', (0, 0), (-1, -1), 5), ('TOPPADDING', (0, 0), (-1, -1), 5), ('BOTTOMPADDING', (0, 0), (-1, -1), 5)]))
         story.extend([table, Spacer(1, 8)])

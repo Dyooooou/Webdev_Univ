@@ -44,4 +44,4 @@ Pengukuran otomatis tidak mengklaim DevTools UI dibuka, semua aplikasi pengguna 
 
 ## Pemeriksaan panjang laporan
 
-`python scripts/render-report.py` menghasilkan salinan PDF QA dan PNG di `.capture-tmp/report-qa/` (tidak dikumpulkan atau di-commit). Tooling Python: reportlab, pypdf, PyMuPDF; memakai font Arial Windows. Laporan utama tetap `laporan/LAPORAN.md`. Render final diperiksa secara visual: 5 halaman A4, font isi 10,5 pt, dalam batas setara 6 halaman.
+`python scripts/render-report.py` menghasilkan salinan PDF QA dan PNG di `.capture-tmp/report-qa/` (tidak dikumpulkan atau di-commit). Tooling Python: reportlab, pypdf, PyMuPDF; memakai font Arial Windows. Laporan utama tetap `laporan/LAPORAN.md`. Render final diperiksa secara visual: 6 halaman A4, font isi 10,5 pt, dalam batas setara 6 halaman.

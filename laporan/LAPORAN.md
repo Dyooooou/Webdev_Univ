@@ -4,41 +4,67 @@ Penyusun: **JULIAN DIO SAPUTRA**
 
 Tanggal audit: **12 Oktober 2026**
 
-## 1. Ringkasan eksekutif
+## 1. Ringkasan eksekutif (maks. 150 kata)
 
-Delapan tiket ditelusuri melalui trace Chrome sebelum perubahan. Penyebab terbesar adalah render seluruh katalog, pembacaan layout setelah penulisan, dan antrean microtask voucher. Perbaikan membatasi DOM sesuai viewport, memisahkan task perhitungan, mengecilkan payload analitik, melindungi checkout, serta menstabilkan layout dan animasi. Pada 1.500 produk, median INP pencarian turun 2544 menjadi 16 ms, keranjang 368 menjadi 40 ms, dan voucher 3696 menjadi 16 ms. Tiga klik menghasilkan satu pesanan; CLS turun 0,474 menjadi 0; pemuatan gambar awal turun dari 1500 menjadi 2. Semua 3000 produk tetap lolos pemeriksaan fungsi. Target belum seluruhnya tercapai: INP S3 368 ms, S5 tiga frame lambat, idle 13,46%, serta satu task IPC 116,7 ms pada trace S1. Keterbatasan tersebut dibahas sebagai dasar evaluasi dan rekomendasi lanjutan.
+Halaman flash sale TokoKilat mengalami keterlambatan input, voucher membeku, scroll tersendat, pesanan ganda, dan pergeseran layout yang berisiko menyebabkan salah klik. Audit delapan tiket menemukan render seluruh katalog, layout sinkron berulang, microtask voucher panjang, serialisasi riwayat besar, serta animasi berfrekuensi tinggi sebagai penyebab. Perbaikan menerapkan virtualisasi, debounce, task perhitungan bertahap, payload analitik ringkas, guard checkout, pemuatan gambar sesuai viewport, dan reservasi ruang banner. Pada 1500 produk, median INP pencarian turun 2544 menjadi 16 ms, keranjang 368 menjadi 40 ms, dan voucher 3696 menjadi 16 ms. Pesanan dari tiga klik turun 3 menjadi 1; CLS 0,474 menjadi 0; gambar awal 1500 menjadi 2; busy idle 64,89% menjadi 13,46%. Uji fungsi 3000 produk dan 3028 perbandingan harga/cicilan lulus. Target yang belum sepenuhnya tercapai ialah INP checkout 368 ms, tiga frame lambat saat scroll, idle mendekati nol, dan batas seluruh task 100 ms.
 
 ## 2. Lingkungan pengukuran
 
-Intel Core Ultra 7 255HX, 20 logical CPU, RAM 31,4 GiB, Windows 11 Home Single Language; Chrome **154.0.8037.98**, Node 25.9.0. [Metadata mesin](data/after/environment.json). Pengukuran memakai 1500 produk (`JUMLAH_PRODUK=1500`, setara mode ringan): percobaan awal 3000 produk terlalu berat untuk pengukuran praktis. Uji fungsi akhir tetap memakai 3000 produk.
+| Komponen | Konfigurasi aktual |
+|---|---|
+| Perangkat | Laptop, Intel Core Ultra 7 255HX, 20 logical CPU; merek/model laptop tidak dicatat |
+| RAM / OS | 33.752.997.888 byte (31,4 GiB); Windows 11 Home Single Language |
+| Browser / runtime | Google Chrome 154.0.8037.98; Node.js 25.9.0 |
+| Alamat aplikasi | `http://localhost:3000/?ukur=1`, server lokal asli |
+| Dataset pembanding | 1500 produk, setara `start:ringan`; uji fungsi terpisah memakai 3000 produk |
+| Tampilan / CPU / jaringan | Viewport 412 × 915, device scale factor 1, CPU slowdown 4× melalui CDP, tanpa network throttling |
+| Profil browser | Context sementara terisolasi, tanpa ekstensi, Chrome headless |
+| Versi kode | Baseline `9da21d1`; implementasi final `dcc5f7a`; bukti pengujian akhir `e29036f` |
+| Awal seri (WIB) | Baseline 11 Oktober 2026 22:48:59; sesudah 12 Oktober 2026 06:25:37 |
 
-Sebelum/sesudah memakai mesin sama, context sementara terisolasi tanpa ekstensi, viewport **412 × 915**, CDP CPU **4×**, jaringan tanpa throttle, seed pada pemuatan pertama lalu satu reload, tiga ulangan, median, Reset sebelum skenario interaksi. Tidak ada benchmark paralel. Penyimpangan: Chrome **headless melalui CDP**, bukan UI DevTools terbuka; status versi stabil terbaru, listrik laptop, dan penutupan aplikasi lain tidak diverifikasi. Ini bukan pengujian Android fisik.
+Sumber konfigurasi: [metadata sebelum](data/before/environment.json) dan [sesudah](data/after/environment.json). Kedua seri memakai mesin, browser, jumlah produk, dan throttling yang sama. Percobaan 3000 produk terlalu berat untuk pengukuran praktis, sehingga perbandingan memakai mode ringan sesuai izin TUGAS §7. Perintah server pada PowerShell: `$env:JUMLAH_PRODUK='1500'`, kemudian `node server.js`. Pengaturan ini diperlukan karena sintaks environment pada skrip npm mode ringan ditujukan untuk shell POSIX.
 
-[Prosedur dan skrip](../scripts/README.md) menjelaskan batas pengukuran. Trace asli disimpan lossless sebagai `.json.gz`, dapat diimpor ke Performance (dekompresi bila diperlukan). Screenshot flame chart adalah **visualisasi event CDP asli**, bukan tiruan UI DevTools. INP/long task berasal dari alat bawaan; CLS S0 dari LayoutShift trace karena alat baseline terlambat aktif. Frame S5/S6 dihitung dari interval rAF >50 ms pada **10 detik pertama trace**, agar waktu ekspor tidak ikut dihitung. Busy adalah proporsi RunTask pada jendela tersebut, termasuk browser/alat ukur.
+**Prosedur:** setiap ulangan membuka context baru, memuat aplikasi sekali untuk seed localStorage, menunggu kartu/alat ukur aktif dan jaringan tenang, kemudian reload sekali. S0 merekam pemuatan dan diam 10 detik; S1 mengetik `sepatu` per huruf lalu menghapus; S2 menambah satu produk sekali; S3 menghapus pesanan uji, mengeklik Beli tiga kali cepat, lalu memeriksa API/lencana/log server; S4 memakai KILAT1212 sambil mengetik; S5 menggulir terus 10 detik; S6 diam 10 detik. Reset alat ukur dilakukan sebelum interaksi. Pencarian dikosongkan sesudah S4 dan scroll dikembalikan ke atas sesudah S5. Setiap skenario diulang tiga kali secara berurutan; median adalah nilai tengah setelah tiga hasil diurutkan. [Skrip dan langkah reproduksi](../scripts/README.md) tersedia untuk mengulang prosedur.
+
+**Sumber metrik:** INP adalah estimasi interaksi terburuk dari alat bawaan berbasis Event Timing, bukan INP lapangan persentil ke-75. Long task berasal dari observer bawaan (ambang 50 ms), diperiksa silang dengan trace. CLS S0 memakai event LayoutShift asli karena alat baseline terlambat aktif. Frame lambat memakai jarak antar callback rAF >50 ms dalam 10 detik pertama trace S5/S6; busy memakai proporsi durasi RunTask pada jendela yang sama, termasuk browser/alat ukur. Angka frame panel mentah bisa mencakup waktu ekspor sehingga tidak dipakai sebagai hasil final. Gambar dihitung dari request CDP, byte dari transfer yang tercatat, dan waktu selesai relatif terhadap navigasi.
+
+**Penyimpangan dan batas:** context terisolasi/headless menggantikan jendela Incognito dan UI DevTools manual. Status Chrome sebagai versi stabil terbaru, sambungan listrik, serta penutupan aplikasi lain tidak diverifikasi. Pengujian tidak memakai Android fisik atau jaringan seluler. Trace `.json.gz` merupakan ekspor CDP asli terkompresi lossless; screenshot flame chart adalah visualisasi event tersebut, bukan tangkapan UI DevTools. Rekaman S0 baseline mencakup penyelesaian request yang tertunda melewati jendela awal; hasil 10 detik dan total pemuatan dibedakan pada tabel.
 
 ## 3. Hasil sebelum dan sesudah
 
-Sumber: [tiga ulangan sebelum](data/before/summary.json), [sesudah](data/after/summary.json). Semua angka tabel adalah median.
+Sumber angka: [rekap tiga ulangan sebelum](data/before/summary.json) dan [sesudah](data/after/summary.json). Tabel mengikuti kolom templat tugas. Angka numerik adalah **median tiga ulangan**; progres/input merupakan hasil observasi yang dijelaskan pada catatan.
 
-| Skenario / metrik | Sebelum | Sesudah | Target / hasil |
-|---|---:|---:|---|
-| S0 CLS | 0,474 | 0 | ≤0,1: tercapai |
-| S0 gambar, 10 detik dari navigasi | 0 | 2 | Baseline belum mulai request; lihat catatan |
-| S0 total gambar sampai selesai diamati | 1500 | 2 | Sesuai viewport: tercapai |
-| S0 byte gambar / gambar terakhir selesai | 1.652.982 / 70,69 s | 2.208 / 0,504 s | Beban pemuatan berkurang |
-| S1 INP / long task terlama (ms) | 2544 / 2104 | 16 / 64 | Median ≤200 / ≤100; catatan outlier |
-| S2 INP / long task (ms) | 368 / 246 | 40 / tidak teramati | Tercapai |
-| S3 pesanan dari tiga klik | 3 | 1 | Tepat satu: tercapai |
-| S3 INP / long task (ms) | 424 / 209 | 368 / tidak teramati | INP **belum** ≤200 |
-| S4 INP / long task (ms) | 3696 / 3487 | 16 / tidak teramati | Tercapai; progres/input aktif |
-| S5 long task (ms) | 218 | tidak teramati | Median tercapai; maksimum ulangan 51 |
-| S5 frame >50 ms / 10 s | 52 | 3 | **Belum** ≤2 |
-| S6 frame >50 ms / 10 s | 123 | 0 | Tercapai |
-| S6 busy main thread | 64,89% | 13,46% | Turun; **belum mendekati nol** |
+| Skenario | Metrik | Sebelum (median) | Sesudah (median) | Target | Tercapai? |
+|---|---|---:|---:|---|---|
+| S0 | CLS | 0,474 | 0 | ≤0,1 | Ya |
+| S0 | Request gambar dalam 10 detik dari navigasi | 0 | 2 | Sesuai kartu terlihat | Ya sesudah; catatan A |
+| S0 | Total request gambar awal sampai selesai diamati | 1500 | 2 | Bukan seluruh katalog | Ya |
+| S0 | Transfer gambar | 1.652.982 byte | 2.208 byte | Berkurang; tanpa ambang tugas | Turun 99,87% |
+| S0 | Gambar terakhir selesai | 70,69 s | 0,504 s | Tanpa ambang tugas | Lebih cepat |
+| S1 | INP | 2544 ms | 16 ms | ≤200 ms | Ya |
+| S1 | Long task terlama | 2104 ms | 64 ms | ≤100 ms seluruh task | Median ya; catatan B |
+| S2 | INP | 368 ms | 40 ms | ≤200 ms | Ya |
+| S2 | Long task terlama | 246 ms | Tidak teramati | ≤100 ms | Ya |
+| S3 | Pesanan dari tiga klik cepat | 3 | 1 | Tepat 1, status proses jelas | Ya, semua ulangan |
+| S3 | INP | 424 ms | 368 ms | ≤200 ms | Belum |
+| S3 | Long task terlama | 209 ms | Tidak teramati | ≤100 ms | Ya |
+| S4 | INP | 3696 ms | 16 ms | ≤200 ms | Ya |
+| S4 | Long task terlama | 3487 ms | Tidak teramati | ≤100 ms | Ya |
+| S4 | Progres dan input saat hitung | Blok panjang; hitungan frame tidak direkam | 16 nilai progres; 3 input aktif per ulangan | Progres bertahap, input responsif | Ya sesudah; catatan C |
+| S5 | Long task terlama | 218 ms | Tidak teramati | ≤100 ms | Ya; maksimum ulangan 51 ms |
+| S5 | Frame >50 ms per 10 detik | 52 | 3 | ≤2 | Belum |
+| S6 | Frame >50 ms per 10 detik | 123 | 0 | ≤2 | Median ya; catatan D |
+| S6 | Busy main thread saat idle | 64,89% | 13,46% | Mendekati nol | Belum |
 
-“Tidak teramati” berarti tidak ada long task ≥50 ms yang dicatat, bukan CPU nol. S1 ulangan ketiga memiliki RunTask IPC `Receive mojo message` **116,731 ms** pada trace, tidak tercatat oleh observer long task; belum cukup bukti mengatribusikannya ke aplikasi. Karena itu klaim ketat *semua task ≤100 ms* belum terbukti. Baseline S0 terlambat memulai gambar: angka 0 dalam 10 detik **bukan keberhasilan lazy loading**; total 1500 dan waterfall menunjukkan banjir request setelah startup. Waktu selesai gambar bukan waktu gambar terlihat/paint.
+**A — Pemuatan gambar.** Baseline belum memulai request gambar dalam 10 detik pertama karena startup tertunda; angka 0 bukan keberhasilan lazy loading. Setelahnya seluruh 1500 gambar diminta. Sesudah perbaikan, dua gambar dimuat sesuai area awal. [Waterfall request asli](../screenshots/01-network-before-after.png) memperlihatkan perbedaan antrean; sumbu waktu sebelum/sesudah diberi label. Waktu request selesai tidak sama dengan waktu gambar terlihat/paint.
 
-[Video demo](../demo/demo.mp4): **124,76 detik**, 1280 × 1024, 25 fps, CPU 4×. S1/S4 baseline dipercepat 5,00×/5,86× dengan label; adegan lain kecepatan asli. [Naskah](../demo/SCRIPT.md), [chapter](../demo/chapters.json), [verifikasi decode](../demo/verification.json). Durasi screencast bukan median benchmark.
+**B — Long task dan variasi INP.** “Tidak teramati” berarti tidak ada long task ≥50 ms yang dicatat, bukan CPU nol. INP S1 sebelum adalah 2544/2472/3128 ms dan sesudah 24/16/16 ms; INP S3 sesudah 368/368/376 ms. Long task panel S1 sesudah 64/69/0 ms, tetapi trace ulangan ketiga memuat task IPC `Receive mojo message` **116,731 ms** yang tidak tercatat observer. Atribusinya ke aplikasi belum terbukti; klaim seluruh task ≤100 ms belum dapat diberikan. [Flame chart S1 sebelum](../screenshots/before-S1-1-flame.png) dan [sesudah](../screenshots/after-S1-1-flame.png) menunjukkan perbedaan beban. [Log server S3](../screenshots/02-server-orders-before-after.png) membuktikan tiga pesanan menjadi satu per ulangan.
+
+**C — Progres voucher.** Data final [ulangan 1](data/after/S4-1.json), [2](data/after/S4-2.json), dan [3](data/after/S4-3.json) masing-masing mencatat 16 nilai progres 0–100%, termasuk 14 nilai perantara, serta tiga input selama hitung masih aktif; jumlah sampel frame 52/52/53. Baseline S4 mempunyai long task median 3487 ms, tetapi tidak memasang probe jumlah frame progres sehingga angka nol tidak diasumsikan. [Trace voucher sebelum](../screenshots/before-S4-1-flame.png) dan [sesudah](../screenshots/after-S4-1-flame.png) mendukung diagnosis. Uji oracle terpisah memverifikasi 3028 hasil harga/cicilan cocok.
+
+**D — Konsistensi scroll dan idle.** Frame lambat S5 sebelum 33/52/54, sesudah 1/3/4; S6 sebelum 132/113/123, sesudah 0/0/3. Jadi median S6 lulus, tetapi satu ulangan masih melampaui dua frame. Busy idle turun **51,43 poin persentase**; hasil ini tidak membuktikan penghematan baterai karena konsumsi daya tidak diukur. [Trace idle sebelum](../screenshots/before-S6-1-flame.png) dan [sesudah](../screenshots/after-S6-1-flame.png) menunjukkan perubahan aktivitas.
+
+Secara keseluruhan, INP pencarian turun **99,37%**, keranjang **89,13%**, dan voucher **99,57%**. Checkout memenuhi ketepatan jumlah pesanan namun belum memenuhi target INP. Bukti tersedia dalam **21 pasangan trace** dan [indeks screenshot](../screenshots/INDEX.md). [Video demo](../demo/demo.mp4) berdurasi **124,76 detik**, 1280 × 1024, 25 fps, direkam dengan CPU 4×. S1/S4 baseline dipercepat 5,00×/5,86× dengan label; adegan lain kecepatan asli. [Naskah](../demo/SCRIPT.md), [chapter](../demo/chapters.json), dan [verifikasi decode](../demo/verification.json) melengkapi video. Angka pada satu rekaman demo tidak menggantikan median benchmark.
 
 ## 4. Temuan berdasarkan dampak terukur
 

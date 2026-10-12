@@ -10,7 +10,7 @@ Sumber: [TUGAS.md](../TUGAS.md), [README](../README.md), dan ketiga templat lapo
 | 4 | Audit minimal dua usulan AI yang salah/tidak lengkap dengan kontrol dan trace | Selesai | `253993b`; [AUDIT-AI](AUDIT-AI.md), kandidat sumber dan tiga ulangan tersedia |
 | 5 | Ulang S0–S6 tiga kali, median; minimal tiga pasangan trace; buat screenshot nyata dan bukti Network/log server | Selesai | `e29036f`; **21 pasangan** baseline/final; [data akhir](data/after/summary.json), [45 screenshot](../screenshots/INDEX.md) |
 | 6 | Naskah, rekam otomatis S1–S5 sebelum/sesudah CPU 4×, subtitle, video maksimal tiga menit | Selesai | `8fa9a33`; [MP4 124,76 detik](../demo/demo.mp4), [ffprobe/decode](../demo/verification.json), [naskah](../demo/SCRIPT.md) |
-| 7 | Isi tujuh bagian laporan, hasil prediksi/trade-off, AI disclosure, referensi seluruh bukti, maksimal setara enam halaman | Selesai untuk analisis; identitas tim perlu tindakan pemilik | [LAPORAN](LAPORAN.md), [PREDIKSI](PREDIKSI.md); render QA **5 halaman A4** telah diperiksa |
+| 7 | Isi tujuh bagian laporan, hasil prediksi/trade-off, AI disclosure, referensi seluruh bukti, maksimal setara enam halaman | Selesai untuk analisis; identitas tim perlu tindakan pemilik | [LAPORAN](LAPORAN.md), [PREDIKSI](PREDIKSI.md); render QA **6 halaman A4** telah diperiksa |
 | 8 | Baca ulang instruksi; audit semua luaran, integritas trace, tautan, Git, file terlindungi dan batas video | Selesai | [Hasil audit dan SHA-256 artefak](data/final-audit.json): 42 trace valid, 45 PNG valid, tautan valid, file terlindungi sama |
 
 ## Cakupan fitur yang diverifikasi
