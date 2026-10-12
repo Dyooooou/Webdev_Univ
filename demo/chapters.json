@@ -1,0 +1,102 @@
+[
+  {
+    "phase": "before",
+    "scenario": "S1",
+    "sourceStart": 188.252,
+    "sourceEnd": 363.403,
+    "speed": 5.004314285714286,
+    "start": 0,
+    "end": 35,
+    "caption": "SEBELUM | S1 | CPU 4x | 1500 produk | Video 5.00x\nKetik sepatu, lalu hapus | Pencarian dan respons input"
+  },
+  {
+    "phase": "before",
+    "scenario": "S2",
+    "sourceStart": 363.403,
+    "sourceEnd": 368.907,
+    "speed": 1,
+    "start": 35,
+    "end": 40.50399999999996,
+    "caption": "SEBELUM | S2 | CPU 4x | 1500 produk | Video 1.00x\nSatu klik + Keranjang | Lihat umpan balik dan jumlah"
+  },
+  {
+    "phase": "before",
+    "scenario": "S3",
+    "sourceStart": 368.907,
+    "sourceEnd": 374.661,
+    "speed": 1,
+    "start": 40.50399999999996,
+    "end": 46.25799999999998,
+    "caption": "SEBELUM | S3 | CPU 4x | 1500 produk | Video 1.00x\nTiga klik cepat Beli sekarang | Sebelum: 3 pesanan; sesudah: 1"
+  },
+  {
+    "phase": "before",
+    "scenario": "S4",
+    "sourceStart": 374.661,
+    "sourceEnd": 579.642,
+    "speed": 5.856600000000001,
+    "start": 46.25799999999998,
+    "end": 81.25799999999998,
+    "caption": "SEBELUM | S4 | CPU 4x | 1500 produk | Video 5.86x\nPakai KILAT1212 dan ketik | Perhitungan voucher dan progres"
+  },
+  {
+    "phase": "before",
+    "scenario": "S5",
+    "sourceStart": 579.642,
+    "sourceEnd": 592.278,
+    "speed": 1,
+    "start": 81.25799999999998,
+    "end": 93.89399999999995,
+    "caption": "SEBELUM | S5 | CPU 4x | 1500 produk | Video 1.00x\nGulir terus 10 detik | Kelancaran daftar produk"
+  },
+  {
+    "phase": "after",
+    "scenario": "S1",
+    "sourceStart": 12.078,
+    "sourceEnd": 17.741,
+    "speed": 1,
+    "start": 93.89399999999995,
+    "end": 99.55699999999995,
+    "caption": "SESUDAH | S1 | CPU 4x | 1500 produk | Video 1.00x\nKetik sepatu, lalu hapus | Pencarian dan respons input"
+  },
+  {
+    "phase": "after",
+    "scenario": "S2",
+    "sourceStart": 17.741,
+    "sourceEnd": 21.159,
+    "speed": 1,
+    "start": 99.55699999999995,
+    "end": 102.97499999999994,
+    "caption": "SESUDAH | S2 | CPU 4x | 1500 produk | Video 1.00x\nSatu klik + Keranjang | Lihat umpan balik dan jumlah"
+  },
+  {
+    "phase": "after",
+    "scenario": "S3",
+    "sourceStart": 21.159,
+    "sourceEnd": 24.746,
+    "speed": 1,
+    "start": 102.97499999999994,
+    "end": 106.56199999999994,
+    "caption": "SESUDAH | S3 | CPU 4x | 1500 produk | Video 1.00x\nTiga klik cepat Beli sekarang | Sebelum: 3 pesanan; sesudah: 1"
+  },
+  {
+    "phase": "after",
+    "scenario": "S4",
+    "sourceStart": 24.746,
+    "sourceEnd": 30.292,
+    "speed": 1,
+    "start": 106.56199999999994,
+    "end": 112.10799999999995,
+    "caption": "SESUDAH | S4 | CPU 4x | 1500 produk | Video 1.00x\nPakai KILAT1212 dan ketik | Perhitungan voucher dan progres"
+  },
+  {
+    "phase": "after",
+    "scenario": "S5",
+    "sourceStart": 30.292,
+    "sourceEnd": 42.894,
+    "speed": 1,
+    "start": 112.10799999999995,
+    "end": 124.70999999999995,
+    "caption": "SESUDAH | S5 | CPU 4x | 1500 produk | Video 1.00x\nGulir terus 10 detik | Kelancaran daftar produk"
+  }
+]

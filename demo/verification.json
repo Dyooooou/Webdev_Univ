@@ -1,0 +1,80 @@
+{
+  "programs": [],
+  "streams": [
+    {
+      "codec_name": "h264",
+      "width": 1280,
+      "height": 1024,
+      "r_frame_rate": "25/1",
+      "nb_read_frames": "3119"
+    }
+  ],
+  "format": {
+    "duration": "124.760000",
+    "size": "3460514"
+  },
+  "decodeCheck": "ffmpeg full decode: exit 0",
+  "speeds": [
+    {
+      "phase": "before",
+      "scenario": "S1",
+      "speed": 5.004314285714286
+    },
+    {
+      "phase": "before",
+      "scenario": "S2",
+      "speed": 1
+    },
+    {
+      "phase": "before",
+      "scenario": "S3",
+      "speed": 1
+    },
+    {
+      "phase": "before",
+      "scenario": "S4",
+      "speed": 5.856600000000001
+    },
+    {
+      "phase": "before",
+      "scenario": "S5",
+      "speed": 1
+    },
+    {
+      "phase": "after",
+      "scenario": "S1",
+      "speed": 1
+    },
+    {
+      "phase": "after",
+      "scenario": "S2",
+      "speed": 1
+    },
+    {
+      "phase": "after",
+      "scenario": "S3",
+      "speed": 1
+    },
+    {
+      "phase": "after",
+      "scenario": "S4",
+      "speed": 1
+    },
+    {
+      "phase": "after",
+      "scenario": "S5",
+      "speed": 1
+    }
+  ],
+  "cpuRate": 4,
+  "orders": [
+    {
+      "phase": "before",
+      "count": 3
+    },
+    {
+      "phase": "after",
+      "count": 1
+    }
+  ]
+}

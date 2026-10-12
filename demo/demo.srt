@@ -1,0 +1,49 @@
+1
+00:00:00,000 --> 00:00:35,000
+SEBELUM | S1 | CPU 4x | 1500 produk | Video 5.00x
+Ketik sepatu, lalu hapus | Pencarian dan respons input
+
+2
+00:00:35,000 --> 00:00:40,504
+SEBELUM | S2 | CPU 4x | 1500 produk | Video 1.00x
+Satu klik + Keranjang | Lihat umpan balik dan jumlah
+
+3
+00:00:40,504 --> 00:00:46,258
+SEBELUM | S3 | CPU 4x | 1500 produk | Video 1.00x
+Tiga klik cepat Beli sekarang | Sebelum: 3 pesanan; sesudah: 1
+
+4
+00:00:46,258 --> 00:01:21,258
+SEBELUM | S4 | CPU 4x | 1500 produk | Video 5.86x
+Pakai KILAT1212 dan ketik | Perhitungan voucher dan progres
+
+5
+00:01:21,258 --> 00:01:33,894
+SEBELUM | S5 | CPU 4x | 1500 produk | Video 1.00x
+Gulir terus 10 detik | Kelancaran daftar produk
+
+6
+00:01:33,894 --> 00:01:39,557
+SESUDAH | S1 | CPU 4x | 1500 produk | Video 1.00x
+Ketik sepatu, lalu hapus | Pencarian dan respons input
+
+7
+00:01:39,557 --> 00:01:42,975
+SESUDAH | S2 | CPU 4x | 1500 produk | Video 1.00x
+Satu klik + Keranjang | Lihat umpan balik dan jumlah
+
+8
+00:01:42,975 --> 00:01:46,562
+SESUDAH | S3 | CPU 4x | 1500 produk | Video 1.00x
+Tiga klik cepat Beli sekarang | Sebelum: 3 pesanan; sesudah: 1
+
+9
+00:01:46,562 --> 00:01:52,108
+SESUDAH | S4 | CPU 4x | 1500 produk | Video 1.00x
+Pakai KILAT1212 dan ketik | Perhitungan voucher dan progres
+
+10
+00:01:52,108 --> 00:02:04,710
+SESUDAH | S5 | CPU 4x | 1500 produk | Video 1.00x
+Gulir terus 10 detik | Kelancaran daftar produk
